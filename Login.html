@@ -1,0 +1,61 @@
+<!-- This is the login page for my website. it dose not acctally have any incrition and is a joke by Eli Watson !-->
+<html>
+<head>
+    <title>Login Form</title>
+<script>
+        function checkLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Define your list of valid usernames and passwords
+            var credentials = {
+                "Admin": "Password",
+                "User": "Wordpass",
+                "Jace": "Retard"
+            };
+
+            // Check if username and password match
+            if (credentials.hasOwnProperty(username) && credentials[username] === password) {
+                // Redirect to different URLs based on the username
+                switch (username) {
+                    case "Admin":
+                        window.location.href = "https://eli-watson.github.io/Home/AdminHomePage.html";
+                        break;
+                    case "User":
+                        window.location.href = "https://eli-watson.github.io/Home/UserHomePage.html";
+                        break;
+                    case "Jace":
+                        window.location.href = "https://example.com/user3-dashboard";
+                        break;
+                    default:
+                        alert("Invalid username or password");
+                        return false;
+                }
+            } else {
+                alert("Invalid username or password");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" onsubmit="return checkLogin()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+</body>
+<style>
+h1{
+text-align: center;\
+}
+Form {
+text-align: center;
+}
+</style>
+</html>

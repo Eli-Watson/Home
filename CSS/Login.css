@@ -1,9 +1,9 @@
 /* this is the css file for the html file lgoin*/
- h1 {
+	h1, Link {
         text-align: center;
         color: green;
     }
-    p {
+	p {
         text-align: center;
         color: green;
     }
@@ -13,12 +13,12 @@
         color: green;
     }
     /* Style the labels */
-    label {
+	label {
         display: block; /* Display each label on a new line */
         margin-bottom: 10px; /* Add some space below each label */
     }
     /* Style the input fields */
-    input[type="text"],
+	input[type="text"],
     input[type="password"] {
         width: 250px; /* Set the width of the input fields */
         padding: 8px; /* Add some padding */

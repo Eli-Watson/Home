@@ -5,9 +5,12 @@ By Eli Watson a-->
   <title>About Me</title>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/Home/JS/DarkMode.js"></script>
   </head>
   <header>
     <h1>About Me</h1>
+	<button id="DarkModeButton" onclick="changeToBlack()">Black Background</button>
+    <button id="DarkModeButton" onclick="changeToWhite()">White Background</button>
   </header>
   <nav>
 	<a href="/Home/" target="_self">Home</a>
@@ -20,6 +23,9 @@ By Eli Watson a-->
   </section>
 <style>
 h2, h1, nav, p{
+text-align: center;
+}
+#DarkModeButton {
 text-align: center;
 }
   </html>

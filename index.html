@@ -3,11 +3,17 @@ By Eli Watson a-->
 <html>
   <head>
   <title>Homepage</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" href="/Home/Images/favicon.ico" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/Home/JS/DarkMode.js"></script>
   </head>
-  <header>
+<script>
+npm i flamethrower-router
+import flamethrower from 'flamethrower-router';
+const router = flamethrower();
+</script> 
+	
+<header>
     <h1>Eli Watson Home</h1>
   </header>
   <nav id=nav>
@@ -27,9 +33,5 @@ body {
 text-align: center;
 }
 </style>
-<script>
-	npm i flamethrower-router
-import flamethrower from 'flamethrower-router';
-const router = flamethrower();
-</script>
+
 </html>

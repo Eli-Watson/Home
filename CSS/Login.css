@@ -1,0 +1,46 @@
+/* this is the css file for the html file lgoin*/
+ h1 {
+        text-align: center;
+        color: green;
+    }
+    p {
+        text-align: center;
+        color: green;
+    }
+    /* Center align the form */
+    form {
+        text-align: center;
+        color: green;
+    }
+    /* Style the labels */
+    label {
+        display: block; /* Display each label on a new line */
+        margin-bottom: 10px; /* Add some space below each label */
+    }
+    /* Style the input fields */
+    input[type="text"],
+    input[type="password"] {
+        width: 250px; /* Set the width of the input fields */
+        padding: 8px; /* Add some padding */
+        border: 1px solid #ccc; /* Add a border */
+        border-radius: 5px; /* Add some border radius */
+        color: green;
+        background-color: black;
+    }
+    /* Style the submit button */
+    button[type="submit"] {
+        padding: 10px 20px; /* Add padding */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Add border radius */
+        cursor: pointer; /* Add cursor pointer on hover */
+        color: green;
+        background-color: black;
+    }
+    /* Style the submit button on hover */
+    button[type="submit"]:hover {
+        background-color: Green; /* Green color */
+        color: black;
+    }
+    body {
+        background-color: black;
+    }

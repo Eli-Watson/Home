@@ -28,7 +28,7 @@ function checkLogin(event) {
                         return false;
                 }
             } else {
-                alert("Invalid username or password");
+                alert("Invalid username or password. Mabey Don't guess this time.");
                 return false;
             }
 

@@ -15,13 +15,13 @@ function checkLogin(event) {
                 // Redirect to different URLs based on the username
                 switch (username) {
                     case "Admin":
-                        window.location.href = "/Home/AdminHomePage.html";
+                        window.location.href = "/Home/Users/AdminHomePage.html";
                         break;
                     case "User":
-                        window.location.href = "/Home/UserHomePage.html";
+                        window.location.href = "/Home/Users/UserHomePage.html";
                         break;
                     case "Jace":
-                        window.location.href = "/Home/JaceHomePage.html";
+                        window.location.href = "/Home/Users/JaceHomePage.html";
                         break;
                     default:
                         alert("Invalid username or password. Try again or maybe don't guess this time.");

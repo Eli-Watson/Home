@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title Here</title>
-    <style>
+    script src="/Home/JS/DarkMode.js"></script>
+	<title>Your Title Here</title>
+</head>
+<header>
+	<button id="DarkModeButton" onclick="changeToBlack()">Black Background</button>
+    <button id="DarkModeButton" onclick="changeToWhite()">White Background</button>
+</header>
+<body>
+  <p>thing</p>  
+</body>
+<style>
         /* Your CSS styles go here */
         body {
             font-family: Arial, sans-serif;
@@ -23,12 +32,4 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Your content goes here -->
-        <h1>Hello, World!</h1>
-        <p>This is a basic HTML template.</p>
-    </div>
-</body>
 </html>

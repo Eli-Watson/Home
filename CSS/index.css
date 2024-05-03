@@ -1,3 +1,6 @@
 Body {
     text-align: center;
     }
+dialog {
+    transition: all 1.5s;
+}

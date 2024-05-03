@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiny11 On a Dell Latitude E5410</title>
-	<script src="/Home/JS/DarkMode.js"></script>
+    <script src="/Home/JS/DarkMode.js"></script>
 </head>
-<header>
-<button id="DarkModeButton" onclick="changeToBlack()">Black Background</button>
-<button id="DarkModeButton" onclick="changeToWhite()">White Background</button>
-</header>
 <body>
+    <header>
+        <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+    </header>
+    <dialog id="DarkMode">
+        <p>Choose to change Color of the site.</p>
+        <button onclick="changeToBlack()">Black Background</button>
+        <button onclick="changeToWhite()">White Background</button>
+        <button onclick="DarkMode.close()">Close</button>
+    </dialog>
     <section class="container">
-        <!-- Your content goes here -->
-        <h1>Tiny 11 On a dell Latitude E4510 (and other things)</h1>
-        <p>So I had this old Dell E5410 that was just sitting on a shelf collecting dust. And I had just discovered a moddified version of win11 called Tiny11. So it only seemed natural for me to try and install one on the other.
-        But fist of all the specs:</p>
-      <h2>Laptop Specifications</h2>
-    <ul>
-        <li>Processor: Intel Core i5-450M</li>
-        <li>Memory: 8GB DDR3L 1600 CL11 RAM</li>
-        <li>Storage: 128GB SSD</li>
-        <li>Wireless: Intel Centrino Advanced-N 6235</li>
-    </ul>    
-       <p>So with that out of the way let's get into the installation: I had no issues. Its a first for me but this time when installing the os it went smoothly and without hiccups, besides declining all of microsoft's ai features.
-       I have linked a video I made that outlines preformance testing using cinebench 2003.</p> 
-        
-    <iframe width="789" height="444" src="https://www.youtube.com/embed/WR0P8wzmHoE" title="Dell E5410 Running Tiny 11" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </section>
+        <h1>Tiny 11 On a Dell Latitude E4510 (and other things)</h1>
+        <p>So I had this old Dell E5410 that was just sitting on a shelf collecting dust. And I had just discovered a modified version of Win11 called Tiny11. So it only seemed natural for me to try and install one on the other.
+        But first of all, the specs:</p>
+        <h2>Laptop Specifications</h2>
+        <ul>
+            <li>Processor: Intel Core i5-450M</li>
+            <li>Memory: 8GB DDR3L 1600 CL11 RAM</li>
+            <li>Storage: 128GB SSD</li>
+            <li>Wireless: Intel Centrino Advanced-N 6235</li>
+        </ul>    
+        <p>So with that out of the way let's get into the installation: I had no issues. It's a first for me, but this time when installing the OS it went smoothly and without hiccups, besides declining all of Microsoft's AI features.
+        I have linked a video I made that outlines performance testing using Cinebench 2003.</p> 
+        <iframe width="789" height="444" src="https://www.youtube.com/embed/WR0P8wzmHoE" title="Dell E5410 Running Tiny 11" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
 </body>
 <style>
-#DarkModeButton {
-text-align: center;
+   dialog {
+    transition: all 1.5s;
+    display: block;
 }
 </style>
 </html>

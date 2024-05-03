@@ -4,23 +4,29 @@
     <title>Blog</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/Home/CSS/Blog.css">
-	<script src="/Home/JS/DarkMode.js"></script>
+    <link rel="stylesheet" href="/Home/CSS/Blog.css">
+    <script src="/Home/JS/DarkMode.js"></script>
 </head>
 <body>
-	<header>
-            <button onclick="changeToBlack()">Black Background</button>
-			<button onclick="changeToWhite()">White Background</button>
-    </header>    
-        <nav>
-            <a href="/Home/">Home</a>
-			<a href="/Home/Pages/About.html">About</a>
-        </nav>
+    <dialog id="DarkMode">
+        <p>Choose to change Color of the site.</p>
+        <button onclick="changeToBlack()">Black Background</button>
+        <button onclick="changeToWhite()">White Background</button>
+        <button onclick="DarkMode.close()">Close</button>
+    </dialog>
+    
+    <header>
+        <h1>My Projects</h1> 
+        <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+    </header>
+
+    <nav>
+        <a href="/Home/">Home</a>
+        <a href="/Home/Pages/About.html">About</a>
+    </nav>
+
     <section>
-       <h1>My Pojects</h1>
-         <ul>
-            <li><a href="/Home/Projects/1(Tiny11).html">Project 1 (Tiny11)</a></li>
-        </ul>
+        <a href="/Home/Projects/1(Tiny11).html">Project 1 (Tiny11)</a>
     </section>
 </body>
 </html>

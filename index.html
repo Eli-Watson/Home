@@ -1,36 +1,36 @@
-<!-- this is the html code for my personal website "home"
-By Eli Watson a-->
+<!-- This is the HTML code for my personal website "home" By Eli Watson -->
+
 <html>
-  <head>
-  <title>Homepage</title>
-  <link rel="icon" href="/Home/Images/favicon.ico" type="image/png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="/Home/JS/DarkMode.js"></script>
-  </head>
-<script>
-import flamethrower from 'flamethrower-router';
-const router = flamethrower();
-</script> 
-	
+<head>
+    <title>Homepage</title>
+    <link rel="icon" href="/Home/Images/favicon.ico" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Home/CSS/index.css">
+    <script src="/Home/JS/DarkMode.js"></script>
+</head>
+<body>
+
+<dialog id="DarkMode">
+    <p>Choose to change Color of the site.</p>
+    <button onclick="changeToBlack()">Black Background</button>
+    <button onclick="changeToWhite()">White Background</button>
+    <button onclick="DarkMode.close()">Close</button>
+</dialog>
+
 <header>
     <h1>Eli Watson Home</h1>
-  </header>
-  <nav id=nav>
-	<a href="/Home/Pages/Blog.html" target="_self">Blog</a>
-    <a href="/Home/Pages/About.html" target="_self">About</a>
-	<a href="/Home/Pages/Login.html" target="_self">Login</a>
-  </nav>
-  <section>
-    <p>Hello, this website is where I will post things about me, what im working on and other random stuff. Feal free to extplore!</p>
-  </section>
-	<footer class="container">
-        <button  onclick="changeToBlack()">Black Background</button>
-        <button  onclick="changeToWhite()">White Background</button>
-    </Footer>
-<style>
-body {
-text-align: center;
-}
-</style>
+    <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+</header>
 
+<nav id="nav">
+    <a href="/Home/Pages/Blog.html" target="_self">Blog</a>
+    <a href="/Home/Pages/About.html" target="_self">About</a>
+    <a href="/Home/Pages/Login.html" target="_self">Login</a>
+</nav>
+
+<section>
+    <p>Hello, this website is where I will post things about me, what I'm working on and other random stuff. Feel free to explore!</p>
+</section>
+
+</body>
 </html>

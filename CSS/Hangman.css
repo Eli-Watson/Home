@@ -1,0 +1,12 @@
+#wordToGuess {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#letters {
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+}

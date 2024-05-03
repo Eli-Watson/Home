@@ -44,3 +44,7 @@
     body {
         background-color: black;
     }
+    nav {
+        color: green;
+        text-align: center;
+    }

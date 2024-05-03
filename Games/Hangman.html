@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="/Home/CSS/Hangman.css">
+</head>
+<nav id="nav">
+    <a href="/Home/" target="_self">Home</a>
+    <a href="/Home/Pages/Blog.html" target="_self">Blog</a>
+    <a href="/Home/Pages/About.html" target="_self">About</a>
+    <a href="/Home/Pages/Login.html" target="_self">Login</a>
+    <a href="/Home/Pages/Games.html" target="_self">Games</a>
+    
+</nav>
+<body>
+    <h1>Hangman</h1>
+    <div id="wordToGuess"></div>
+    <div id="guessesLeft">Guesses left: <span id="guessesLeftValue"></span></div>
+    <div id="letters"></div>
+    <div id="message"></div>
+    <button onclick="resetGame()">New Game</button>
+    <script src="/Home/JS/Hangman.js"></script>
+</body>
+</html>

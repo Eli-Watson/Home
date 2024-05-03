@@ -1,220 +1,231 @@
-const canvas = document.getElementById('game');
-const context = canvas.getContext('2d');
+//board
+let board;
+let boardWidth = 500;
+let boardHeight = 500;
+let context; 
 
-// each row is 14 bricks long. the level consists of 6 blank rows then 8 rows
-// of 4 colors: red, orange, green, and yellow
-const level1 = [
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  ['R','R','R','R','R','R','R','R','R','R','R','R','R','R'],
-  ['R','R','R','R','R','R','R','R','R','R','R','R','R','R'],
-  ['O','O','O','O','O','O','O','O','O','O','O','O','O','O'],
-  ['O','O','O','O','O','O','O','O','O','O','O','O','O','O'],
-  ['G','G','G','G','G','G','G','G','G','G','G','G','G','G'],
-  ['G','G','G','G','G','G','G','G','G','G','G','G','G','G'],
-  ['Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y'],
-  ['Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y']
-];
+//players
+let playerWidth = 80; //500 for testing, 80 normal
+let playerHeight = 10;
+let playerVelocityX = 10; //move 10 pixels each time
 
-// create a mapping between color short code (R, O, G, Y) and color name
-const colorMap = {
-  'R': 'red',
-  'O': 'orange',
-  'G': 'green',
-  'Y': 'yellow'
-};
-
-// use a 2px gap between each brick
-const brickGap = 2;
-const brickWidth = 25;
-const brickHeight = 12;
-
-// the wall width takes up the remaining space of the canvas width. with 14 bricks
-// and 13 2px gaps between them, thats: 400 - (14 * 25 + 2 * 13) = 24px. so each
-// wall will be 12px
-const wallSize = 12;
-const bricks = [];
-
-// create the level by looping over each row and column in the level1 array
-// and creating an object with the bricks position (x, y) and color
-for (let row = 0; row < level1.length; row++) {
-  for (let col = 0; col < level1[row].length; col++) {
-    const colorCode = level1[row][col];
-
-    bricks.push({
-      x: wallSize + (brickWidth + brickGap) * col,
-      y: wallSize + (brickHeight + brickGap) * row,
-      color: colorMap[colorCode],
-      width: brickWidth,
-      height: brickHeight
-    });
-  }
+let player = {
+    x : boardWidth/2 - playerWidth/2,
+    y : boardHeight - playerHeight - 5,
+    width: playerWidth,
+    height: playerHeight,
+    velocityX : playerVelocityX
 }
 
-const paddle = {
-  // place the paddle horizontally in the middle of the screen
-  x: canvas.width / 2 - brickWidth / 2,
-  y: 440,
-  width: brickWidth,
-  height: brickHeight,
+//ball
+let ballWidth = 10;
+let ballHeight = 10;
+let ballVelocityX = 3; //15 for testing, 3 normal
+let ballVelocityY = 2; //10 for testing, 2 normal
 
-  // paddle x velocity
-  dx: 0
-};
-
-const ball = {
-  x: 130,
-  y: 260,
-  width: 5,
-  height: 5,
-
-  // how fast the ball should go in either the x or y direction
-  speed: 2,
-
-  // ball velocity
-  dx: 0,
-  dy: 0
-};
-
-// check for collision between two objects using axis-aligned bounding box (AABB)
-// @see https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
-function collides(obj1, obj2) {
-  return obj1.x < obj2.x + obj2.width &&
-         obj1.x + obj1.width > obj2.x &&
-         obj1.y < obj2.y + obj2.height &&
-         obj1.y + obj1.height > obj2.y;
+let ball = {
+    x : boardWidth/2,
+    y : boardHeight/2,
+    width: ballWidth,
+    height: ballHeight,
+    velocityX : ballVelocityX,
+    velocityY : ballVelocityY
 }
 
-// game loop
-function loop() {
-  requestAnimationFrame(loop);
-  context.clearRect(0,0,canvas.width,canvas.height);
+//blocks
+let blockArray = [];
+let blockWidth = 50;
+let blockHeight = 10;
+let blockColumns = 8; 
+let blockRows = 3; //add more as game goes on
+let blockMaxRows = 10; //limit how many rows
+let blockCount = 0;
 
-  // move paddle by it's velocity
-  paddle.x += paddle.dx;
+//starting block corners top left 
+let blockX = 15;
+let blockY = 45;
 
-  // prevent paddle from going through walls
-  if (paddle.x < wallSize) {
-    paddle.x = wallSize
-  }
-  else if (paddle.x + brickWidth > canvas.width - wallSize) {
-    paddle.x = canvas.width - wallSize - brickWidth;
-  }
+let score = 0;
+let gameOver = false;
 
-  // move ball by it's velocity
-  ball.x += ball.dx;
-  ball.y += ball.dy;
+window.onload = function() {
+    board = document.getElementById("board");
+    board.height = boardHeight;
+    board.width = boardWidth;
+    context = board.getContext("2d"); //used for drawing on the board
 
-  // prevent ball from going through walls by changing its velocity
-  // left & right walls
-  if (ball.x < wallSize) {
-    ball.x = wallSize;
-    ball.dx *= -1;
-  }
-  else if (ball.x + ball.width > canvas.width - wallSize) {
-    ball.x = canvas.width - wallSize - ball.width;
-    ball.dx *= -1;
-  }
-  // top wall
-  if (ball.y < wallSize) {
-    ball.y = wallSize;
-    ball.dy *= -1;
-  }
+    //draw initial player
+    context.fillStyle="skyblue";
+    context.fillRect(player.x, player.y, player.width, player.height);
 
-  // reset ball if it goes below the screen
-  if (ball.y > canvas.height) {
-    ball.x = 130;
-    ball.y = 260;
-    ball.dx = 0;
-    ball.dy = 0;
-  }
+    requestAnimationFrame(update);
+    document.addEventListener("keydown", movePlayer);
 
-  // check to see if ball collides with paddle. if they do change y velocity
-  if (collides(ball, paddle)) {
-    ball.dy *= -1;
+    //create blocks
+    createBlocks();
+}
 
-    // move ball above the paddle otherwise the collision will happen again
-    // in the next frame
-    ball.y = paddle.y - ball.height;
-  }
-
-  // check to see if ball collides with a brick. if it does, remove the brick
-  // and change the ball velocity based on the side the brick was hit on
-  for (let i = 0; i < bricks.length; i++) {
-    const brick = bricks[i];
-
-    if (collides(ball, brick)) {
-      // remove brick from the bricks array
-      bricks.splice(i, 1);
-
-      // ball is above or below the brick, change y velocity
-      // account for the balls speed since it will be inside the brick when it
-      // collides
-      if (ball.y + ball.height - ball.speed <= brick.y ||
-          ball.y >= brick.y + brick.height - ball.speed) {
-        ball.dy *= -1;
-      }
-      // ball is on either side of the brick, change x velocity
-      else {
-        ball.dx *= -1;
-      }
-
-      break;
+function update() {
+    requestAnimationFrame(update);
+    //stop drawing
+    if (gameOver) {
+        return;
     }
-  }
+    context.clearRect(0, 0, board.width, board.height);
 
-  // draw walls
-  context.fillStyle = 'lightgrey';
-  context.fillRect(0, 0, canvas.width, wallSize);
-  context.fillRect(0, 0, wallSize, canvas.height);
-  context.fillRect(canvas.width - wallSize, 0, wallSize, canvas.height);
+    // player
+    context.fillStyle = "lightgreen";
+    context.fillRect(player.x, player.y, player.width, player.height);
 
-  // draw ball if it's moving
-  if (ball.dx || ball.dy) {
+    // ball
+    context.fillStyle = "white";
+    ball.x += ball.velocityX;
+    ball.y += ball.velocityY;
     context.fillRect(ball.x, ball.y, ball.width, ball.height);
-  }
 
-  // draw bricks
-  bricks.forEach(function(brick) {
-    context.fillStyle = brick.color;
-    context.fillRect(brick.x, brick.y, brick.width, brick.height);
-  });
+    //bounce the ball off player paddle
+    if (topCollision(ball, player) || bottomCollision(ball, player)) {
+        ball.velocityY *= -1;   // flip y direction up or down
+    }
+    else if (leftCollision(ball, player) || rightCollision(ball, player)) {
+        ball.velocityX *= -1;   // flip x direction left or right
+    }
 
-  // draw paddle
-  context.fillStyle = 'cyan';
-  context.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+    if (ball.y <= 0) { 
+        // if ball touches top of canvas
+        ball.velocityY *= -1; //reverse direction
+    }
+    else if (ball.x <= 0 || (ball.x + ball.width >= boardWidth)) {
+        // if ball touches left or right of canvas
+        ball.velocityX *= -1; //reverse direction
+    }
+    else if (ball.y + ball.height >= boardHeight) {
+        // if ball touches bottom of canvas
+        context.font = "20px sans-serif";
+        context.fillText("Game Over: Press 'Space' to Restart", 80, 400);
+        gameOver = true;
+    }
+
+    //blocks
+    context.fillStyle = "skyblue";
+    for (let i = 0; i < blockArray.length; i++) {
+        let block = blockArray[i];
+        if (!block.break) {
+            if (topCollision(ball, block) || bottomCollision(ball, block)) {
+                block.break = true;     // block is broken
+                ball.velocityY *= -1;   // flip y direction up or down
+                score += 100;
+                blockCount -= 1;
+            }
+            else if (leftCollision(ball, block) || rightCollision(ball, block)) {
+                block.break = true;     // block is broken
+                ball.velocityX *= -1;   // flip x direction left or right
+                score += 100;
+                blockCount -= 1;
+            }
+            context.fillRect(block.x, block.y, block.width, block.height);
+        }
+    }
+
+    //next level
+    if (blockCount == 0) {
+        score += 100*blockRows*blockColumns; //bonus points :)
+        blockRows = Math.min(blockRows + 1, blockMaxRows);
+        createBlocks();
+    }
+
+    //score
+    context.font = "20px sans-serif";
+    context.fillText(score, 10, 25);
 }
 
-// listen to keyboard events to move the paddle
-document.addEventListener('keydown', function(e) {
-  // left arrow key
-  if (e.which === 37) {
-    paddle.dx = -3;
-  }
-  // right arrow key
-  else if (e.which === 39) {
-    paddle.dx = 3;
-  }
+function outOfBounds(xPosition) {
+    return (xPosition < 0 || xPosition + playerWidth > boardWidth);
+}
 
-  // space key
-  // if they ball is not moving, we can launch the ball using the space key. ball
-  // will move towards the bottom right to start
-  if (ball.dx === 0 && ball.dy === 0 && e.which === 32) {
-    ball.dx = ball.speed;
-    ball.dy = ball.speed;
-  }
-});
+function movePlayer(e) {
+    if (gameOver) {
+        if (e.code == "Space") {
+            resetGame();
+            console.log("RESET");
+        }
+        return;
+    }
+    if (e.code == "ArrowLeft") {
+        // player.x -= player.velocityX;
+        let nextplayerX = player.x - player.velocityX;
+        if (!outOfBounds(nextplayerX)) {
+            player.x = nextplayerX;
+        }
+    }
+    else if (e.code == "ArrowRight") {
+        let nextplayerX = player.x + player.velocityX;
+        if (!outOfBounds(nextplayerX)) {
+            player.x = nextplayerX;
+        }
+        // player.x += player.velocityX;    
+    }
+}
 
-// listen to keyboard events to stop the paddle if key is released
-document.addEventListener('keyup', function(e) {
-  if (e.which === 37 || e.which === 39) {
-    paddle.dx = 0;
-  }
-});
+function detectCollision(a, b) {
+    return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
+           a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
+           a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
+           a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+}
 
-// start the game
-requestAnimationFrame(loop);
+function topCollision(ball, block) { //a is above b (ball is above block)
+    return detectCollision(ball, block) && (ball.y + ball.height) >= block.y;
+}
+
+function bottomCollision(ball, block) { //a is above b (ball is below block)
+    return detectCollision(ball, block) && (block.y + block.height) >= ball.y;
+}
+
+function leftCollision(ball, block) { //a is left of b (ball is left of block)
+    return detectCollision(ball, block) && (ball.x + ball.width) >= block.x;
+}
+
+function rightCollision(ball, block) { //a is right of b (ball is right of block)
+    return detectCollision(ball, block) && (block.x + block.width) >= ball.x;
+}
+
+function createBlocks() {
+    blockArray = []; //clear blockArray
+    for (let c = 0; c < blockColumns; c++) {
+        for (let r = 0; r < blockRows; r++) {
+            let block = {
+                x : blockX + c*blockWidth + c*10, //c*10 space 10 pixels apart columns
+                y : blockY + r*blockHeight + r*10, //r*10 space 10 pixels apart rows
+                width : blockWidth,
+                height : blockHeight,
+                break : false
+            }
+            blockArray.push(block);
+        }
+    }
+    blockCount = blockArray.length;
+}
+
+function resetGame() {
+    gameOver = false;
+    player = {
+        x : boardWidth/2 - playerWidth/2,
+        y : boardHeight - playerHeight - 5,
+        width: playerWidth,
+        height: playerHeight,
+        velocityX : playerVelocityX
+    }
+    ball = {
+        x : boardWidth/2,
+        y : boardHeight/2,
+        width: ballWidth,
+        height: ballHeight,
+        velocityX : ballVelocityX,
+        velocityY : ballVelocityY
+    }
+    blockArray = [];
+    blockRows = 3;
+    score = 0;
+    createBlocks();
+}

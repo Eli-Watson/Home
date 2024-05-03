@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
-    <link rel="stylesheet" href="/Home/CSS/Snake.css">
+	<meta charset="UTF-8">
+	<meta name="viewport", 
+		content="width=device-width, initial-scale=1.0">
+	<title>Snake Game</title>
+	<link rel="stylesheet" href="/Home/CSS/Snake.css">
+	<script src="/Home/JS/Snake.js"></script>
 </head>
-<nav id="nav">
-    <a href="/Home/" target="_self">Home</a>
-    <a href="/Home/Pages/Blog.html" target="_self">Blog</a>
-    <a href="/Home/Pages/About.html" target="_self">About</a>
-    <a href="/Home/Pages/Login.html" target="_self">Login</a>
-    <a href="/Home/Pages/Games.html" target="_self">Games</a>
-    
-</nav>
+
 <body>
-    <canvas width="400" height="400" id="game"></canvas>
-    <script src="/Home/JS/Snake.js"></script>
+	<h1>Snake</h1>
+    <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+    <nav id="nav">
+        <a href="/Home/" target="_self">Home</a>
+        <a href="/Home/Pages/Blog.html" target="_self">Projects</a>
+        <a href="/Home/Pages/About.html" target="_self">About</a>
+        <a href="/Home/Pages/Login.html" target="_self">Login</a>
+        <a href="/Home/Pages/Games.html" target="_self">Games</a>
+        <a href="/Home/Pages/Articles.html" target="_self">Articles</a>
+    </nav>
+    <canvas id="board"></canvas>
+    <dialog id="DarkMode">
+        <p>Choose to change Color of the site.</p>
+        <button onclick="changeToBlack()">Black Background</button>
+        <button onclick="changeToWhite()">White Background</button>
+        <button onclick="DarkMode.close()">Close</button>
+    </dialog>
 </body>
+
 </html>
+

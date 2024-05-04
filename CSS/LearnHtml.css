@@ -13,6 +13,6 @@ article {
 p, ul, ol {
     margin-bottom: 20px;
 }
-nav {
+nav, #color {
     text-align: center;
 }

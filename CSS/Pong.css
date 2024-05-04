@@ -4,7 +4,6 @@ body {
 }
 
 body {
-  background: black;
   margin: 0;
   display: grid;
   place-items: center;

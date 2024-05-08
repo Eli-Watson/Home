@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const toggleNavButton = document.getElementById("toggleNav");
+    const toggleScriptButton = document.getElementById("toggleScript");
     const sideNav = document.querySelector("nav.sidenav");
     const section = document.getElementById('section');
     let isNavHidden = false;
@@ -15,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
         sideNav.classList.toggle("hidden");
         
         if (isNavHidden) {
-            section.style.marginLeft = '200px'; // Set margin when sidebar is hidden
+            section.style.marginLeft = '0'; // Set margin when sidebar is hidden
         } else {
-            section.style.marginLeft = '0'; // Reset margin when sidebar is visible
+            section.style.marginLeft = '200px'; // Reset margin when sidebar is visible
         }
     }
 
@@ -27,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Event listener for toggle button click
+    toggleNavButton.addEventListener("click", toggleNavAndMargin);
+
+    // Event listener for toggle script button click
+    toggleScriptButton.addEventListener("click", function() {
+        toggleNavAndMargin();
+    });
+});
+
     toggleNavButton.addEventListener("click", toggleNavAndMargin);
 });
 

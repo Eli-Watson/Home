@@ -1,16 +1,16 @@
 /* this is the css file for the html file lgoin*/
 	h1, Link {
         text-align: center;
-        color: green;
+        color: white;
     }
 	p {
         text-align: center;
-        color: green;
+        color: white;
     }
     /* Center align the form */
     form {
         text-align: center;
-        color: green;
+        color: white;
     }
     /* Style the labels */
 	label {
@@ -33,12 +33,12 @@
         border: none; /* Remove border */
         border-radius: 5px; /* Add border radius */
         cursor: pointer; /* Add cursor pointer on hover */
-        color: green;
+        color: white;
         background-color: black;
     }
     /* Style the submit button on hover */
     button[type="submit"]:hover {
-        background-color: Green; /* Green color */
+        background-color: white; /* Green color */
         color: black;
     }
     body {

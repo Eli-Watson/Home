@@ -55,6 +55,11 @@ nav.sidenav {
     padding-top: 60px;
     border-color: #333;
     border-width: medium;
+    transition: width 0.3s ease; /* Add transition for smooth animation */
+}
+
+nav.sidenav.hidden {
+    width: 0; /* Hide the navbar by setting width to 0 */
 }
 
 nav.sidenav a {

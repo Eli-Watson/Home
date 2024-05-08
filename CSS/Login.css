@@ -42,7 +42,8 @@
         color: black;
     }
     body {
-        background-color: black;
+        background-image: url('/Home/images/Login.gif')
+
     }
     nav {
         color: green;

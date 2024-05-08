@@ -1,4 +1,3 @@
-<!-- This is the HTML code for my personal website "home" By Eli Watson -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +6,19 @@
     <title>About Me</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <script src="/Home/JS/DarkMode.js"></script>
-    <style>
-        body {
-            text-align: center;
-        }
-        dialog {
-            transition: all 2.5s;
-        }
-    </style>
 </head>
 <body>
-   <dialog id="DarkMode">
-          <p>Choose to change Color of the site.</p>
-          <button  onclick="changeToBlack()">Black Background</button>
-          <button  onclick="changeToWhite()">White Background</button>
-          <button onclick="DarkMode.close()">CLose</button>
+    <dialog id="DarkMode">
+        <p>Choose to change Color of the site.</p>
+        <button onclick="changeToBlack()">Black Background</button>
+        <button onclick="changeToWhite()">White Background</button>
+        <button onclick="DarkMode.close()">Close</button>
     </dialog>
-  <header>
+    <header>
         <h1>About Me</h1>
         <button class="color" onclick="DarkMode.showModal()">Change Color</button>
-  </header>
-    <nav>
+    </header>
+    <nav class="sidenav">
         <a href="/Home/" target="_self">Home</a>
         <a href="/Home/Pages/Blog.html" target="_self">Projects</a>
         <a href="/Home/Pages/Login.html" target="_self">Login</a>
@@ -40,4 +31,3 @@
     </section>
 </body>
 </html>
-

@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.color {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.color:hover {
+    background-color: #ddd;
+}
+
+nav.sidenav {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: red; /* This is overridden by the CSS below */
+    overflow-x: hidden;
+    padding-top: 60px;
+    border-color: #333;
+    border-width: medium;
+}
+
+nav.sidenav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+}
+
+nav.sidenav a:hover {
+    background-color: #555;
+}
+
+section {
+    margin-left: 250px;
+    padding: 20px;
+    border-color: #333;
+}
+
+dialog {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ddd;
+}
+
+dialog p {
+    margin: 0;
+    font-size: 16px;
+}
+
+dialog button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+dialog button:hover {
+    background-color: #555;
+}

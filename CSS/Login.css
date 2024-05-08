@@ -30,11 +30,12 @@
     /* Style the submit button */
     button[type="submit"] {
         padding: 10px 20px; /* Add padding */
-        border: none; /* Remove border */
+        border: solid; /* Remove border */
         border-radius: 5px; /* Add border radius */
         cursor: pointer; /* Add cursor pointer on hover */
         color: white;
         background-color: black;
+    	border-color: white;s
     }
     /* Style the submit button on hover */
     button[type="submit"]:hover {

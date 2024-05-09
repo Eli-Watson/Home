@@ -40,7 +40,9 @@ h1 {
 }
 
 .color:hover {
-    background-color: #ddd;
+    background-color: #ddd ;
+    transform: scale(1.1); /* Increase size on hover */
+    transition: transform 0.3s; /* Add transition for smooth size change */
 }
 
 nav.sidenav {
@@ -68,11 +70,17 @@ nav.sidenav a {
     font-size: 18px;
     color: #fff;
     display: block;
+    width: 100px; /* Set the initial width */
+    transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
 }
 
 nav.sidenav a:hover {
     background-color: #555;
+    width: 120px; /* Increase width on hover */
+    padding: 10px 20px; /* Increase padding on hover */
+    font-size: 18px; /* Keep the font size unchanged */
 }
+
 
 section {
     padding: 20px;
@@ -103,33 +111,35 @@ dialog button {
     border-radius: 5px;
     cursor: pointer;
 }
-
 dialog button:hover {
-    background-color: #555;
+    background-color: red;
+
 }
 #toggleButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
     background-color: white;
     color: #333;
-    border: none;
-    padding: 10px 20px; 
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 #toggleButton:hover {
-    background-color: #555;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    background-color: #ddd;
 }
 a {
-    color: white; /* Blue color */
+    color: white; 
 }
 
 /* Visited link color */
 a:visited {
-    color: red; /* Purple color */
+    color: red; 
 }
 
 /* Hovered link color */
 a:hover {
-    color: #333; /* Red color */
+    color: #333;
 }

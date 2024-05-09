@@ -4,17 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embark on Your Web Journey: Learning Basic HTML</title>
-    <link rel="stylesheet" href="/Home/CSS/Default.css">
-    <script src="/Home/JS/DarkMode.js"></script>
-    <script src="/Home/JS/ScrollTop.js"></script>
-    <script src="/Home/JS/NavHide.js"></script>
-    <dialog id="DarkMode">
-        <p>Choose to change Color of the site.</p>
-        <button onclick="changeToBlack()">Black Background</button>
-        <button onclick="changeToWhite()">White Background</button>
-        <button onclick="DarkMode.close()">Close</button>
-    </dialog>
-
+    <link rel="stylesheet" href="CSS/Default.css"> <!-- Corrected path -->
+    <script src="JS/DarkMode.js"></script> <!-- Corrected path -->
+    <script src="JS/ScrollTop.js"></script>
+    <script src="JS/NavHide.js"></script>
 </head>
 <body>
    <header>
@@ -30,24 +23,34 @@
        <a href="/Home/Pages/Games.html" target="_self">Games</a>
        <a href="/Home/Pages/Articles.html" target="_self">Articles</a>
    </nav>
-   <article>
-        <p>In the digital age, understanding the language of the web is akin to possessing a universal key. HTML (HyperText Markup Language) serves as the foundation upon which the world wide web is built. Whether you're an aspiring web developer, a blogger wanting to customize your site, or simply someone intrigued by the magic behind web pages, learning HTML is an empowering journey.</p>
+   <section>
+    <h2>The Language of the Web</h2>
+    <p>HTML serves as the backbone of every webpage you encounter on the internet. It's the language that structures the content you see and interact with daily. At its core, HTML is remarkably intuitive, employing tags to define different elements within a webpage. These tags act as building blocks, shaping the layout, content, and functionality of websites.</p>
 
-        <h2>Unraveling the Mystery of HTML</h2>
-        <p>HTML is the skeleton of web pages, defining the structure and content. Don't let the term "markup language" intimidate you; HTML is remarkably straightforward to grasp. At its core, HTML employs tags to mark up different elements on a webpage, such as headings, paragraphs, images, and links.</p>
+    <h2>Empowering Creativity and Innovation</h2>
+    <p>One of the most compelling aspects of HTML is its versatility. With just a basic understanding of HTML, you can unleash your creativity and bring your ideas to life on the web. Whether you're building a personal blog, an e-commerce platform, or a portfolio website, HTML provides the foundation upon which you can express yourself and captivate your audience.</p>
 
-        <h2>Getting Started: Tools and Resources</h2>
-        <p>Diving into HTML requires minimal resources. All you need is a text editor, such as Notepad (for Windows) or TextEdit (for Mac), and a web browser like Chrome, Firefox, or Safari to preview your creations. Numerous online tutorials, documentation, and interactive platforms like Codecademy or freeCodeCamp offer structured lessons to guide you through the basics.</p>
+    <h2>A Gateway to Web Development</h2>
+    <p>For those embarking on their journey into the world of web development, HTML serves as the ideal starting point. Its simplicity and ubiquity make it accessible to beginners, allowing them to grasp core concepts quickly and build confidence as they progress. Moreover, mastering HTML lays the groundwork for delving into more advanced technologies, such as CSS (Cascading Style Sheets) and JavaScript, enabling you to create dynamic and interactive web experiences.</p>
 
-        <h2>The ABCs of HTML</h2>
-        <ol>
-            <li><strong>Structure with Tags:</strong> HTML documents are structured using tags enclosed in angle brackets (<code>&lt;&gt;</code>). Every HTML document begins with <code>&lt;!DOCTYPE html&gt;</code> declaration followed by <code>&lt;html&gt;</code> as the root element, encapsulating the entire webpage.</li>
-            <li><strong>Headings and Paragraphs:</strong> Headings are defined using <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> tags, where <code>&lt;h1&gt;</code> represents the highest level of heading and <code>&lt;h6&gt;</code> the lowest. Paragraphs are enclosed within <code>&lt;p&gt;</code> tags.</li>
-            <li><strong>Adding Images:</strong> Images are integrated using the <code>&lt;img&gt;</code> tag, specifying the image source (<code>src</code>) and optional attributes like width and height.</li>
-            <li><strong>Creating Links:</strong> Hyperlinks are created with the <code>&lt;a&gt;</code> tag, with the <code>href</code> attribute denoting the URL to which the link points.</li>
-            <li><strong>Lists:</strong> HTML supports ordered lists (<code>&lt;ol&gt;</code>), unordered lists (<code>&lt;ul&gt;</code>), and definition lists (<code>&lt;dl&gt;</code>), each containing list items <code>&lt;li&gt;</code>.</li>
-            <li><strong>Divs and Spans:</strong> <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are generic containers used for grouping and styling elements.</li>
-        </ol>
+    <h2>Accessible Learning Resources</h2>
+    <p>Fortunately, learning HTML has never been easier, thanks to the abundance of resources available online. From interactive tutorials and documentation to community forums and coding bootcamps, aspiring web developers have access to a wealth of educational materials to guide them on their journey. Websites like Codecademy, freeCodeCamp, and MDN Web Docs offer comprehensive lessons and exercises designed to help you master HTML at your own pace.</p>
 
-        <h2>Practice Makes Perfect</h2>
-        <p>Learning HTML is a hands-on experience. Start by
+    <h2>Hands-On Experience</h2>
+    <p>While theory is essential, nothing beats hands-on experience when it comes to learning HTML. Practice is key to reinforcing your understanding of HTML tags, attributes, and best practices. Experiment with building simple web pages, incorporating different elements like headings, paragraphs, images, and links. As you gain confidence, challenge yourself with more complex projects, such as creating forms, tables, and multimedia content.</p>
+
+    <h2>Joining a Thriving Community</h2>
+    <p>One of the most rewarding aspects of learning HTML is joining a vibrant and inclusive community of web developers. Whether you're seeking advice, feedback, or inspiration, there's no shortage of fellow developers eager to connect and collaborate. Engage with online forums, attend meetups and conferences, and contribute to open-source projects to expand your network and deepen your knowledge.</p>
+
+    <h2>Conclusion</h2>
+    <p>In conclusion, learning HTML is not just about mastering a programming language; it's about unlocking the potential to create and innovate on the web. Whether you're building your first webpage or embarking on a career in web development, HTML provides the essential foundation upon which you can build your skills and achieve your goals. So, roll up your sleeves, dive into the world of HTML, and embark on an exciting journey of discovery and creativity.</p>
+</article>
+   </section>
+   <dialog id="DarkMode">
+        <p>Choose to change Color of the site.</p>
+        <button onclick="changeToBlack()">Black Background</button>
+        <button onclick="changeToWhite()">White Background</button>
+        <button onclick="document.getElementById('DarkMode').close()">Close</button>
+    </dialog>
+</body>
+</html>

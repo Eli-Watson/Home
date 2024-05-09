@@ -105,3 +105,16 @@ dialog button:hover {
 article {
     margin-left: 250px;
 }
+#toggleButton {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#toggleButton:hover {
+    background-color: #555;
+}

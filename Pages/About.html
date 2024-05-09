@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <script src="/Home/JS/DarkMode.js"></script>
     <link rel="stylesheet" href="/Home/CSS/About.css"></head>
+    <script src="/Home/JS/NavHide.js"></script>
 <body>
     <dialog id="DarkMode">
         <p>Choose to change Color of the site.</p>
@@ -17,6 +18,7 @@
     <header>
         <h1>About Me</h1>
         <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+        <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>
     </header>
     <nav class="sidenav">
         <a href="/Home/" target="_self">Home</a>

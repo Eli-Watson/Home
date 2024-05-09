@@ -1,11 +1,13 @@
-// Get the navigation bar element
-var navBar = document.querySelector('nav.sidenav');
-
-// Get the section element
-var section = document.querySelector('section');
-
-// Function to toggle the visibility of the navigation bar and center the content
+// Function to toggle the visibility of the navigation bar and center the section
 function toggleNavBar() {
+    console.log("Toggle button clicked");
+    // Get the navigation bar element
+    var navBar = document.querySelector('nav.sidenav');
+
+    // Get the section element
+    var section = document.querySelector('section');
+
+
     // Toggle the 'hidden' class to hide/show the navigation bar
     navBar.classList.toggle('hidden');
 
@@ -18,6 +20,4 @@ function toggleNavBar() {
         section.style.marginLeft = '200px';
     }
 }
-
-// Add event listener to the navigation bar toggle button or element
-navBar.addEventListener('click', toggleNavBar);
+ 

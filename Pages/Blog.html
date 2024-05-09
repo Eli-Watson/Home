@@ -5,6 +5,7 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Home/CSS/Blog.css">
+    <script src="/Home/JS/NavHide.js"></script>
     <script src="/Home/JS/DarkMode.js"></script>
 </head>
 <body>
@@ -18,10 +19,11 @@
     <header>
         <h1>My Projects</h1> 
         <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+        <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>
     </header>
 
     <nav class="sidenav">
-        <a href="/Home/">Home</a>
+        <a href="/Home/">Home</a> 
         <a href="/Home/Pages/About.html">About</a>
         <a href="/Home/Pages/Blog.html" target="_self">Projects</a>
         <a href="/Home/Pages/Login.html" target="_self">Login</a>

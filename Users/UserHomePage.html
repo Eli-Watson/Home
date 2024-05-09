@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Home/CSS/Users.css">
     <script src="/Home/JS/DarkMode.js"></script>
+    <script src="/Home/JS/NavHide.js"></script>
 </head>
 <body>
     <header>
         <h1>Welcome User, User!</h1>
         <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+        <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>
     </header>
     
     <dialog id="DarkMode">
@@ -19,7 +21,7 @@
         <button onclick="changeToBlack()">Black Background</button>
         <button onclick="changeToWhite()">White Background</button>
         <button onclick="DarkMode.close()">Close</button>
-    </dialog>
+    </dialog> 
     
     <nav class="sidenav">
         <a href="/Home/" target="_self">Home</a>

@@ -68,7 +68,9 @@ nav.sidenav a {
 nav.sidenav a:hover {
     background-color: #555;
 }
-
+nav.sidenav.hidden {
+    width: 0; /* Hide the navbar by setting width to 0 */
+}
 section {
     text-align: center;
     padding: 20px;

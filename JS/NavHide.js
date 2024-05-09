@@ -1,41 +1,23 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const toggleNavButton = document.getElementById("toggleNav");
-    const toggleScriptButton = document.getElementById("toggleScript");
-    const sideNav = document.querySelector("nav.sidenav");
-    const section = document.getElementById('section');
-    let isNavHidden = false;
+// Get the navigation bar element
+var navBar = document.querySelector('nav.sidenav');
 
-    // Function to check if the device is a mobile phone
-    function isMobileDevice() {
-        return (window.innerWidth <= 768); // Adjust the threshold as needed
+// Get the section element
+var section = document.querySelector('section');
+
+// Function to toggle the visibility of the navigation bar and center the content
+function toggleNavBar() {
+    // Toggle the 'hidden' class to hide/show the navigation bar
+    navBar.classList.toggle('hidden');
+
+    // Check if the navigation bar is hidden
+    if (navBar.classList.contains('hidden')) {
+        // If hidden, center the content by changing margin-left to auto
+        section.style.marginLeft = 'auto';
+    } else {
+        // If not hidden, reset margin-left to 200px
+        section.style.marginLeft = '200px';
     }
+}
 
-    // Function to toggle navigation sidebar and adjust section margin
-    function toggleNavAndMargin() {
-        isNavHidden = !isNavHidden;
-        sideNav.classList.toggle("hidden");
-        
-        if (isNavHidden) {
-            section.style.marginLeft = '0'; // Set margin when sidebar is hidden
-        } else {
-            section.style.marginLeft = '200px'; // Reset margin when sidebar is visible
-        }
-    }
-
-    // Activate script if device is a mobile phone
-    if (isMobileDevice()) {
-        toggleNavAndMargin();
-    }
-
-    // Event listener for toggle button click
-    toggleNavButton.addEventListener("click", toggleNavAndMargin);
-
-    // Event listener for toggle script button click
-    toggleScriptButton.addEventListener("click", function() {
-        toggleNavAndMargin();
-    });
-});
-
-    toggleNavButton.addEventListener("click", toggleNavAndMargin);
-});
-
+// Add event listener to the navigation bar toggle button or element
+navBar.addEventListener('click', toggleNavBar);

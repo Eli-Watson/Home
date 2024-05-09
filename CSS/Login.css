@@ -1,52 +1,77 @@
-/* this is the css file for the html file lgoin*/
-	h1, Link {
-        text-align: center;
-        color: white;
-    }
-	p {
-        text-align: center;
-        color: white;
-    }
-    /* Center align the form */
-    form {
-        text-align: center;
-        color: white;
-    }
-    /* Style the labels */
-	label {
-        display: block; /* Display each label on a new line */
-        margin-bottom: 10px; /* Add some space below each label */
-    }
-    /* Style the input fields */
-	input[type="text"],
-    input[type="password"] {
-        width: 250px; /* Set the width of the input fields */
-        padding: 8px; /* Add some padding */
-        border: 1px solid #ccc; /* Add a border */
-        border-radius: 5px; /* Add some border radius */
-        color: green;
-        background-color: black;
-    }
-    /* Style the submit button */
-    button[type="submit"] {
-        padding: 10px 20px; /* Add padding */
-        border: solid; /* Remove border */
-        border-radius: 5px; /* Add border radius */
-        cursor: pointer; /* Add cursor pointer on hover */
-        color: white;
-        background-color: black;
-    	border-color: white;s
-    }
-    /* Style the submit button on hover */
-    button[type="submit"]:hover {
-        background-color: white; /* Green color */
-        color: black;
-    }
-    body {
-        background-image: url('/Home/images/Login.gif')
+/* Center align h1 */
+h1 {
+    text-align: center;
+    color: white;
+}
 
-    }
-    nav {
-        color: green;
-        text-align: center;
-    }
+/* Center align p */
+p {
+    text-align: center;
+    color: white;
+}
+
+/* Center align the form */
+form {
+    text-align: center;
+    color: white;
+}
+
+/* Style the labels */
+label {
+    display: block; /* Display each label on a new line */
+    margin-bottom: 10px; /* Add some space below each label */
+    color: white;
+}
+
+/* Style the input fields */
+input[type="text"],
+input[type="password"] {
+    width: 250px; /* Set the width of the input fields */
+    padding: 8px; /* Add some padding */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add some border radius */
+    color: green;
+    background-color: black;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    padding: 10px 20px; /* Add padding */
+    border: solid; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer on hover */
+    color: white;
+    background-color: black;
+    border-color: white; /* Remove extra 's' */
+}
+
+/* Style the submit button on hover */
+button[type="submit"]:hover {
+    background-color: white; /* Green color */
+    color: black;
+}
+
+body {
+    background-image: url('/Home/images/Login.gif');
+}
+
+nav {
+    color: green;
+    text-align: center;
+}
+
+/* Style the link */
+a {
+    color: white; /* White color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Visited link color */
+a:visited {
+    color: red; /* Red color */
+}
+
+/* Hovered link color */
+a:hover {
+    color: #333; /* Dark gray color */
+}

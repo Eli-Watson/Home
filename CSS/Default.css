@@ -107,8 +107,8 @@ dialog button:hover {
     background-color: #555;
 }
 #toggleButton {
-    background-color: #333;
-    color: #fff;
+    background-color: white;
+    color: #333;
     border: none;
     padding: 10px 20px; 
     border-radius: 5px;
@@ -118,4 +118,17 @@ dialog button:hover {
 
 #toggleButton:hover {
     background-color: #555;
+}
+a {
+    color: white; /* Blue color */
+}
+
+/* Visited link color */
+a:visited {
+    color: red; /* Purple color */
+}
+
+/* Hovered link color */
+a:hover {
+    color: #333; /* Red color */
 }

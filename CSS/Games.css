@@ -1,3 +1,17 @@
+/* For screens smaller than 768px (phones) */
+@media screen and (max-width: 768px) {
+    nav.sidenav {
+        width: 50px; /* Adjust the width for smaller screens */
+    }
+    nav.sidenav a {
+        padding: 5px 10px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+    nav.sidenav a:hover {
+        background-color: #555; /* Hover color adjustment */
+    }
+}
+
 body {
     font-family: 'Times New Roman', Times, serif,;
     margin: 0;
@@ -41,6 +55,11 @@ nav.sidenav {
     padding-top: 60px;
     border-color: #333;
     border-width: medium;
+    transition: width 0.3s ease; /* Add transition for smooth animation */
+}
+
+nav.sidenav.hidden {
+    width: 0; /* Hide the navbar by setting width to 0 */
 }
 
 nav.sidenav a {
@@ -56,9 +75,10 @@ nav.sidenav a:hover {
 }
 
 section {
-    text-align: center;
     padding: 20px;
     border-color: #333;
+    margin-left: 200px;
+    text-align: center;
 }
 
 dialog {
@@ -88,8 +108,8 @@ dialog button:hover {
     background-color: #555;
 }
 #toggleButton {
-    background-color: #333;
-    color: #fff;
+    background-color: white;
+    color: #333;
     border: none;
     padding: 10px 20px; 
     border-radius: 5px;
@@ -99,4 +119,17 @@ dialog button:hover {
 
 #toggleButton:hover {
     background-color: #555;
+}
+a {
+    color: white; /* Blue color */
+}
+
+/* Visited link color */
+a:visited {
+    color: red; /* Purple color */
+}
+
+/* Hovered link color */
+a:hover {
+    color: #333; /* Red color */
 }

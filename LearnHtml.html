@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embark on Your Web Journey: Learning Basic HTML</title>
+    <link rel="stylesheet" href="/Home/CSS/Default.css">
+    <script src="JS/DarkMode.js"></script> 
+    <script src="JS/ScrollTop.js"></script>
+    <script src="JS/NavHide.js"></script>
+</head>
+<body>
+   <header>
+       <h1>Embark on Your Web Journey: Learning Basic HTML</h1>
+       <button id="color" onclick="DarkMode.showModal()">Change Color</button>
+       <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>
+   </header>
+   <nav class="sidenav">
+    <a href="/Home/" target="_self">Home</a>
+    <a href="/Home/Pages/About.html" target="_self">About</a>
+    <a href="/Home/Pages/Blog.html" target="_self">Projects</a>
+    <a href="/Home/Pages/Articles.html" target="_self">Articles</a>
+    <a href="/Home/Pages/Login.html" target="_self">Login</a>
+    <a href="/Home/Pages/Games.html" target="_self">Games</a>
+
+   </nav>
+   <section>
+    <h1>Jump to a Section:</h1>
+    <ul>
+        <li><a href="#language">The Language of the Web</a></li>
+        <li><a href="#creativity">Empowering Creativity and Innovation</a></li>
+        <li><a href="#gateway">A Gateway to Web Development</a></li>
+        <li><a href="#resources">Accessible Learning Resources</a></li>
+        <li><a href="#experience">Hands-On Experience</a></li>
+        <li><a href="#community">Joining a Thriving Community</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+    <h2><a href="#language">The Language of the Web</a></h2>
+    <p>HTML serves as the backbone of every webpage you encounter on the internet. It's the language that structures the content you see and interact with daily. At its core, HTML is remarkably intuitive, employing tags to define different elements within a webpage. These tags act as building blocks, shaping the layout, content, and functionality of websites.</p>
+
+    <h2><a href="#creativity">Empowering Creativity and Innovation</a></h2>
+    <p>One of the most compelling aspects of HTML is its versatility. With just a basic understanding of HTML, you can unleash your creativity and bring your ideas to life on the web. Whether you're building a personal blog, an e-commerce platform, or a portfolio website, HTML provides the foundation upon which you can express yourself and captivate your audience.</p>
+
+    <h2><a href="#gateway">A Gateway to Web Development</a></h2>
+    <p>For those embarking on their journey into the world of web development, HTML serves as the ideal starting point. Its simplicity and ubiquity make it accessible to beginners, allowing them to grasp core concepts quickly and build confidence as they progress. Moreover, mastering HTML lays the groundwork for delving into more advanced technologies, such as CSS (Cascading Style Sheets) and JavaScript, enabling you to create dynamic and interactive web experiences.</p>
+
+    <h2><a href="#resources">Accessible Learning Resources</a></h2>
+    <p>Fortunately, learning HTML has never been easier, thanks to the abundance of resources available online. From interactive tutorials and documentation to community forums and coding bootcamps, aspiring web developers have access to a wealth of educational materials to guide them on their journey. Websites like Codecademy, freeCodeCamp, and MDN Web Docs offer comprehensive lessons and exercises designed to help you master HTML at your own pace.</p>
+
+    <h2><a href="#experience">Hands-On Experience</a></h2>
+    <p>While theory is essential, nothing beats hands-on experience when it comes to learning HTML. Practice is key to reinforcing your understanding of HTML tags, attributes, and best practices. Experiment with building simple web pages, incorporating different elements like headings, paragraphs, images, and links. As you gain confidence, challenge yourself with more complex projects, such as creating forms, tables, and multimedia content.</p>
+
+    <h2><a href="#community">Joining a Thriving Community</a></h2>
+    <p>One of the most rewarding aspects of learning HTML is joining a vibrant and inclusive community of web developers. Whether you're seeking advice, feedback, or inspiration, there's no shortage of fellow developers eager to connect and collaborate. Engage with online forums, attend meetups and conferences, and contribute to open-source projects to expand your network and deepen your knowledge.</p>
+
+    <h2><a href="#conclusion">Conclusion</a></h2>
+    <p>In conclusion, learning HTML is not just about mastering a programming language; it's about unlocking the potential to create and innovate on the web. Whether you're building your first webpage or embarking on a career in web development, HTML provides the essential foundation upon which you can build your skills and achieve your goals. So, roll up your sleeves, dive into the world of HTML, and embark on an exciting journey of discovery and creativity.</p>
+</article>
+   </section>
+   <dialog id="DarkMode">
+        <p>Choose to change Color of the site.</p>
+        <button onclick="changeToBlack()">Black Background</button>
+        <button onclick="changeToWhite()">White Background</button>
+        <button onclick="document.getElementById('DarkMode').close()">Close</button>
+    </dialog>
+</body>
+</html>

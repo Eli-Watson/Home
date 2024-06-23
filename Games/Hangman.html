@@ -1,54 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hangman Game</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-    .hangman-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 400px;
-        padding: 20px;
-        border: 1px solid #ccc;
-        background-color: #f0f0f0;
-        border-radius: 8px;
-    }
-    .hangman {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    }
-    .letter-input {
-        margin-top: 10px;
-    }
-    .word-display {
-        font-size: 1.5em;
-        font-weight: bold;
-        white-space: pre-wrap; /* Preserve whitespace and wrap */
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .word-display .letter {
-        display: inline-block;
-        margin-right: 0.3em; /* Adjust letter spacing */
-    }
-    .word-display span {
-        margin-right: 0.5em; /* Adjust spacing between words */
-    }
-</style>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content=" ">
+    <meta name="author" content="Eli Watson">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="/CSS/Hangman.css">
+    <script src="/JS/DarkMode.js"></script>
+    <script src="/JS/NavHide.js"></script>
+    <script src="/JS/Games/Hangman.js"></script>
 </head>
+<header>
+	<h1>testing</h1>
+    <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+    <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button> 
+</header>
+<dialog id="DarkMode">
+    <p>Choose to change Color of the site.</p>
+    <button onclick="changeToBlack()">Black Background</button>
+    <button onclick="changeToWhite()">White Background</button>
+    <button onclick="DarkMode.close()">Close</button>
+</dialog>
 <body>
+ <nav class="sidenav">
+    <a href="/Home/" target="_self">Home</a>
+    <a href="/Home/Pages/About.html" target="_self">About</a>
+    <a href="/Home/Pages/Blog.html" target="_self">Projects</a>
+    <a href="/Home/Pages/Articles.html" target="_self">Articles</a>
+    <a href="/Home/Pages/Login.html" target="_self">Login</a>
+    <a href="/Home/Pages/Games.html" target="_self">Games</a>
+
+</nav> 
+<section>
     <div class="hangman-container">
         <h2>Hangman Game</h2>
         <div id="wordInput">
@@ -73,104 +59,10 @@
             </div>
         </div>
     </div>
+</section>  
 
-    <script>
-        let wordToGuess, currentWord, wrongGuesses = 0;
-        const maxWrongGuesses = 6; // Added one more for full hangman
 
-        function startGame() {
-            let wordInput = document.getElementById('wordToGuessInput').value.trim().toLowerCase();
-            if (wordInput.length === 0) {
-                alert("Please enter a word or phrase to guess.");
-                return;
-            }
-            wordToGuess = wordInput;
-            document.getElementById('wordInput').style.display = 'none';
-            document.getElementById('game').style.display = 'block';
-            currentWord = Array.from(wordToGuess).map(char => char === ' ' ? ' ' : '_');
-            updateWordDisplay();
-        }
-
-        function updateWordDisplay() {
-            let displayWord = '';
-            for (let i = 0; i < currentWord.length; i++) {
-                if (wordToGuess[i] === ' ') {
-                    displayWord += `<span>&nbsp;</span>`;
-                } else {
-                    displayWord += `<span class="letter">${currentWord[i]}</span>`;
-                }
-            }
-            document.getElementById('wordToGuess').innerHTML = displayWord;
-        }
-
-        function guessLetter() {
-            let letterGuessed = document.getElementById('letterInputField').value.trim().toLowerCase();
-            document.getElementById('letterInputField').value = '';
-
-            if (!letterGuessed.match(/^[a-zA-Z]$/)) {
-                alert("Please enter a single letter.");
-                return;
-            }
-
-            if (currentWord.includes(letterGuessed)) {
-                alert("You've already guessed that letter.");
-                return;
-            }
-
-            let guessedCorrectly = false;
-
-            if (wordToGuess.includes(letterGuessed)) {
-                for (let i = 0; i < wordToGuess.length; i++) {
-                    if (wordToGuess[i] === letterGuessed) {
-                        currentWord[i] = letterGuessed;
-                        guessedCorrectly = true;
-                    }
-                }
-                updateWordDisplay();
-                if (currentWord.join('') === wordToGuess) {
-                    endGame('Congratulations! You guessed the word.');
-                } else {
-                    document.getElementById('guessResult').innerText = `Correct guess: ${letterGuessed.toUpperCase()}`;
-                }
-            } else {
-                document.getElementById('wrongLetters').innerHTML += `<span>${letterGuessed.toUpperCase()}</span>`;
-                wrongGuesses++;
-                drawHangman(wrongGuesses, 'hangman');
-                if (wrongGuesses === maxWrongGuesses) {
-                    endGame(`You've run out of guesses. The word/phrase was: ${wordToGuess}`);
-                } else {
-                    document.getElementById('guessResult').innerText = `Incorrect guess: ${letterGuessed.toUpperCase()}`;
-                }
-            }
-        }
-
-        function drawHangman(wrongGuesses, hangmanId) {
-            const hangmanParts = [
-                `<circle cx="40" cy="50" r="10" stroke="black" stroke-width="2" fill="white" />`,
-                `<line x1="40" y1="60" x2="40" y2="90" stroke="black" stroke-width="2" />`,
-                `<line x1="40" y1="70" x2="20" y2="80" stroke="black" stroke-width="2" />`,
-                `<line x1="40" y1="70" x2="60" y2="80" stroke="black" stroke-width="2" />`,
-                `<line x1="40" y1="90" x2="20" y2="110" stroke="black" stroke-width="2" />`,
-                `<line x1="40" y1="90" x2="60" y2="110" stroke="black" stroke-width="2" />`,
-                `<circle cx="40" cy="65" r="15" stroke="black" stroke-width="2" fill="white" />` // Full head for 6 wrong guesses
-            ];
-
-            let hangmanElement = document.getElementById(hangmanId);
-            if (hangmanElement) {
-                let svg = '<svg height="150" width="80">';
-                for (let i = 0; i < wrongGuesses; i++) {
-                    svg += hangmanParts[i];
-                }
-                svg += '</svg>';
-                hangmanElement.innerHTML = svg;
-            }
-        }
-
-        function endGame(message) {
-            document.getElementById('result').innerHTML = message;
-            document.getElementById('letterInput').style.display = 'none';
-            document.getElementById('guessResult').innerText = '';
-        }
-    </script>
 </body>
 </html>
+
+    

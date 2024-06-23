@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="/CSS/TicTacToe.css">
+    <meta name="description" content="TicTacToe">
+    <meta name="keywords" content="TicTacToe">
+    <meta name="author" content="Eli Watson">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="/CSS/Default.css">
+    <script src="/JS/DarkMode.js"></script>
+    <script src="/JS/NavHide.js"></script>
+    <script src="/js/Games/TicTacToe.js"></script>
 </head>
-<nav id="nav">
-    <a href="/" target="_self">Home</a>
-    <a href="/Pages/About.html" target="_self">About</a>
-    <a href="/Pages/Blog.html" target="_self">Projects</a>
-    <a href="e/Pages/Articles.html" target="_self">Articles</a>
-    <a href="/Pages/Login.html" target="_self">Login</a>
-    <a href="/Pages/Games.html" target="_self">Games</a>
-
-    
-</nav>
+<header>
+	<h1>testing</h1>
+    <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+    <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button> 
+</header>
+<dialog id="DarkMode">
+    <p>Choose to change Color of the site.</p>
+    <button onclick="changeToBlack()">Black Background</button>
+    <button onclick="changeToWhite()">White Background</button>
+    <button onclick="DarkMode.close()">Close</button>
+</dialog>
 <body>
-   <section>
+ <nav class="sidenav">
+    <a href="/Home/" target="_self">Home</a>
+    <a href="/Home/Pages/About.html" target="_self">About</a>
+    <a href="/Home/Pages/Blog.html" target="_self">Projects</a>
+    <a href="/Home/Pages/Articles.html" target="_self">Articles</a>
+    <a href="/Home/Pages/Login.html" target="_self">Login</a>
+    <a href="/Home/Pages/Games.html" target="_self">Games</a>
+
+</nav>
+<section>
     <h1>Tic Tac Toe</h1>
     <div id="board" class="board">
         <div class="cell" onclick="makeMove(0)"></div>
@@ -32,7 +49,7 @@
     </div>
     <button onclick="resetGame()">Reset</button>
     <script src="/Home/JS/Games/TicTacToe.js"></script>
-   </section>
+</section>
     
 </body>
 </html>

@@ -1,25 +1,27 @@
 .hangman-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 400px;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
     border-radius: 8px;
     text-align: center;
+    margin: 0 auto; /* Center container */
 }
+
 .hangman {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.hangman svg {
+    text-align: center;
     margin-bottom: 10px;
 }
+
+.hangman svg {
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
 .letter-input {
     margin-top: 10px;
 }
+
 .word-display {
     font-size: 1.5em;
     font-weight: bold;
@@ -27,10 +29,12 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
 .word-display .letter {
     display: inline-block;
     margin-right: 0.3em; /* Adjust letter spacing */
 }
+
 .word-display span {
     margin-right: 0.5em; /* Adjust spacing between words */
 }

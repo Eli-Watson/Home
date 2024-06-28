@@ -47,23 +47,6 @@ padding: 10px;
 text-align: center;
 }
 
-h1 {
-margin: 0;
-}
-
-.color {
-background-color: #fff;
-color: #333;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-cursor: pointer;
-margin-top: 10px;
-}
-
-
-
-
 section {
 padding: 20px;
 border-color: #333;

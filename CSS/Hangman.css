@@ -61,53 +61,12 @@ cursor: pointer;
 margin-top: 10px;
 }
 
-.color:hover {
-background-color: #ddd ;
-transform: scale(1.1); /* Increase size on hover */
-transition: transform 0.3s; /* Add transition for smooth size change */
-}
 
-nav.sidenav {
-height: 100%;
-width: 100px;
-position: fixed;
-z-index: 1;
-top: 0;
-left: 0;
-background-color: red;
-overflow-x: hidden;
-padding-top: 60px;
-border-color: #333;
-border-width: medium;
-transition: width 0.3s ease; /* Add transition for smooth animation */
-}
-
-nav.sidenav.hidden {
-width: 0; /* Hide the navbar by setting width to 0 */
-}
-
-nav.sidenav a {
-padding: 10px 15px;
-text-decoration: none;
-font-size: 18px;
-color: #fff;
-display: block;
-width: 100px; /* Set the initial width */
-transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
-}
-
-nav.sidenav a:hover {
-background-color: #555;
-width: 120px; /* Increase width on hover */
-padding: 10px 20px; /* Increase padding on hover */
-font-size: 18px; /* Keep the font size unchanged */
-}
 
 
 section {
 padding: 20px;
 border-color: #333;
-margin-left: 200px;
 }
 
 dialog {

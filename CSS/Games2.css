@@ -3,11 +3,7 @@ body {
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #f4f4f4;
 }
 
 .games-grid {

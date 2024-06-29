@@ -1,6 +1,135 @@
+/* Default Styles (Desktop) */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
 
 header {
-    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.color {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.color:hover {
+    background-color: #ddd;
+    transform: scale(1.1); /* Increase size on hover */
+    transition: transform 0.3s; /* Add transition for smooth size change */
+}
+
+nav.sidenav {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: red;
+    overflow-x: hidden;
+    padding-top: 60px;
+    border-color: #333;
+    border-width: medium;
+    transition: width 0.3s ease; /* Add transition for smooth animation */
+}
+
+nav.sidenav.hidden {
+    width: 0; /* Hide the navbar by setting width to 0 */
+}
+
+nav.sidenav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    width: 100px; /* Set the initial width */
+    transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
+}
+
+nav.sidenav a:hover {
+    background-color: #555;
+    width: 120px; /* Increase width on hover */
+    padding: 10px 20px; /* Increase padding on hover */
+    font-size: 18px; /* Keep the font size unchanged */
+}
+
+section {
+    padding: 20px;
+    border-color: #333;
+    margin-left: 200px;
+    text-align: center;
+}
+
+dialog {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ddd;
+}
+
+dialog p {
+    margin: 0;
+    font-size: 16px;
+}
+
+dialog button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+dialog button:hover {
+    background-color: red;
+}
+
+#toggleButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggleButton:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    background-color: #ddd;
+}
+
+a {
+    color: grey; 
+}
+
+/* Visited link color */
+a:visited {
+    color: red; 
+}
+
+/* Hovered link color */
+a:hover {
+    color: #333;
 }
 
 .games-grid {
@@ -12,7 +141,7 @@ header {
 
 .game-box {
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     background-color: #f9f9f9;
     border-radius: 5px;
@@ -28,7 +157,7 @@ header {
 .game-box button {
     padding: 10px 20px;
     border: none;
-    background-color: red;
+    background-color: #007bff;
     color: white;
     font-size: 1em;
     cursor: pointer;
@@ -37,4 +166,56 @@ header {
 
 .game-box button:hover {
     background-color: #0056b3;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    nav.sidenav {
+        width: 50px; /* Adjust the width for smaller screens */
+    }
+    
+    nav.sidenav a {
+        padding: 5px 10px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    section {
+        margin-left: 60px; /* Adjust margin for smaller screens */
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav.sidenav {
+        width: 50px; /* Adjust the width for smaller screens */
+    }
+
+    nav.sidenav a {
+        padding: 5px 10px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    section {
+        margin-left: 60px; /* Adjust margin for smaller screens */
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+
+    .game-box {
+        padding: 10px;
+    }
+
+    .game-box label {
+        font-size: 1em;
+    }
+
+    .game-box button {
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
 }

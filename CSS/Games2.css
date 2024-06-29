@@ -194,7 +194,7 @@ a:hover {
     }
 
     nav.sidenav a {
-        padding: 5px 10px; /* Adjust padding for smaller screens */
+        padding: 10px 15px; /* Adjust padding for smaller screens */
         font-size: 14px; /* Adjust font size for smaller screens */
     }
 

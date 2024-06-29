@@ -171,7 +171,7 @@ a:hover {
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
     nav.sidenav {
-        width: 50px; /* Adjust the width for smaller screens */
+        width: 60px; /* Adjust the width for smaller screens */
     }
     
     nav.sidenav a {

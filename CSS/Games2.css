@@ -180,7 +180,7 @@ a:hover {
     }
 
     section {
-        margin-left: 80px; /* Adjust margin for smaller screens */
+        margin-left: auto; /* Adjust margin for smaller screens */
     }
     
     .games-grid {
@@ -199,7 +199,7 @@ a:hover {
     }
 
     section {
-        margin-left: 70px; /* Adjust margin for smaller screens */
+        margin-left: Auto; /* Adjust margin for smaller screens */
     }
 
     .games-grid {

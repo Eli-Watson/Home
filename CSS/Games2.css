@@ -171,7 +171,7 @@ a:hover {
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
     nav.sidenav {
-        width: 60px; /* Adjust the width for smaller screens */
+        width: 80px; /* Adjust the width for smaller screens */
     }
     
     nav.sidenav a {
@@ -180,7 +180,7 @@ a:hover {
     }
 
     section {
-        margin-left: 60px; /* Adjust margin for smaller screens */
+        margin-left: 80px; /* Adjust margin for smaller screens */
     }
     
     .games-grid {
@@ -190,16 +190,16 @@ a:hover {
 
 @media screen and (max-width: 480px) {
     nav.sidenav {
-        width: 50px; /* Adjust the width for smaller screens */
+        width: 70px; /* Adjust the width for smaller screens */
     }
 
     nav.sidenav a {
-        padding: 10px 15px; /* Adjust padding for smaller screens */
+        padding: 5px 10px; /* Adjust padding for smaller screens */
         font-size: 14px; /* Adjust font size for smaller screens */
     }
 
     section {
-        margin-left: 60px; /* Adjust margin for smaller screens */
+        margin-left: 70px; /* Adjust margin for smaller screens */
     }
 
     .games-grid {

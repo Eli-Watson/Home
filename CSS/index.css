@@ -1,16 +1,4 @@
-/* For screens smaller than 768px (phones) */
-@media screen and (max-width: 768px) {
-    nav.sidenav {
-        width: 50px; /* Adjust the width for smaller screens */
-    }
-    nav.sidenav a {
-        padding: 5px 10px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-    nav.sidenav a:hover {
-        background-color: #555; /* Hover color adjustment */
-    }
-}
+
 
 body {
     font-family: 'Times New Roman', Times, serif,;

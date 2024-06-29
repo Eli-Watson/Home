@@ -1,16 +1,4 @@
-/* For screens smaller than 768px (phones) */
-@media screen and (max-width: 768px) {
-    nav.sidenav {
-        width: 50px; /* Adjust the width for smaller screens */
-    }
-    nav.sidenav a {
-        padding: 5px 10px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-    nav.sidenav a:hover {
-        background-color: #555; /* Hover color adjustment */
-    }
-}
+
 
 body {
     font-family: 'Times New Roman', Times, serif,;
@@ -129,3 +117,48 @@ a:visited {
 a:hover {
     color: #333; /* Red color */
 }
+
+
+@media screen and (max-width: 768px) {
+
+    section {
+        margin-left: auto; /* Adjust margin for smaller screens */
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav.sidenav {
+        width: 80px; /* Adjust the width for smaller screens */
+    }
+
+    nav.sidenav a {
+        padding: 5px 10px; /* Adjust padding for smaller screens */
+        font-size: 18px;
+
+    section {
+        margin-left: Auto; /* Adjust margin for smaller screens */
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+
+    .game-box {
+        padding: 10px;
+    }
+
+    .game-box label {
+        font-size: 1em;
+    }
+
+    .game-box button {
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+}
+
+

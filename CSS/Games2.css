@@ -187,8 +187,7 @@ a:hover {
 
     nav.sidenav a {
         padding: 5px 10px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
+        font-size: 18px;
 
     section {
         margin-left: Auto; /* Adjust margin for smaller screens */

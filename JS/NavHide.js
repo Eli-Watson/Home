@@ -20,7 +20,7 @@ function toggleNavBar() {
             section.style.marginLeft = 'auto';
         } else {
             // If not hidden, reset margin-left to 200px
-            section.style.marginLeft = '200px';
+            section.style.marginLeft = '150px';
         }
     }
 }

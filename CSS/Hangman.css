@@ -1,5 +1,13 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
 .hangman-container {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
@@ -38,62 +46,99 @@
 .word-display span {
     margin-right: 0.5em; /* Adjust spacing between words */
 }
-body {
-font-family: 'Times New Roman', Times, serif,;
-text-align: center;
-}
 
 dialog {
-padding: 20px;
-border: 1px solid #ccc;
-border-radius: 5px;
-background-color: #333;
-color: #ddd;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ddd;
 }
 
 dialog p {
-margin: 0;
-font-size: 16px;
+    margin: 0;
+    font-size: 16px;
 }
 
 dialog button {
-margin: 5px;
-padding: 10px 20px;
-border: none;
-background-color: #333;
-color: #fff;
-border-radius: 5px;
-cursor: pointer;
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
-dialog button:hover {
-background-color: red;
 
+dialog button:hover {
+    background-color: red;
 }
+
 #toggleButton {
-margin: 5px;
-padding: 10px 20px;
-border: none;
-background-color: white;
-color: #333;
-border-radius: 5px;
-cursor: pointer;
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #toggleButton:hover {
-transform: scale(1.1);
-transition: transform 0.3s;
-background-color: #ddd;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    background-color: #ddd;
 }
+
 a {
-color: black 
+    color: black;
 }
 
 /* Visited link color */
 a:visited {
-color: red; 
+    color: red; 
 }
 
 /* Hovered link color */
 a:hover {
-color: #333;
+    color: #333;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .hangman-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .word-display {
+        font-size: 1.2em;
+    }
+
+    dialog {
+        padding: 15px;
+    }
+
+    dialog button {
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hangman-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .word-display {
+        font-size: 1em;
+    }
+
+    dialog {
+        padding: 10px;
+    }
+
+    dialog button {
+        padding: 6px 12px;
+    }
 }

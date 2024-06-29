@@ -170,7 +170,6 @@ a:hover {
 
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
-
     section {
         margin-left: auto; /* Adjust margin for smaller screens */
     }
@@ -188,9 +187,10 @@ a:hover {
     nav.sidenav a {
         padding: 5px 10px; /* Adjust padding for smaller screens */
         font-size: 18px;
+    }
 
     section {
-        margin-left: Auto; /* Adjust margin for smaller screens */
+        margin-left: auto; /* Adjust margin for smaller screens */
     }
 
     .games-grid {

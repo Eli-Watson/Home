@@ -170,14 +170,6 @@ a:hover {
 
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 768px) {
-    nav.sidenav {
-        width: 80px; /* Adjust the width for smaller screens */
-    }
-    
-    nav.sidenav a {
-        padding: 5px 10px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
 
     section {
         margin-left: auto; /* Adjust margin for smaller screens */
@@ -190,7 +182,7 @@ a:hover {
 
 @media screen and (max-width: 480px) {
     nav.sidenav {
-        width: 70px; /* Adjust the width for smaller screens */
+        width: 80px; /* Adjust the width for smaller screens */
     }
 
     nav.sidenav a {

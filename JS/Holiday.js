@@ -71,4 +71,5 @@ function displayNearestHoliday() {
     }
 }
 
-window.onload = displayNearestHoliday;
+// Call displayNearestHoliday() when the page finishes loading
+document.addEventListener('DOMContentLoaded', displayNearestHoliday);

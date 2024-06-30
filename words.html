@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word of the Day</title>
+    <style>
+        
+        .wordOfTheDay {
+            text-align: center;
+            border: 2px solid black;
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        .word {
+            font-size: 2.5em;
+            color: red;
+            font-weight: bold;
+        }
+        }
+        h1 {
+            color: black;
+            text-decoration: underline;
+        }
+        p {
+            font-size: 1.2em;
+            color: black;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="wordOfTheDay">
+        <h1>Word of the Day:</h1>
+        <div id="word" class="word"></div>
+        <p id="definition"></p>
+    </div>
+
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    // Check if a word is already stored for today
+    const storedWord = localStorage.getItem('wordOfTheDay');
+    
+    if (storedWord) {
+        // If a word is stored, display it
+        displayWord(JSON.parse(storedWord));
+    } else {
+        // Fetch the words from JSON file
+        fetch('words.json')
+            .then(response => response.json())
+            .then(data => {
+                // Select a random word from the array
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomWord = data[randomIndex];
+
+                // Store the selected word in localStorage with today's date
+                localStorage.setItem('wordOfTheDay', JSON.stringify(randomWord));
+
+                // Display the word and definition on the page
+                displayWord(randomWord);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+});
+
+function displayWord(wordObj) {
+    // Display the word and definition on the page
+    document.getElementById('word').textContent = wordObj.word;
+    document.getElementById('definition').textContent = wordObj.definition;
+}
+
+
+    </script>
+</body>
+</html>

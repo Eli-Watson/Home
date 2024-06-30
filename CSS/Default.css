@@ -156,28 +156,3 @@ a:hover {
         margin-left: auto; /* Adjust margin for smaller screens */
     }
 }
-.holiday {
-    text-align: center;
-    border: 2px solid black;
-    padding: 20px;
-    margin: 10px auto;
-    max-width: 600px;
-    background-color: #f9f9f9;
-}
-.Slogan {
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-decoration: underline;
-}
-.HolidayName {
-    color: red;
-}
-.HolidayMessage {
-    font-style: italic;
-    color: #333;
-    margin-top: 15px;
-}
-.DaysUntil {
-    color: red;
-    font-weight: bold;
-}

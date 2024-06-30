@@ -36,9 +36,9 @@ function toggleNavBar() {
             }
         } else {
             // If not hidden, set margin-left to 70px for both section and footer
-            section.style.marginLeft = '70px';
+            section.style.marginLeft = '150px';
             if (footer) {
-                footer.style.marginLeft = '70px';
+                footer.style.marginLeft = '150px';
             }
         }
     }

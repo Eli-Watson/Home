@@ -71,9 +71,12 @@ nav.sidenav a:hover {
 section {
     padding: 20px;
     border-color: #333;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
+footer {
+    margin-left: 150;
+}
 dialog {
     padding: 20px;
     border: 1px solid #ccc;

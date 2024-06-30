@@ -1,5 +1,7 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+   "http://www.w3.org/TR/html4/loose.dtd">
+
 <!--
  This file has been put into the public domain by its
  author, David Eck (http://math.hws.edu/eck), with no
@@ -9,35 +11,37 @@
  license.  The prototype and scriptaculous JavaScript
  libraries that are used on this page have their own license.
 -->
+
 <html>
 <head>
-  <title>Blackjack in Javascript</title>
-  <script type="text/javascript" src="Card.js"></script>
-  <script type="text/javascript" src="DisplayedCard.js"></script>
-  <script type="text/javascript" src="js/prototype.js"></script>
-  <script type="text/javascript" src=
-  "js/scriptaculous.js?load=effects"></script>
-  <script type="text/javascript">
+<title>Blackjack in Javascript</title>
 
-  var dealerCards = [];  // Arrays holding the DisplayCard objects used to show the cards
-  var playerCards = [];
+<script type="text/javascript" src="Card.js"></script>
+<script type="text/javascript" src="DisplayedCard.js"></script>
+<script type="text/javascript" src="js/prototype.js"></script>
+<script type="text/javascript" src="js/scriptaculous.js?load=effects"></script>
 
-  dealerCards.count = 0;  // Number of cards actually in the dealer's hand
-  playerCards.count = 0;   // Number of cards actually in the player's hand
+<script type="text/javascript">
 
-  var deck = new Deck();
+var dealerCards = [];  // Arrays holding the DisplayCard objects used to show the cards
+var playerCards = [];
 
-  var gameInProgress = false;
+dealerCards.count = 0;  // Number of cards actually in the dealer's hand
+playerCards.count = 0;   // Number of cards actually in the player's hand
 
-  var bet;
-  var betInput;
-  var money;
-  var moneyDisplay;
-  var message;
+var deck = new Deck();
 
-  var standButton, hitButton, newGameButton;  // objects representing the buttons, so I can enable/disable them
+var gameInProgress = false;
 
-  function setup() {
+var bet;
+var betInput;
+var money;
+var moneyDisplay;
+var message;
+
+var standButton, hitButton, newGameButton;  // objects representing the buttons, so I can enable/disable them
+
+function setup() {
     for (var i = 1; i <= 5; i++) {
        dealerCards[i] = new DisplayedCard("dealer" + i);
        dealerCards[i].cardContainer.style.display = "none";
@@ -57,10 +61,10 @@
     standButton.disabled = true;
     hitButton.disabled = true;
     newGameButton.disabled = false;
-  }
+}
 
 
-  function dealCard(cards, runOnFinish, faceDown) {
+function dealCard(cards, runOnFinish, faceDown) {
     var crd = deck.nextCard();
     cards.count++;
     if (faceDown)
@@ -73,9 +77,9 @@
        queue: "end",
        afterFinish: runOnFinish
     });
-  }
+}
 
-  function getTotal(hand) {
+function getTotal(hand) {
    var total = 0;
    var ace = false;
    for (var i = 1; i <= hand.count; i++) {
@@ -86,9 +90,9 @@
    if (total + 10 <= 21 && ace)
       total += 10;
    return total;
-  }
+}
 
-  function startGame() {
+function startGame() {
    if (!gameInProgress) {
       var betText = betInput.value;
       if ( ! betText.match(/^[0-9]+$/) || betText < 1 || betText > money) {
@@ -131,9 +135,9 @@
                 message.innerHTML = "You have " + playerTotal +".  Hit or Stand?";
           }, true);
    }
-  }
+}
 
-  function endGame(win, why) {
+function endGame(win, why) {
      if (win)
          money += bet;
      else
@@ -174,10 +178,10 @@
             });
         }
      });
-  }
+}
 
 
-  function dealersTurnAndEndGame() {
+function dealersTurnAndEndGame() {
     message.innerHTML = "Dealer's turn...";
     dealerCards[2].cardContainer.style.display = "none";
     dealerCards[2].setFaceUp();
@@ -190,7 +194,7 @@
               if (dealerCards.count < 5 && dealerTotal <= 16) {
                   dealerCards.count++;
                   dealerCards[dealerCards.count].setCard(deck.nextCard());
-                          dealerCards[dealerCards.count].setFaceUp();
+		          dealerCards[dealerCards.count].setFaceUp();
                   takeNextCardOrFinish();
               }
               else if (dealerTotal > 21)
@@ -210,9 +214,9 @@
        });
     };
     takeNextCardOrFinish();
-  }
+}
 
-  function hit() {
+function hit() {
    if (!gameInProgress)
       return;
    standButton.disabled = true;
@@ -231,92 +235,50 @@
          standButton.disabled = false;
       }
    });
-  }
+}
 
-  function stand() {
+function stand() {
    if (!gameInProgress)
       return;
    hitButton.disabled = true;
    standButton.disabled = true;
    dealersTurnAndEndGame();
-  }
+}
 
-  onload=setup;
+onload=setup;
 
-  </script>
+</script>
 </head>
 <body>
-  <table align="center" cellpadding="0" cellspacing="10" border=
-  "0;">
-    <tr>
-      <td>
-        <div style=
-        "position: relative; border: thick solid #660; background-color: #280; width: 579px; height:500px">
-          <div style=
-          "position: absolute; left:20px; top:15px; color:#9F9; font-size:large">
-            Dealer's cards:
-          </div>
-          <div id="dealer1" style=
-          "position: absolute; left: 50px; top:50px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="dealer2" style=
-          "position: absolute; left: 150px; top:50px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="dealer3" style=
-          "position: absolute; left: 250px; top:50px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="dealer4" style=
-          "position: absolute; left: 350px; top:50px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="dealer5" style=
-          "position: absolute; left: 450px; top:50px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div style=
-          "position: absolute; left:20px; top:210px; color:#9F9; font-size:large">
-            Your cards:
-          </div>
-          <div id="player1" style=
-          "position: absolute; left: 50px; top:250px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="player2" style=
-          "position: absolute; left: 150px; top:250px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="player3" style=
-          "position: absolute; left: 250px; top:250px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="player4" style=
-          "position: absolute; left: 350px; top:250px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div id="player5" style=
-          "position: absolute; left: 450px; top:250px; border: 2px solid #660; background-color: #660">
-          </div>
-          <div style=
-          "position: absolute; left:20px; top: 410px; color:#9F9; font-size:large">
-            You have:
-          </div>
-          <div id="money" style=
-          "position: absolute; left: 70px; top:445px; color:yellow; font-size:x-large">
-          </div>
-          <div id="betdiv" style=
-          "position:absolute; left:300px; top:425px">
-            <span style="color:#9F9">Your bet:</span>Â 
-            <input type="text" size="6" id="bet">
-          </div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td align="center"><input type="button" id="hitButton" value=
-      "Hit" onclick="hit()" disabled> <input type="button" id=
-      "standButton" value="Stand" onclick="stand()" disabled>
-      <input type="button" id="newGameButton" value="New Game"
-      onclick="startGame()"></td>
-    </tr>
-    <tr>
-      <td align="center"><span id="message" style=
-      "color:#600; font-weight:bold">Welcome to Blackjack!<br>
-      Click "New Game" to Begin.</span></td>
-    </tr>
-  </table>
+<table align=center cellpadding=0 cellspacing=10 border=0;>
+<tr><td>
+<div style="position: relative; border: thick solid #660; background-color: #280; width: 579px; height:500px">
+    <div style="position: absolute; left:20px; top:15px; color:#9F9; font-size:large">Dealer's cards:</div>
+    <div id="dealer1" style="position: absolute; left: 50px; top:50px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="dealer2" style="position: absolute; left: 150px; top:50px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="dealer3" style="position: absolute; left: 250px; top:50px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="dealer4" style="position: absolute; left: 350px; top:50px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="dealer5" style="position: absolute; left: 450px; top:50px;  border: 2px solid #660; background-color: #660"></div>
+    <div style="position: absolute; left:20px; top:210px; color:#9F9; font-size:large">Your cards:</div>
+    <div id="player1" style="position: absolute; left: 50px; top:250px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="player2" style="position: absolute; left: 150px; top:250px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="player3" style="position: absolute; left: 250px; top:250px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="player4" style="position: absolute; left: 350px; top:250px;  border: 2px solid #660; background-color: #660"></div>
+    <div id="player5" style="position: absolute; left: 450px; top:250px;  border: 2px solid #660; background-color: #660"></div>
+    <div style="position: absolute; left:20px; top: 410px; color:#9F9; font-size:large">You have:</div>
+    <div id="money" style="position: absolute; left: 70px; top:445px; color:yellow; font-size:x-large"></div>
+    <div id="betdiv" style="position:absolute; left:300px; top:425px">
+       <span style="color:#9F9">Your bet:</span>&nbsp; <input type=text size=6 id="bet">
+    </div>
+</div>
+</td></tr>
+<tr><td align=center>
+<input type=button id="hitButton" value="Hit" onclick="hit()" disabled>
+<input type=button id="standButton" value="Stand" onclick="stand()" disabled>
+<input type=button id="newGameButton" value="New Game" onClick="startGame()">
+</td></tr>
+<tr><td align=center>
+<span id="message" style="color:#600; font-weight:bold">Welcome to Blackjack!<br>Click "New Game" to Begin.</span>
+</td></tr>
+</table>
 </body>
-</html>

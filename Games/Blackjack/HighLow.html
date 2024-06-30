@@ -1,0 +1,125 @@
+
+<!--
+ This file has been put into the public domain by its
+ author, David Eck (http://math.hws.edu/eck), with no
+ guarantees or claims about what it might be good for.
+ Note that the card images used by this program are from
+ the Gnome Desktop, which uses the GPL license.
+-->
+
+<html>
+<head>
+<title>HighLow Card Demo</title>
+<script type="text/javascript" src="Card.js"></script>
+<script type="text/javascript" src="DisplayedCard.js"></script>
+<script type="text/javascript">
+
+var cards = [];
+var deck = new Deck();
+var gameInProgress = false;
+var currentCardNum;  // card number of face down card
+var nextCard;
+var message;
+var higherButton, lowerButton, newGameButton;
+
+function setup() {
+    for (var i = 1; i <= 5; i++) {
+       cards[i] = new DisplayedCard("card" + i);
+    }
+    message = document.getElementById("message");
+    higherButton = document.getElementById("higherButton");
+    lowerButton = document.getElementById("lowerButton");
+    newGameButton = document.getElementById("newGameButton");
+    higherButton.disabled = true;
+    lowerButton.disabled = true;
+    newGameButton.disabled = false;
+}
+
+function startGame() {
+   if (!gameInProgress) {
+      gameInProgress = true;
+      deck.shuffle();
+      cards[1].setCard(deck.nextCard());
+      cards[1].setFaceUp();
+      for (var i = 2; i <=5; i++) {
+         cards[i].setCard(deck.nextCard());
+         cards[i].setFaceDown();
+      }
+      currentCardNum = 2;
+      nextCard = deck.nextCard();
+      message.innerHTML = "Will the second card be higher or lower than the first?";
+      higherButton.disabled = false;
+      lowerButton.disabled = false;
+      newGameButton.disabled = true;
+   }
+}
+
+function endGame(win, why) {
+     message.innerHTML = (win ? "Congratulations! You win.  " : "Sorry! You lose.  ") + why + "<br>Click New Game to play again.";
+     higherButton.disabled = true;
+     lowerButton.disabled = true;
+     newGameButton.disabled = false;
+     gameInProgress = false;
+}
+
+function higher() {
+   if (!gameInProgress)
+      return;
+   var previous = cards[currentCardNum-1].card;
+   var current = cards[currentCardNum].card;
+   cards[currentCardNum].setFaceUp();
+   if (current.value < previous.value)
+      endGame(false, "The next card had a lower value.");
+   else if (current.value == previous.value)
+      endGame(false, "You lose on ties.");
+   else if (currentCardNum == 5)
+      endGame(true, "You made 4 correct predictions");
+   else {
+      message.innerHTML = "Prediction " + (currentCardNum-1) + " was correct!<br>Will the next card be higher or lower?";
+      currentCardNum++;
+   }
+}
+
+function lower() {
+   if (!gameInProgress)
+      return;
+   var previous = cards[currentCardNum-1].card;
+   var current = cards[currentCardNum].card;
+   cards[currentCardNum].setFaceUp();
+   if (current.value > previous.value)
+      endGame(false, "The next card had a higher value.");
+   else if (current.value == previous.value)
+      endGame(false, "You lose on ties.");
+   else if (currentCardNum == 5)
+      endGame(true, "You made 4 correct predictions");
+   else {
+      message.innerHTML = "Prediction number " + (currentCardNum-1) + " was correct!<br>Will the next card be higher or lower?";
+      currentCardNum++;
+   }
+}
+
+onload=setup;
+
+</script>
+</head>
+<body>
+<table align=center cellpadding=0 cellspacing=10 border=0;>
+<tr><td>
+<div style="position: relative; border: thick solid #660; background-color: #280; width: 579px; height:235px">
+    <div id="card1" style="position: absolute; left: 50px; top:50px;"></div>
+    <div id="card2" style="position: absolute; left: 150px; top:50px;"></div>
+    <div id="card3" style="position: absolute; left: 250px; top:50px;"></div>
+    <div id="card4" style="position: absolute; left: 350px; top:50px;"></div>
+    <div id="card5" style="position: absolute; left: 450px; top:50px;"></div>
+</div>
+</td></tr>
+<tr><td align=center>
+<input type=button id="higherButton" value="Higher" onclick="higher()" disabled>
+<input type=button id="lowerButton" value="Lower" onclick="lower()" disabled>
+<input type=button id="newGameButton" value="New Game" onClick="startGame()">
+</td></tr>
+<tr><td align=center>
+<span id="message" style="color:#600; font-weight:bold">Welcome to HighLow!<br>Click "New Game" to Begin.</span>
+</td></tr>
+</table>
+</body>

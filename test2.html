@@ -1,943 +1,120 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/Home/CSS/Default.css">
-    <title>testing</title>
+    <title>Testing</title>
+    <style>
+        .holiday {
+            text-align: center;
+			border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #f9f9f9;
+        }
+        .Slogan {
+            font-size: 18px;
+            margin-bottom: 10px;
+			text-decoration: underline;
+        }
+        .HolidayName {
+            color: red;
+        }
+        .HolidayMessage {
+            font-style: italic;
+            color: #333;
+            margin-top: 15px;
+        }
+		.DaysUntil {
+			color: red;
+			font-weight: bold;
+		}
+    </style>
 </head>
-<section>
-    <div id="wrapper">
-        <div id="game">
-          <div id="alert" class="alert alert-error hide"><span></span></div>
-          <div id="dealer">
-            <div id="dhand"></div>
-          </div>
-          <div id="player">
-            <div id="phand"></div>
-          </div>
-          <div id="money">
-            <span id="cash">Cash: $<span></span></span>
-            <div id="bank">Winnings: $<span></span></div>
-          </div>
+<body>
+    <section>
+        <div id="holidayInfo" class="holiday">
+            <p>Loading...</p>
         </div>
-        <div id="actions">
-          <button id="deal" class="btn">Deal!</button>
-          <button id="hit" class="btn" disabled>Hit</button>
-          <button id="stand" class="btn" disabled>Stand</button>
-          <button id="double" class="btn" disabled>Double Down</button>
-          <button id="split" class="btn" disabled>Split</button>
-          <button id="insurance" class="btn" disabled>Insurance</button>
-          <strong>Wager:</strong> $<input id="wager" class="input-small" type="text" />
-        </div>
-      </div>
-      <div id="myModal" class="modal hide fade">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3>Out of cash!</h3>
-        </div>
-        <div class="modal-body">
-          <p>You ran out of cash, but you spot an ATM nearby. Would you like to withdraw another $1,000 and try your luck again?</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" id="cancel" class="btn">Nah</a>
-          <a href="#" id="newGame" class="btn btn-primary">Yes!</a>
-        </div>
-      </div>
-</section>  
+    </section>
 
+    <script>
+        const holidays = [
+            { name: "New Year's Day", date: "January 1", message: "Happy New Year!" },
+            { name: "Martin Luther King Jr. Day", date: "January 21", message: "Celebrate the legacy of Martin Luther King Jr." },
+            { name: "Groundhog Day", date: "February 2", message: "Will the groundhog see its shadow?" },
+            { name: "Valentine's Day", date: "February 14", message: "Happy Valentine's Day!" },
+            { name: "President's Day", date: "February 18", message: "Honoring past presidents of the United States." },
+            { name: "St. Patrick's Day", date: "March 17", message: "Pinch somebody!" },
+            { name: "First Day of Spring", date: "March 20", message: "Time for green things." },
+            { name: "Easter Sunday", date: "March 31", message: "Celebrate the resurrection of Jesus Christ." },
+            { name: "April Fool's Day", date: "April 1", message: "Prank somebody for me!" },
+            { name: "Arbor Day", date: "April 26", message: "Hug a tree." },
+            { name: "Mother's Day", date: "May 12", message: "Honor mothers and motherhood." },
+            { name: "Memorial Day", date: "May 27", message: "Remember and honor those who died in military service." },
+            { name: "Flag Day", date: "June 14", message: "Celebrate the adoption of the United States flag." },
+            { name: "First Day of Summer", date: "June 21", message: "There's 104 days of summer vacation!!!!!!" },
+            { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain." },
+            { name: "Labor Day", date: "September 2", message: "Honoring the contributions of American workers." },
+            { name: "First Day of Autumn", date: "September 22", message: "Check what's in the leaves before you jump in." },
+            { name: "Columbus Day", date: "October 13", message: "Remember Christopher Columbus' voyage to the Americas." },
+            { name: "Halloween", date: "October 31", message: "Trick or treat! Enjoy costumes and candies." },
+            { name: "Veterans Day", date: "November 11", message: "Thank veterans for their service to the country." },
+            { name: "Thanksgiving Day", date: "November 27", message: "Give thanks and enjoy a feast with loved ones." },
+            { name: "First Day of Winter", date: "December 21", message: "No Yellow Snow." },
+            { name: "Christmas Day", date: "December 25", message: "Merry Christmas! Celebrate Christ's birth." },
+            { name: "New Year's Eve", date: "December 31", message: "Only stay up if you don't need rest." },
+        ];
 
+        function daysUntilHoliday(holidayDate) {
+            const today = new Date();
+            const holidayThisYear = new Date(today.getFullYear() + '/' + holidayDate);
+            if (today > holidayThisYear) {
+                holidayThisYear.setFullYear(today.getFullYear() + 1);
+            }
+            const diffTime = Math.abs(holidayThisYear - today);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        function findNearestHoliday() {
+            const today = new Date();
+            let nearestHoliday = null;
+            let minDays = Infinity;
+
+            holidays.forEach(holiday => {
+                const holidayDate = new Date(today.getFullYear() + '/' + holiday.date);
+                const daysToHoliday = Math.ceil((holidayDate - today) / (1000 * 60 * 60 * 24));
+
+                if (daysToHoliday >= 0 && daysToHoliday < minDays) {
+                    minDays = daysToHoliday;
+                    nearestHoliday = holiday;
+                }
+            });
+
+            return { holiday: nearestHoliday, daysUntil: minDays };
+        }
+
+        function displayNearestHoliday() {
+            const { holiday, daysUntil } = findNearestHoliday();
+            const holidayInfo = document.getElementById('holidayInfo');
+
+            if (holiday) {
+                holidayInfo.innerHTML = `
+                    <h3>Holiday Info:</h3>
+                    <p class="Slogan">We keep track so you don't have to!</p>
+                    <p>The nearest holiday is <span class="HolidayName">${holiday.name}</span>.</p>
+                    <p><span class="DaysUntil">${daysUntil}</span> days until ${holiday.name} (${holiday.date}).</p>
+                    <p class="HolidayMessage">${holiday.message}</p>
+                `;
+            } else {
+                holidayInfo.innerHTML = `<p>No upcoming holidays found.</p>`;
+            }
+        }
+
+        window.onload = displayNearestHoliday;
+    </script>
 </body>
 </html>
-
-<script>
-    /*
-
-A JavaScript Blackjack game created June 2013 by Chris Clower 
-(clowerweb.com). Deck class loosely based on a tutorial at:
-http://www.codecademy.com/courses/blackjack-part-1
-
-All graphics and code were designed/written by me except for the
-chip box on the table, which was taken from the image at:
-http://www.marketwallpapers.com/wallpapers/9/wallpaper-52946.jpg
-
-Uses Twitter Bootstrap and jQuery, which also were not created by
-me :)
-
-Fonts used:
-* "Blackjack" logo: Exmouth
-* Symbol/floral graphics: Dingleberries
-* All other fonts: Adobe Garamond Pro
-
-All graphics designed in Adobe Fireworks CS6
-
-You are free to use or modify this code for any purpose, but I ask
-that you leave this comment intact. Please understand that this is
-still very much a work in progress, and is not feature complete nor
-without bugs.
-
-I will also try to comment the code better for future updates :D
-
-*/
-
-/*global $, confirm, Game, Player, renderCard, Card, setActions, 
-resetBoard, showBoard, showAlert, getWinner, jQuery, wager */
-
-(function () {
-
-/*****************************************************************/
-/*************************** Globals *****************************/
-/*****************************************************************/
-
-	var game      = new Game(),
-			player    = new Player(),
-			dealer    = new Player(),
-			running   = false,
-			blackjack = false,
-			insured   = 0,
-			deal;
-
-/*****************************************************************/
-/*************************** Classes *****************************/
-/*****************************************************************/
-
-	function Player() {
-		var hand  = [],
-				wager = 0,
-				cash  = 1000,
-				bank  = 0,
-				ele   = '',
-				score = '';
-
-		this.getElements = function() {
-			if(this === player) {
-				ele   = '#phand';
-				score = '#pcard-0 .popover-content';
-			} else {
-				ele   = '#dhand';
-				score = '#dcard-0 .popover-content';
-			}
-
-			return {'ele': ele, 'score': score};
-		};
-
-		this.getHand = function() {
-			return hand;
-		};
-
-		this.setHand = function(card) {
-			hand.push(card);
-		};
-
-		this.resetHand = function() {
-			hand = [];
-		};
-
-		this.getWager = function() {
-			return wager;
-		};
-
-		this.setWager = function(money) {
-			wager += parseInt(money, 0);
-		};
-
-		this.resetWager = function() {
-			wager = 0;
-		};
-
-		this.checkWager = function() {
-			return wager <= cash ? true : false;
-		};
-
-		this.getCash = function() {
-			return cash.formatMoney(2, '.', ',');
-		};
-
-		this.setCash = function(money) {
-			cash += money;
-			this.updateBoard();
-		};
-
-		this.getBank = function() {
-			$('#bank').html('Winnings: $' + bank.formatMoney(2, '.', ','));
-
-			if(bank < 0) {
-				$('#bank').html('Winnings: <span style="color: #D90000">-$' + 
-				bank.formatMoney(2, '.', ',').toString().replace('-', '') + '</span>');
-			}
-		};
-
-		this.setBank = function(money) {
-			bank += money;
-			this.updateBoard();
-		};
-
-		this.flipCards = function() {
-			$('.down').each(function() {
-				$(this).removeClass('down').addClass('up');
-				renderCard(false, false, false, $(this));
-			});
-
-			$('#dcard-0 .popover-content').html(dealer.getScore());
-		};
-	}
-
-	function Deck() {
-		var ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'],
-				suits = ['&#9824;', '&#9827;', '&#9829;', '&#9670;'],
-				deck  = [],
-				i, x, card;
-
-		this.getDeck = function() {
-			return this.setDeck();
-		};
-
-		this.setDeck = function() {
-			for(i = 0; i < ranks.length; i++) {
-				for(x = 0; x < suits.length; x++) {
-					card = new Card({'rank': ranks[i]});
-
-					deck.push({
-						'rank' : ranks[i],
-						'suit' : suits[x],
-						'value': card.getValue()
-					});
-				}
-			}
-
-			return deck;
-		};
-	}
-
-	function Shuffle(deck) {
-		var set      = deck.getDeck(),
-				shuffled = [],
-				card;
-
-		this.setShuffle = function() {
-			while(set.length > 0) {
-				card = Math.floor(Math.random() * set.length);
-
-				shuffled.push(set[card]);
-				set.splice(card, 1);
-			}
-
-			return shuffled;
-		};
-
-		this.getShuffle = function() {	
-			return this.setShuffle();
-		};
-	}
-
-	function Card(card) {
-		this.getRank = function() {
-			return card.rank;
-		};
-
-		this.getSuit = function() {
-			return card.suit;
-		};
-
-		this.getValue = function() {
-			var rank  = this.getRank(),
-				  value = 0;
-
-			if(rank === 'A') {
-				value = 11;
-			} else if(rank === 'K') {
-				value = 10;
-			} else if(rank === 'Q') {
-				value = 10;
-			} else if(rank === 'J') {
-				value = 10;
-			} else {
-				value = parseInt(rank, 0);
-			}
-
-			return value;
-		};
-	}
-
-	function Deal() {
-		var deck     = new Deck(),
-				shuffle  = new Shuffle(deck),
-				shuffled = shuffle.getShuffle(),
-				card;
-
-		this.getCard = function(sender) {
-			this.setCard(sender);
-			return card;
-		};
-
-		this.setCard = function(sender) {
-			card = shuffled[0];
-			shuffled.splice(card, 1);
-			sender.setHand(card);
-		};
-
-		this.dealCard = function(num, i, obj) {
-			if(i >= num) { return false; }
-
-			var sender   = obj[i],
-					elements = obj[i].getElements(),
-					score    = elements.score,
-					ele      = elements.ele,
-					dhand    = dealer.getHand();
-
-			deal.getCard(sender);
-
-			if(i < 3) {
-				renderCard(ele, sender, 'up');
-				$(score).html(sender.getScore());
-			} else {
-				renderCard(ele, sender, 'down');
-			}
-
-			if(player.getHand().length < 3) {
-				if(dhand.length > 0 && dhand[0].rank === 'A') {
-					setActions('insurance');
-				}
-
-				if(player.getScore() === 21) {
-					if(!blackjack) {
-						blackjack = true;
-						getWinner();
-					} else {
-						dealer.flipCards();
-						$('#dscore span').html(dealer.getScore());
-					}
-				} else {
-					if(dhand.length > 1) {
-						setActions('run');
-					}
-				}
-			}
-
-			function showCards() {
-				setTimeout(function() {
-					deal.dealCard(num, i + 1, obj);
-				}, 500);
-			}
-
-			clearTimeout(showCards());
-		};
-	}
-
-	function Game() {
-		this.newGame = function() {
-			var wager = $.trim($('#wager').val());
-
-			player.resetWager();
-			player.setWager(wager);
-
-			if(player.checkWager()) {
-				$('#deal').prop('disabled', true);
-				resetBoard();
-				player.setCash(-wager);
-
-				deal      = new Deal();
-				running   = true;
-				blackjack = false;
-				insured   = false;
-
-				player.resetHand();
-				dealer.resetHand();
-				showBoard();
-			} else {
-				player.setWager(-wager);
-				$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-				showAlert('Wager cannot exceed available cash!');
-			}
-		};
-	}
-
-/*****************************************************************/
-/************************* Extensions ****************************/
-/*****************************************************************/
-
-	Player.prototype.hit = function(dbl) {
-		var pscore;
-
-		deal.dealCard(1, 0, [this]);
-		pscore = player.getScore();
-
-		if(dbl || pscore > 21) {
-			running = false;
-
-			setTimeout(function() {
-				player.stand();
-			}, 500);
-		} else {
-			this.getHand();
-		}
-
-		setActions();
-
-		player.updateBoard();
-	};
-
-	Player.prototype.stand = function() {
-		var timeout = 0;
-
-    running = false;
-		dealer.flipCards();
-
-		function checkDScore() {
-			if(dealer.getScore() < 17 && player.getScore() <= 21) {
-				timeout += 200;
-
-				setTimeout(function() {
-					dealer.hit();
-					checkDScore();
-				}, 500);
-			} else {
-				setTimeout(function() {
-					getWinner();
-				}, timeout);
-			}
-		}
-
-		checkDScore();
-	};
-
-	Player.prototype.dbl = function() {
-		var wager = this.getWager();
-
-		if(this.checkWager(wager * 2)) {
-			$('#double').prop('disabled', true);
-			this.setWager(wager);
-			this.setCash(-wager);
-			
-			this.hit(true);
-		} else {
-			$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-			showAlert('You don\'t have enough cash to double down!');
-		}
-	};
-
-	Player.prototype.split = function() {
-		$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-		showAlert('Split function is not yet working.');
-	};
-
-	Player.prototype.insure = function() {
-		var wager    = this.getWager() / 2,
-		  	newWager = 0;
-
-		$('#insurance').prop('disabled', true);
-		this.setWager(wager);
-
-		if(this.checkWager()) {
-			newWager -= wager;
-			this.setCash(newWager);
-			insured = wager;
-		} else {
-			this.setWager(-wager);
-			$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-			showAlert('You don\'t have enough for insurance!');
-		}
-	};
-
-	Player.prototype.getScore = function() {
-		var hand  = this.getHand(),
-				score = 0,
-				aces  = 0,
-				i;
-
-		for(i = 0; i < hand.length; i++) {
-			score += hand[i].value;
-
-			if(hand[i].value === 11) { aces += 1; }
-
-			if(score > 21 && aces > 0) {
-				score -= 10;
-				aces--;
-			}
-		}
-
-		return score;
-	};
-
-	Player.prototype.updateBoard = function() {
-		var score = '#dcard-0 .popover-content';
-
-		if(this === player) {
-			score = '#pcard-0 .popover-content';
-		}
-
-		$(score).html(this.getScore());
-		$('#cash span').html(player.getCash());
-		player.getBank();
-	};
-
-	Number.prototype.formatMoney = function(c, d, t) {
-		var n = this, 
-		    s = n < 0 ? '-' : '',
-		    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + '',
-		    j = i.length;
-		    j = j > 3 ? j % 3 : 0;
-	   return s + (j ? i.substr(0, j) + t : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : '');
-	 };
-
-/*****************************************************************/
-/************************** Functions ****************************/
-/*****************************************************************/
-
-	(function($) {
-    $.fn.disableSelection = function() {
-      return this.attr('unselectable', 'on')
-                 .css('user-select', 'none')
-                 .on('selectstart', false);
-    };
-	}(jQuery));
-
-	(function($) {
-		$.fn.numOnly = function() {
-			this.on('keydown', function(e) {
-				if(e.keyCode === 46 || e.keyCode === 8 || e.keyCode === 9 || e.keyCode === 27 || e.keyCode === 13 || (e.keyCode === 65 && e.ctrlKey === true) || (e.keyCode >= 35 && e.keyCode <= 39)) {
-					return true;
-				} else {
-					if(e.shifKey || ((e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105))) {
-						e.preventDefault();
-					}
-				}
-			});
-		};
-	}(jQuery));
-
-	function showAlert(msg) {
-		$('#alert span').html('<strong>' + msg + '</strong>');
-		$('#alert').fadeIn();
-	}
-
-	function setActions(opts) {
-		var hand = player.getHand();
-
-		if(!running) {
-			$('#deal')  .prop('disabled', false);
-			$('#hit')   .prop('disabled', true);
-			$('#stand') .prop('disabled', true);
-			$('#double').prop('disabled', true);
-			$('#split') .prop('disabled', true);
-			$('#insurance').prop('disabled', true);
-		}
-
-		if(opts === 'run') {
-			$('#deal')  .prop('disabled', true);
-			$('#hit')   .prop('disabled', false);
-			$('#stand') .prop('disabled', false);
-
-			if(player.checkWager(wager * 2)) {
-				$('#double').prop('disabled', false);
-			}
-		} else if(opts === 'split') {
-			$('#split').prop('disabled', false);
-		} else if(opts === 'insurance') {
-			$('#insurance').prop('disabled', false);
-		} else if(hand.length > 2) {
-			$('#double')   .prop('disabled', true);
-			$('#split')    .prop('disabled', true);
-			$('#insurance').prop('disabled', true);
-		}
-	}
-
-	function showBoard() {
-		deal.dealCard(4, 0, [player, dealer, player, dealer]);
-	}
-
-	function renderCard(ele, sender, type, item) {
-		var hand, i, card;
-
-		if(!item) {
-			hand = sender.getHand();
-		 	i    = hand.length - 1;
-		 	card = new Card(hand[i]);
-		} else {
-		 	hand = dealer.getHand();
-		 	card = new Card(hand[1]);
-		}
-
-		var	rank  = card.getRank(),
-				suit  = card.getSuit(),
-				color = 'red',
-				posx  = 402,
-				posy  = 182,
-				speed = 200,
-				cards = ele + ' .card-' + i;
-
-		if(i > 0) {
-			posx -= 50 * i;
-		}
-
-		if(!item) {
-			$(ele).append(
-				'<div class="card-' + i + ' ' + type + '">' + 
-					'<span class="pos-0">' +
-						'<span class="rank">&nbsp;</span>' +
-						'<span class="suit">&nbsp;</span>' +
-					'</span>' +
-					'<span class="pos-1">' +
-						'<span class="rank">&nbsp;</span>' +
-						'<span class="suit">&nbsp;</span>' +
-					'</span>' +
-				'</div>'
-			);
-
-			if(ele === '#phand') {
-				posy  = 360;
-				speed = 500;
-				$(ele + ' div.card-' + i).attr('id', 'pcard-' + i);
-
-				if(hand.length < 2) {
-					$('#pcard-0').popover({
-						animation: false,
-						container: '#pcard-0',
-						content: player.getScore(),
-						placement: 'left',
-						title: 'You Have',
-						trigger: 'manual'
-					});
-
-					setTimeout(function() {
-						$('#pcard-0').popover('show');
-						$('#pcard-0 .popover').css('display', 'none').fadeIn();
-					}, 500);
-				}
-			} else {
-				$(ele + ' div.card-' + i).attr('id', 'dcard-' + i);
-
-				if(hand.length < 2) {
-					$('#dcard-0').popover({
-						container: '#dcard-0',
-						content: dealer.getScore(),
-						placement: 'left',
-						title: 'Dealer Has',
-						trigger: 'manual'
-					});
-
-					setTimeout(function() {
-						$('#dcard-0').popover('show');
-						$('#dcard-0 .popover').fadeIn();
-					}, 100);
-				}
-			}
-
-			$(ele + ' .card-' + i).css('z-index', i);
-
-			$(ele + ' .card-' + i).animate({
-				'top': posy,
-				'right': posx
-			}, speed);
-
-			$(ele).queue(function() {
-				$(this).animate({ 'left': '-=25.5px' }, 100);
-				$(this).dequeue();
-			});
-		} else {
-			cards = item;
-		}
-
-		if(type === 'up' || item) {
-			if(suit !== '&#9829;' && suit !== '&#9670;') {
-				color = 'black';
-			}
-
-			$(cards).find('span[class*="pos"]').addClass(color);
-			$(cards).find('span.rank').html(rank);
-			$(cards).find('span.suit').html(suit);
-		}
-	}
-
-	function resetBoard() {
-		$('#dhand').html('');
-		$('#phand').html('');
-		$('#result').html('');
-		$('#phand, #dhand').css('left', 0);
-	}
-
-	function getWinner() {
-		var phand    = player.getHand(),
-				dhand    = dealer.getHand(),
-				pscore   = player.getScore(),
-				dscore   = dealer.getScore(),
-				wager    = player.getWager(),
-				winnings = 0,
-				result;
-
-		running = false;
-		setActions();
-
-		if(pscore > dscore) {
-			if(pscore === 21 && phand.length < 3) {
-				winnings = (wager * 2) + (wager / 2);
-				player.setCash(winnings);
-				player.setBank(winnings - wager);
-				$('#alert').removeClass('alert-info alert-error').addClass('alert-success');
-				result = 'Blackjack!';
-			} else if(pscore <= 21) {
-				winnings = wager * 2;
-				player.setCash(winnings);
-				player.setBank(winnings - wager);
-				$('#alert').removeClass('alert-info alert-error').addClass('alert-success');
-				result = 'You win!';
-			} else if(pscore > 21) {
-				winnings -= wager;
-				player.setBank(winnings);
-				$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-				result = 'Bust';
-			}
-		} else if(pscore < dscore) {
-			if(pscore <= 21 && dscore > 21) {
-				winnings = wager * 2;
-				player.setCash(winnings);
-				player.setBank(winnings - wager);
-				$('#alert').removeClass('alert-info alert-error').addClass('alert-success');
-				result = 'You win - dealer bust!';
-			} else if(dscore <= 21) {
-				winnings -= wager;
-				player.setBank(winnings);
-				$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-				result = 'You lose!';
-			}
-		} else if(pscore === dscore) {
-			if(pscore <= 21) {
-				if(dscore === 21 && dhand.length < 3 && phand.length > 2) {
-					winnings -= wager;
-					player.setBank(winnings);
-					$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-					result = 'You lose - dealer Blackjack!';
-				} else {
-					winnings = wager;
-					$('#alert').removeClass('alert-error alert-success').addClass('alert-info');
-					player.setCash(winnings);
-					result = 'Push';
-				}
-			} else {
-				winnings -= wager;
-				player.setBank(winnings);
-				$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-				result = 'Bust';
-			}
-		}
-
-		showAlert(result);
-
-		dealer.flipCards();
-		dealer.updateBoard();
-
-		if(parseInt(player.getCash()) < 1) {
-			$('#myModal').modal();
-			$('#newGame').on('click', function() {
-				player.setCash(1000);
-				$(this).unbind('click');
-				$('#myModal').modal('hide');
-			});
-		}
-	}
-
-/*****************************************************************/
-/*************************** Actions *****************************/
-/*****************************************************************/
-
-	$('#deal').on('click', function() {
-		var cash = parseInt(player.getCash());
-
-		$('#alert').fadeOut();
-
-		if(cash > 0 && !running) {
-			if($.trim($('#wager').val()) > 0) {
-				game.newGame();
-			} else {
-				$('#alert').removeClass('alert-info alert-success').addClass('alert-error');
-				showAlert('The minimum bet is $1.');
-			}
-		} else {
-			$('#myModal').modal();
-		}
-	});
-
-	$('#hit').on('click', function() {
-		player.hit();
-	});
-
-	$('#stand').on('click', function() {
-		player.stand();
-	});
-
-	$('#double').on('click', function() {
-		player.dbl();
-	});
-
-	$('#split').on('click', function() {
-		player.split();
-	});
-
-	$('#insurance').on('click', function() {
-		player.insure();
-	});
-
-/*****************************************************************/
-/*************************** Loading *****************************/
-/*****************************************************************/
-
-	$('#wager').numOnly();
-	$('#actions:not(#wager), #game, #myModal').disableSelection();
-	$('#newGame, #cancel').on('click', function(e) { e.preventDefault(); });
-	$('#cancel').on('click', function() { $('#myModal').modal('hide'); });
-	$('#wager').val(100);
-	$('#cash span').html(player.getCash());
-	player.getBank();
-
-}());
-</script>
-
-<style>
-    div[id*="pcard"] .popover { left: -95px !important; }
-div[id*="dcard"] .popover { left: -105px !important; }
-
-#wrapper {
-	margin: 0 auto;
-	width: 1000px;
-}
-
-h3 {
-	margin: 5px 0;
-	text-align: center;
-}
-
-#game {
-	background: transparent url('https://www.clowerweb.com/cors/blackjack/table.png') 0 0 no-repeat;
-	border-radius: 5px;
-	color: #333;
-	font: 14px/17px Helvetica, Arial, Verdana, sans-serif;
-	height: 550px;
-	margin: 0 auto;
-	position: relative;
-	width: 1000px;
-}
-
-div#dscore {
-	position: absolute;
-	bottom: 30px;
-}
-
-div#pscore {
-	position: absolute;
-	bottom: 15px;
-}
-
-div#phand, div#dhand {
-	font-weight: 700;
-	/*left: 50%;*/
-	position: absolute;
-	top: -122px;
-	white-space: nowrap;
-	width: 1000px;
-}
-
-div#phand { }
-
-div#dhand { }
-
-div[class*="card"] {
-	background: #FFF;
-	border: 6px solid #FFF;
-	border-radius: 5px;
-	box-shadow: 0 0 1px #000;
-	display: inline-block;
-	height: 106px;
-	margin: 0 5px;
-	position: absolute;
-	right: 0;
-	width: 79px;
-}
-
-.down {
-	background: #B20000 url('https://www.clowerweb.com/cors/blackjack/card.png') center center no-repeat !important;
-}
-
-span.pos-0 {
-	left: 0;
-	position: absolute;
-	top: 0;
-}
-
-span.pos-1 {
-	bottom: 0;
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
-	position: absolute;
-	right: 0;
-	transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-}
-
-span.rank {
-	font-size: 18px;
-}
-
-span.suit {
-	font-size: 22px;
-}
-
-.black {
-	color: #000;
-}
-
-.red {
-	color: #F00;
-}
-
-#result {
-	position: absolute;
-	bottom: 0;
-}
-
-#actions {
-	margin: 15px 0 0 0;
-    text-align: center;
-}
-
-input#wager { margin-left: 5px; position: relative; top: 4px }
-
-#money, #money:before {
-	border-radius: 5px;
-	bottom: 0;
-	height: 55px;
-	padding: 7px;
-	position: absolute;
-	right: 0;
-	width: 250px;
-}
-
-#money {
-	border: 2px solid #FFC926;
-}
-
-#money:before {
-	background: #333;
-	content: '';
-	opacity: 0.8;
-}
-
-	#cash, #bank {
-		color: #FFF;
-		font: 700 18px/20px Helvetica, Arial, Verdana, sans-serif;
-		margin: 12px 0;
-		position: relative;
-		text-shadow: 1px 1px #000;
-		z-index: 1;
-	}
-
-#alert {
-	margin: 0 auto;
-	opacity: 0.95;
-	position: relative;
-	text-align: center;
-	top: 34.5%;
-	width: 500px;
-	z-index: 0;
-}
-</style>

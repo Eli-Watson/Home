@@ -1,3 +1,5 @@
+// Thought.js
+
 // Function to fetch shower thoughts from JSON file
 async function fetchShowerThoughts() {
     try {
@@ -15,7 +17,7 @@ async function fetchShowerThoughts() {
 // Function to generate and display a random thought
 async function displayDailyThought() {
     const thoughtContainer = document.getElementById('thought-text');
-    
+
     // Fetch shower thoughts from JSON file
     const showerThoughts = await fetchShowerThoughts();
 

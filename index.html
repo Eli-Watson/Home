@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/Home/CSS/index.css">
     <script src="/Home/JS/DarkMode.js"></script>
     <script src="/Home/JS/NavHide.js"></script>
+    <script src="/Home/JS/Date.js"></script>
 </head>
 <body>
 
@@ -36,7 +37,21 @@
 
 <section>
     <p>Hello, this website is where I will post things about me, what I'm working on and other random stuff. Feel free to explore!</p>
+<div id="holiday-info"></div>
+
+<script type="text/javascript">
+    // Call the date() function from the external script after the document has loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        date(); // Assuming date() function is defined in holiday.js
+    });
+</script>
 </section>
  
 </body> 
+<footer>
+    <p>2024 Eli Watson All Rights Reserved</p>
+    <p> Some Websites I like.</p>
+    <a href="/Home/Pages/Links" target="_self">Links To Cool Websites and Stuff</a>
+    </div>
+</footer>
 </html>

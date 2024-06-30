@@ -27,7 +27,7 @@ const holidays = [
 
 function daysUntilHoliday(holidayDate) {
     const today = new Date();
-    const holidayThisYear = new Date(today.getFullYear() + '/' + holidayDate);
+    const holidayThisYear = new Date(today.getFullYear(), getMonthIndex(holidayDate), getDay(holidayDate));
     if (today > holidayThisYear) {
         holidayThisYear.setFullYear(today.getFullYear() + 1);
     }
@@ -42,7 +42,7 @@ function findNearestHoliday() {
     let minDays = Infinity;
 
     holidays.forEach(holiday => {
-        const holidayDate = new Date(today.getFullYear() + '/' + holiday.date);
+        const holidayDate = new Date(today.getFullYear(), getMonthIndex(holiday.date), getDay(holiday.date));
         const daysToHoliday = Math.ceil((holidayDate - today) / (1000 * 60 * 60 * 24));
 
         if (daysToHoliday >= 0 && daysToHoliday < minDays) {
@@ -71,5 +71,16 @@ function displayNearestHoliday() {
     }
 }
 
+function getMonthIndex(dateString) {
+    const months = ["January", "February", "March", "April", "May", "June", "July",
+                    "August", "September", "October", "November", "December"];
+    return months.indexOf(dateString.split(" ")[0]);
+}
+
+function getDay(dateString) {
+    return parseInt(dateString.split(" ")[1], 10);
+}
+
 // Call displayNearestHoliday() when the page finishes loading
 document.addEventListener('DOMContentLoaded', displayNearestHoliday);
+

@@ -1,3 +1,27 @@
+async function displayDailyThought() {
+    const thoughtContainer = document.getElementById('thought-text');
+    
+    // Fetch shower thoughts from JSON file
+    const showerThoughts = await fetchShowerThoughts();
+
+    if (showerThoughts.length > 0) {
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().slice(0, 10);
+
+        // Calculate an index based on the current date
+        const thoughtIndex = Math.abs(today.hashCode()) % showerThoughts.length;
+
+        thoughtContainer.textContent = showerThoughts[thoughtIndex];
+    } else {
+        thoughtContainer.textContent = 'No thoughts available.';
+    }
+}
+
+// Extend Date prototype to add a simple hashCode method
+Date.prototype.hashCode = function() {
+    return this.getTime(); // Using timestamp for simplicity
+}
+
 // Function to fetch shower thoughts from JSON file
 async function fetchShowerThoughts() {
     try {
@@ -10,38 +34,6 @@ async function fetchShowerThoughts() {
         console.error('Error fetching shower thoughts:', error);
         return [];
     }
-}
-
-// Function to generate and display a random thought
-async function displayDailyThought() {
-    const thoughtContainer = document.getElementById('thought-text');
-    
-    // Fetch shower thoughts from JSON file
-    const showerThoughts = await fetchShowerThoughts();
-
-    if (showerThoughts.length > 0) {
-        // Get today's date in YYYY-MM-DD format
-        const today = new Date().toISOString().slice(0, 10);
-
-        // Use a stable method to get an index based on the date
-        const thoughtIndex = Math.abs(hashCode(today)) % showerThoughts.length;
-
-        thoughtContainer.textContent = showerThoughts[thoughtIndex];
-    } else {
-        thoughtContainer.textContent = 'No thoughts available.';
-    }
-}
-
-// Hash function to generate a stable index based on date string
-function hashCode(str) {
-    let hash = 0;
-    if (str.length == 0) return hash;
-    for (let i = 0; i < str.length; i++) {
-        let char = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash; // Convert to 32bit integer
-    }
-    return hash;
 }
 
 // Initialize with today's thought on page load

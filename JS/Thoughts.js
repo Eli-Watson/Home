@@ -13,19 +13,36 @@ async function fetchShowerThoughts() {
 }
 
 // Function to generate and display a random thought
-async function generateThought() {
+async function displayDailyThought() {
     const thoughtContainer = document.getElementById('thought-text');
     
     // Fetch shower thoughts from JSON file
     const showerThoughts = await fetchShowerThoughts();
 
     if (showerThoughts.length > 0) {
-        const randomIndex = Math.floor(Math.random() * showerThoughts.length);
-        thoughtContainer.textContent = showerThoughts[randomIndex];
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().slice(0, 10);
+
+        // Use a stable method to get an index based on the date
+        const thoughtIndex = Math.abs(hashCode(today)) % showerThoughts.length;
+
+        thoughtContainer.textContent = showerThoughts[thoughtIndex];
     } else {
         thoughtContainer.textContent = 'No thoughts available.';
     }
 }
 
-// Initialize with a random thought on page load
-generateThought();
+// Hash function to generate a stable index based on date string
+function hashCode(str) {
+    let hash = 0;
+    if (str.length == 0) return hash;
+    for (let i = 0; i < str.length; i++) {
+        let char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+}
+
+// Initialize with today's thought on page load
+displayDailyThought();

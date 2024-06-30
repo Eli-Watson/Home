@@ -2,30 +2,29 @@ const holidays = [
     { name: "New Year's Day", date: "January 1", message: "Happy New Year!" },
     { name: "Martin Luther King Jr. Day", date: "January 21", message: "Celebrate the legacy of Martin Luther King Jr." },
     { name: "Groundhog Day", date: "February 2", message: "Will the groundhog see its shadow?" },
-    { name: "Valentine's Day", date: "February 14", message: "Happy Balintines Day" },
-    { name: "President's Day", date: "February 18", message: "How Many are we up to now?" },
-    { name: "St. Patrick's Day", date: "March 17", message: "Pinch Sombody" },
+    { name: "Valentine's Day", date: "February 14", message: "Happy Valentine's Day!" },
+    { name: "President's Day", date: "February 18", message: "Honoring past presidents of the United States." },
+    { name: "St. Patrick's Day", date: "March 17", message: "Pinch somebody!" },
     { name: "First Day of Spring", date: "March 20", message: "Time for green things." },
     { name: "Easter Sunday", date: "March 31", message: "Celebrate the resurrection of Jesus Christ." },
-    { name: "April Fool's Day", date: "April 1", message: "Prank Sombody for me" },
-    { name: "Arbor Day", date: "April 26", message: "Hug a Tree" },
+    { name: "April Fool's Day", date: "April 1", message: "Prank somebody for me!" },
+    { name: "Arbor Day", date: "April 26", message: "Hug a tree." },
     { name: "Mother's Day", date: "May 12", message: "Honor mothers and motherhood." },
-    { name: "Memorial Day", date: "May 27", message: "Celebrate those who gave it all and cherish the ones who you may do so in person" },
-    { name: "Flag Day", date: "June 14", message: "On this day we got a flag" },
+    { name: "Memorial Day", date: "May 27", message: "Remember and honor those who died in military service." },
+    { name: "Flag Day", date: "June 14", message: "Celebrate the adoption of the United States flag." },
     { name: "First Day of Summer", date: "June 21", message: "There's 104 days of summer vacation!!!!!!" },
-    { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britian" },
-    { name: "Labor Day", date: "September 2", message: "Labor" },
-    { name: "First Day of Autumn", date: "September 22", message: "Check whats in the leafs before you jump in" },
+    { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain." },
+    { name: "Labor Day", date: "September 2", message: "Honoring the contributions of American workers." },
+    { name: "First Day of Autumn", date: "September 22", message: "Check what's in the leaves before you jump in." },
     { name: "Columbus Day", date: "October 13", message: "Remember Christopher Columbus' voyage to the Americas." },
-    { name: "Halloween", date: "October 31", message: "We've all head trick or treat smell my feet, but I can already. Take a shower." },
+    { name: "Halloween", date: "October 31", message: "Trick or treat! Enjoy costumes and candies." },
     { name: "Veterans Day", date: "November 11", message: "Thank veterans for their service to the country." },
     { name: "Thanksgiving Day", date: "November 27", message: "Give thanks and enjoy a feast with loved ones." },
-    { name: "First Day of Winter", date: "December 21", message: "No Yellow Snow" },
-    { name: "Christmas Day", date: "December 25", message: "Merry Christmas! Celebrate Christs Birth" },
-    { name: "New Year's Eve", date: "December 31", message: "Only stay up if you don't need rest" },
+    { name: "First Day of Winter", date: "December 21", message: "No Yellow Snow." },
+    { name: "Christmas Day", date: "December 25", message: "Merry Christmas! Celebrate Christ's birth." },
+    { name: "New Year's Eve", date: "December 31", message: "Only stay up if you don't need rest." },
 ];
 
-// Function to calculate days until a holiday
 function daysUntilHoliday(holidayDate) {
     const today = new Date();
     const holidayThisYear = new Date(today.getFullYear() + '/' + holidayDate);
@@ -37,7 +36,6 @@ function daysUntilHoliday(holidayDate) {
     return diffDays;
 }
 
-// Function to find the nearest holiday
 function findNearestHoliday() {
     const today = new Date();
     let nearestHoliday = null;
@@ -56,21 +54,21 @@ function findNearestHoliday() {
     return { holiday: nearestHoliday, daysUntil: minDays };
 }
 
-// Display the nearest holiday information
 function displayNearestHoliday() {
     const { holiday, daysUntil } = findNearestHoliday();
     const holidayInfo = document.getElementById('holidayInfo');
 
     if (holiday) {
         holidayInfo.innerHTML = `
-            <p>The nearest holiday is ${holiday.name}.</p>
-            <p>${daysUntil} days until ${holiday.name} (${holiday.date}).</p>
-            <p>${holiday.message}</p>
+            <h3>Holiday Info:</h3>
+            <p class="Slogan">We keep track so you don't have to!</p>
+            <p>The nearest holiday is <span class="HolidayName">${holiday.name}</span>.</p>
+            <p><span class="DaysUntil">${daysUntil}</span> days until ${holiday.name} (${holiday.date}).</p>
+            <p class="HolidayMessage">${holiday.message}</p>
         `;
     } else {
         holidayInfo.innerHTML = `<p>No upcoming holidays found.</p>`;
     }
 }
 
-// Call displayNearestHoliday() when the page loads
 window.onload = displayNearestHoliday;

@@ -35,7 +35,7 @@ function toggleNavBar() {
                 footer.style.marginLeft = 'auto';
             }
         } else {
-            // If not hidden, set margin-left to 50px (adjust as needed) for both section and footer
+            // If not hidden, set margin-left to 70px for both section and footer
             section.style.marginLeft = '70px';
             if (footer) {
                 footer.style.marginLeft = '70px';

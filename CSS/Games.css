@@ -157,7 +157,7 @@ a:hover {
 .game-box button {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
+    background-color: red;
     color: white;
     font-size: 1em;
     cursor: pointer;
@@ -165,7 +165,7 @@ a:hover {
 }
 
 .game-box button:hover {
-    background-color: #0056b3;
+    background-color: #333;
 }
 
 /* Media Queries for Responsive Design */

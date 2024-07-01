@@ -1,15 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Check if a word is already stored for today
-    const storedWord = localStorage.getItem('wordOfTheDay');
-
-    if (storedWord) {
-        // If a word is stored for today, display it
-        displayWord(JSON.parse(storedWord));
-    } else {
-        // Fetch the words from JSON file
-        fetchWordOfTheDay();
-    }
+    checkAndUpdateWord();
+    
+    // Set up an interval to check and update every hour
+    setInterval(checkAndUpdateWord, 3600000); // 3600000 ms = 1 hour
 });
+
+function checkAndUpdateWord() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storedData = localStorage.getItem('wordOfTheDay');
+
+    if (storedData) {
+        const { date, word } = JSON.parse(storedData);
+        if (date === today) {
+            displayWord(word);
+            return;
+        }
+    }
+
+    fetchWordOfTheDay();
+}
 
 async function fetchWordOfTheDay() {
     try {
@@ -18,20 +27,18 @@ async function fetchWordOfTheDay() {
             throw new Error('Failed to fetch words');
         }
         const data = await response.json();
-        
-        // Get today's date in YYYY-MM-DD format
+
         const today = new Date().toISOString().slice(0, 10);
-        
-        // Use a stable method to get an index based on the date
+
         const wordIndex = Math.abs(hashCode(today)) % data.length;
-        
-        // Select the word object based on the calculated index
+
         const wordOfTheDay = data[wordIndex];
-        
-        // Store the selected word in localStorage with today's date
-        localStorage.setItem('wordOfTheDay', JSON.stringify(wordOfTheDay));
-        
-        // Display the word and definition on the page
+
+        localStorage.setItem('wordOfTheDay', JSON.stringify({
+            date: today,
+            word: wordOfTheDay
+        }));
+
         displayWord(wordOfTheDay);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -39,12 +46,10 @@ async function fetchWordOfTheDay() {
 }
 
 function displayWord(wordObj) {
-    // Display the word and definition on the page
     document.getElementById('word').textContent = wordObj.word;
     document.getElementById('definition').textContent = wordObj.definition;
 }
 
-// Hash function to generate a stable index based on date string
 function hashCode(str) {
     let hash = 0;
     if (str.length == 0) return hash;

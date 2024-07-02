@@ -22,7 +22,7 @@ function checkAndUpdateWord() {
 
 async function fetchWordOfTheDay() {
     try {
-        const response = await fetch('words.json');
+        const response = await fetch('/Home/Database/words.json');
         if (!response.ok) {
             throw new Error('Failed to fetch words');
         }

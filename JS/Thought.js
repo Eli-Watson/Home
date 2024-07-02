@@ -1,9 +1,7 @@
-// Thought.js
-
 document.addEventListener('DOMContentLoaded', function() {
     async function fetchShowerThoughts() {
         try {
-            const response = await fetch('shower_thoughts.json');
+            const response = await fetch('/Home/Database/shower_thoughts.json');
             if (!response.ok) {
                 throw new Error('Failed to fetch shower thoughts');
             }
@@ -18,14 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const thoughtContainer = document.getElementById('thought-text');
 
         if (thoughtContainer) {
-            const showerThoughts = await fetchShowerThoughts();
+            try {
+                const showerThoughts = await fetchShowerThoughts();
 
-            if (showerThoughts.length > 0) {
-                const today = new Date().toISOString().slice(0, 10);
-                const thoughtIndex = Math.abs(hashCode(today)) % showerThoughts.length;
-                thoughtContainer.textContent = showerThoughts[thoughtIndex];
-            } else {
-                thoughtContainer.textContent = 'No thoughts available.';
+                if (showerThoughts.length > 0) {
+                    const today = new Date().toISOString().slice(0, 10);
+                    const thoughtIndex = Math.abs(hashCode(today)) % showerThoughts.length;
+                    thoughtContainer.textContent = showerThoughts[thoughtIndex];
+                } else {
+                    thoughtContainer.textContent = 'No thoughts available.';
+                }
+            } catch (error) {
+                console.error('Failed to display daily thought:', error);
+                thoughtContainer.textContent = 'Failed to fetch shower thoughts.';
             }
         } else {
             console.error('Element with ID "thought-text" not found.');
@@ -43,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return hash;
     }
 
-    // Function to check if the thought needs to be updated
     function checkAndUpdateThought() {
         const lastUpdateDate = localStorage.getItem('lastUpdateDate');
         const today = new Date().toISOString().slice(0, 10);
@@ -55,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initial check and update
-    checkAndUpdateThought();
+    displayDailyThought();
 
     // Set up an interval to check and update every hour
     setInterval(checkAndUpdateThought, 3600000); // 3600000 ms = 1 hour

@@ -14,7 +14,7 @@ const holidays = [
     { name: "Flag Day", date: "June 14", message: "Celebrate the adoption of the United States flag." },
     { name: "First Day of Summer", date: "June 21", message: "There's 104 days of summer vacation!!!!!!" },
     { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain." },
-    { name: "Labor Day", date: "September 2", message: "Honoring the contributions of American workers." },
+    { name: "Labor Day", date: "September 2", message: "Thanks workers, for working." },
     { name: "First Day of Autumn", date: "September 22", message: "Check what's in the leaves before you jump in." },
     { name: "Columbus Day", date: "October 13", message: "Remember Christopher Columbus' voyage to the Americas." },
     { name: "Halloween", date: "October 31", message: "Trick or treat! Enjoy costumes and candies." },

@@ -12,7 +12,15 @@
 }
 
 </style>
-
+<script>
+       // Check if UID exists in sessionStorage and matches for Admin
+       var expectedUID = credentials["Admin"].uid; // Get the expected UID for Admin
+        var storedUID = sessionStorage.getItem('uid');
+        if (!storedUID || storedUID !== expectedUID) {
+            // Redirect to login page if UID does not exist or does not match
+            window.location.href = "/Home/JS/Login.js";
+        }
+</script>
 </head>
 <body>
 

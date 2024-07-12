@@ -5,13 +5,6 @@
 <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/Home/JS/DarkMode.js"></script>
-</head>
-<body>
-
-<header>
-    <h1>IIC Home</h1>
-    <button class="color" onclick="DarkMode.showModal()">Change Color</button>
-</header>
 <script>
        // Check if UID exists in sessionStorage and matches for Admin
        var expectedUID = credentials["Admin"].uid; // Get the expected UID for Admin
@@ -21,6 +14,14 @@
             window.location.href = "/Home/Pages/Login.html";
         }
 </script>
+</head>
+<body>
+
+<header>
+    <h1>IIC Home</h1>
+    <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+</header>
+
 <dialog id="DarkMode">
     <p>Choose to change Color of the site.</p>
     <button onclick="changeToBlack()">Black Background</button>

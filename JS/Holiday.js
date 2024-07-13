@@ -16,7 +16,7 @@ const holidays = [
     { name: "Flag Day", date: "June 14", message: "Celebrate the adoption of the United States flag." },
     { name: "First Day of Summer", date: "June 21", message: "There's 104 days of summer vacation!!!!!!" },
     { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain." },
-    { name: "US Coast Gaurd Day", date: "August 4th", message: "The Only Holiday I have in August and the only Academy that dosen't need a Congresinal Nomination" },
+    { name: "US Coast Gaurd Day", date: "August 4th", message: "The Only Holiday I have in August, and the only Academy that dosen't need a Congressional Nomination" },
     { name: "Labor Day", date: "September 2", message: "Put some Good 'ole Elbow Grease into it." },
     { name: "US Air Force Day", date: "September 18", message: "They fly. Well most of them don't But some do!" },
     { name: "First Day of Autumn", date: "September 22", message: "Check what's in the leaves before you jump in." },

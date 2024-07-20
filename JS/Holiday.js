@@ -23,6 +23,7 @@ const holidays = [
     { name: "Columbus Day", date: "October 13", message: "Remember Christopher Columbus' voyage to the Americas." },
     { name: "US Navy Day", date: "October 27", message: "We Got boats. Big boats." },
     { name: "Halloween", date: "October 31", message: "Trick or treat! Enjoy costumes and candies." },
+    { name: "US Marine Day", date: "November 10", message: "Idk they're the marines. Watcha gunna do?" },
     { name: "Veterans Day", date: "November 11", message: "Thank veterans for their service to the country." },
     { name: "Thanksgiving Day", date: "November 27", message: "Give thanks and enjoy a feast with loved ones." },
     { name: "First Day of Winter", date: "December 21", message: "No Yellow Snow." },

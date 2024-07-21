@@ -105,10 +105,18 @@ dialog button:hover {
 /* nav button */
 }
 #scrollToTopBtn {
-    margin: 1px;
-    
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
 }
-
+#scrollToTopBtn:hover {
+    background-color: red;
+}
 
 #toggleButton {
     margin: 5px;

@@ -105,7 +105,7 @@ dialog button:hover {
 /* nav button */
 }
 .scroll {
-    background-color: #fff;
+    background-color: #333;
     color: red;
     border: none;
     border-radius: 5px;
@@ -113,7 +113,7 @@ dialog button:hover {
     padding: 5px 10px;
 }
 .scroll:hover {
-    background-color: #333 ;
+    background-color: #555 ;
     transform: scale(1.1); /* Increase size on hover */
     transition: transform 0.3s; /* Add transition for smooth size change */
 }

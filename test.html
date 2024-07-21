@@ -36,6 +36,7 @@
 <section>
     <p>thing</p>
     <p>testing testing testing.</p>
+    <button onclick="scrollToTop()" id="scrollToTopBtn" class="scroll"title="Go to top">Scroll to Top</button>
 </section>  
 <footer class="footer">
     <p>2024 Eli Watson All Rights Reserved</p><p> Some Websites I like.</p><a href="/Home/Pages/Links" target="_self">Links</a><a href="https://github.com/Eli-Watson/Home/issues/new" target="_self">Report an Issue</a>
@@ -94,8 +95,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <style>
+.scroll {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.scroll:hover {
+    background-color: red;
+}
+
 .footer {
     display: inline;
+
 }
 body {
     font-family: 'Times New Roman', Times, serif,;

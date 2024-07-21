@@ -105,17 +105,17 @@ dialog button:hover {
 /* nav button */
 }
 .scroll {
+    background-color: #fff;
+    color: red;
+    border: none;
+    border-radius: 5px;
     margin: 5px;
     padding: 5px 10px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    align-self: center;
 }
 .scroll:hover {
-    background-color: red;
+    background-color: #333 ;
+    transform: scale(1.1); /* Increase size on hover */
+    transition: transform 0.3s; /* Add transition for smooth size change */
 }
 
 #toggleButton {

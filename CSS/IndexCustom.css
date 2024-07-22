@@ -1,0 +1,251 @@
+:root {
+    --accent-color: #ff0000; /* Default accent color */
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.color {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.color:hover {
+    background-color: #ddd ;
+    transform: scale(1.1); /* Increase size on hover */
+    transition: transform 0.3s; /* Add transition for smooth size change */
+}
+
+nav.sidenav {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--accent-color); /* Dynamic accent color */
+    overflow-x: hidden;
+    padding-top: 60px;
+    border-color: #333;
+    border-width: medium;
+    transition: width 0.3s ease; /* Add transition for smooth animation */
+}
+
+nav.sidenav.hidden {
+    width: 0; /* Hide the navbar by setting width to 0 */
+}
+
+nav.sidenav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    width: 100px; /* Set the initial width */
+    transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
+}
+
+nav.sidenav a:hover {
+    background-color: #555;
+    width: 120px; /* Increase width on hover */
+    padding: 10px 20px; /* Increase padding on hover */
+    font-size: 18px; 
+}
+
+section {
+    padding: 20px;
+    border-color: #333;
+    margin-left: 150px;
+}
+
+footer {
+    margin-left: 150;
+}
+
+dialog {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ddd;
+}
+
+dialog p {
+    margin: 0;
+    font-size: 16px;
+}
+
+dialog button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+dialog button:hover {
+    background-color: var(--accent-color); /* Dynamic accent color */
+}
+
+.scroll {
+    background-color: #333;
+    color: var(--accent-color); /* Dynamic accent color */
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.scroll:hover {
+    background-color: #555 ;
+    transform: scale(1.1); /* Increase size on hover */
+    transition: transform 0.3s; /* Add transition for smooth size change */
+}
+
+#toggleButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggleButton:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    background-color: #ddd;
+}
+
+a {
+    color: grey; 
+}
+
+a:visited {
+    color: red; 
+}
+
+a:hover {
+    color: #333;
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        margin-left: auto; /* Adjust margin for smaller screens */
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav.sidenav {
+        width: 80px; /* Adjust the width for smaller screens */
+    }
+
+    nav.sidenav a {
+        padding: 5px 10px; /* Adjust padding for smaller screens */
+        font-size: 18px;
+    }
+
+    section {
+        margin-left: auto; /* Adjust margin for smaller screens */
+    }
+}
+
+/* Holiday countdown */
+.holiday {
+    text-align: center;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+}
+
+.Slogan {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.HolidayName {
+    color: var(--accent-color); /* Dynamic accent color */
+}
+
+.HolidayMessage {
+    font-style: italic;
+    color: #333;
+    margin-top: 15px;
+}
+
+.DaysUntil {
+    color: var(--accent-color); /* Dynamic accent color */
+    font-weight: bold;
+}
+
+/* Word of the day */
+.wordOfTheDay {
+    text-align: center;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+}
+
+.word {
+    font-size: 2.5em;
+    color: var(--accent-color); /* Dynamic accent color */
+    font-weight: bold;
+}
+
+.wordH {
+    color: black;
+    text-decoration: underline;
+}
+
+.wordp {
+    font-size: 1.2em;
+    color: black;
+    font-style: italic;
+}
+
+/* Thoughts */
+.thought-container {
+    text-align: center;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+}
+
+.thoughtsH {
+    color: black;
+    text-decoration: underline;
+}
+
+.thoughtsP {
+    color: black;
+    font-style: italic;
+}

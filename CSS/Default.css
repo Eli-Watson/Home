@@ -67,7 +67,19 @@ nav.sidenav a:hover {
     font-size: 18px; /* Keep the font size unchanged */
 }
 
-
+.scroll {
+    background-color: #333;
+    color: red;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+.scroll:hover {
+    background-color: #555 ;
+    transform: scale(1.1); /* Increase size on hover */
+    transition: transform 0.3s; /* Add transition for smooth size change */
+}
 section {
     padding: 20px;
     border-color: #333;

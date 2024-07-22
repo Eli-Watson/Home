@@ -13,6 +13,7 @@
     <script src="/Home/JS/Nav.js"></script>
     <script src="/Home/JS/DailyWord.js"></script>
     <script src="/Home/JS/ScrollTop.js"></script>
+    <script src="/Home/JS/Custom.js"></script>
 </head>
 <body>
 
@@ -27,6 +28,13 @@
     <h1>Eli Watson's Homepage</h1>
     <button class="color" onclick="DarkMode.showModal()">Change Color</button>
     <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button> 
+
+<div id="customization">
+    <label for="accent-color">Accent Color:</label>
+    <input type="color" id="accent-color">
+    <button id="reset-color">Reset</button>
+</div>
+
 </header>
 
 <div id="Nav"></div>

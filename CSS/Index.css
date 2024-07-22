@@ -1,5 +1,10 @@
+:root {
+    --default-accent-color: #ff0000; /* Default accent color */
+    --accent-color: var(--default-accent-color);
+}
+
 body {
-    font-family: 'Times New Roman', Times, serif,;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
 }
@@ -9,10 +14,6 @@ header {
     color: #fff;
     padding: 10px;
     text-align: center;
-}
-
-h1 {
-    margin: 0;
 }
 
 .color {
@@ -38,7 +39,7 @@ nav.sidenav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: red;
+    background-color: var(--accent-color); /* Dynamic accent color */
     overflow-x: hidden;
     padding-top: 60px;
     border-color: #333;
@@ -67,7 +68,6 @@ nav.sidenav a:hover {
     font-size: 18px; 
 }
 
-
 section {
     padding: 20px;
     border-color: #333;
@@ -77,7 +77,7 @@ section {
 footer {
     margin-left: 150;
 }
-/* diaolog is the thing to chang the back ground color */
+
 dialog {
     padding: 20px;
     border: 1px solid #ccc;
@@ -100,18 +100,20 @@ dialog button {
     border-radius: 5px;
     cursor: pointer;
 }
+
 dialog button:hover {
-    background-color: red;
-/* nav button */
+    background-color: var(--accent-color); /* Dynamic accent color */
 }
+
 .scroll {
     background-color: #333;
-    color: red;
+    color: var(--accent-color); /* Dynamic accent color */
     border: none;
     border-radius: 5px;
     margin: 5px;
     padding: 5px 10px;
 }
+
 .scroll:hover {
     background-color: #555 ;
     transform: scale(1.1); /* Increase size on hover */
@@ -133,16 +135,15 @@ dialog button:hover {
     transition: transform 0.3s;
     background-color: #ddd;
 }
+
 a {
     color: grey; 
 }
 
-/* Visited link color */
 a:visited {
     color: red; 
 }
 
-/* Hovered link color */
 a:hover {
     color: #333;
 }
@@ -171,7 +172,8 @@ a:hover {
         margin-left: auto; /* Adjust margin for smaller screens */
     }
 }
-/* Holidat countdown */
+
+/* Holiday countdown */
 .holiday {
     text-align: center;
     border: 2px solid black;
@@ -180,23 +182,28 @@ a:hover {
     max-width: 600px;
     background-color: #f9f9f9;
 }
+
 .Slogan {
     font-size: 18px;
     margin-bottom: 10px;
     text-decoration: underline;
 }
+
 .HolidayName {
-    color: red;
+    color: var(--accent-color); /* Dynamic accent color */
 }
+
 .HolidayMessage {
     font-style: italic;
     color: #333;
     margin-top: 15px;
 }
+
 .DaysUntil {
-    color: red;
+    color: var(--accent-color); /* Dynamic accent color */
     font-weight: bold;
 }
+
 /* Word of the day */
 .wordOfTheDay {
     text-align: center;
@@ -206,20 +213,24 @@ a:hover {
     max-width: 600px;
     background-color: #f9f9f9;
 }
+
 .word {
     font-size: 2.5em;
-    color: red;
+    color: var(--accent-color); /* Dynamic accent color */
     font-weight: bold;
 }
+
 .wordH {
     color: black;
     text-decoration: underline;
 }
+
 .wordp {
     font-size: 1.2em;
     color: black;
     font-style: italic;
 }
+
 /* Thoughts */
 .thought-container {
     text-align: center;
@@ -229,11 +240,13 @@ a:hover {
     max-width: 600px;
     background-color: #f9f9f9;
 }
+
 .thoughtsH {
     color: black;
     text-decoration: underline;
 }
+
 .thoughtsP {
     color: black;
     font-style: italic;
-} 
+}

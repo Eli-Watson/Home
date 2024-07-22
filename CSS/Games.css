@@ -1,3 +1,8 @@
+:root {
+    --default-accent-color: #ff0000; /* Default accent color */
+    --accent-color: var(--default-accent-color);
+}
+
 /* Default Styles (Desktop) */
 body {
     font-family: 'Times New Roman', Times, serif;
@@ -39,7 +44,7 @@ nav.sidenav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: red;
+    background-color: var(--accent-color); /* Use CSS variable for background color */
     overflow-x: hidden;
     padding-top: 60px;
     border-color: #333;
@@ -99,7 +104,7 @@ dialog button {
 }
 
 dialog button:hover {
-    background-color: red;
+    background-color: var(--accent-color);
 }
 
 #toggleButton {
@@ -124,7 +129,7 @@ a {
 
 /* Visited link color */
 a:visited {
-    color: red; 
+    color: var(--accent-color); /* Use CSS variable for visited link color */
 }
 
 /* Hovered link color */
@@ -157,7 +162,7 @@ a:hover {
 .game-box button {
     padding: 10px 20px;
     border: none;
-    background-color: red;
+    background-color: var(--accent-color);
     color: white;
     font-size: 1em;
     cursor: pointer;

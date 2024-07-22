@@ -1,5 +1,10 @@
+:root {
+    --default-accent-color: #ff0000; /* Default accent color */
+    --accent-color: var(--default-accent-color);
+}
+
 body {
-    font-family: 'Times New Roman', Times, serif,;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
 }
@@ -26,7 +31,7 @@ h1 {
 }
 
 .color:hover {
-    background-color: #ddd ;
+    background-color: #ddd;
     transform: scale(1.1); /* Increase size on hover */
     transition: transform 0.3s; /* Add transition for smooth size change */
 }
@@ -38,7 +43,7 @@ nav.sidenav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: red;
+    background-color: var(--accent-color); /* Use CSS variable for background color */
     overflow-x: hidden;
     padding-top: 60px;
     border-color: #333;
@@ -69,17 +74,19 @@ nav.sidenav a:hover {
 
 .scroll {
     background-color: #333;
-    color: red;
+    color: var(--accent-color); /* Use CSS variable for text color */
     border: none;
     border-radius: 5px;
     margin: 5px;
     padding: 5px 10px;
 }
+
 .scroll:hover {
-    background-color: #555 ;
+    background-color: #555;
     transform: scale(1.1); /* Increase size on hover */
     transition: transform 0.3s; /* Add transition for smooth size change */
 }
+
 section {
     padding: 20px;
     border-color: #333;
@@ -87,8 +94,9 @@ section {
 }
 
 footer {
-    margin-left: 150;
+    margin-left: 150px; /* Fixed the missing px */
 }
+
 dialog {
     padding: 20px;
     border: 1px solid #ccc;
@@ -111,10 +119,11 @@ dialog button {
     border-radius: 5px;
     cursor: pointer;
 }
-dialog button:hover {
-    background-color: red;
 
+dialog button:hover {
+    background-color: var(--accent-color);
 }
+
 #toggleButton {
     margin: 5px;
     padding: 10px 20px;
@@ -130,13 +139,14 @@ dialog button:hover {
     transition: transform 0.3s;
     background-color: #ddd;
 }
+
 a {
     color: grey; 
 }
 
 /* Visited link color */
 a:visited {
-    color: red; 
+    color: var(--accent-color); /* Use CSS variable for visited link color */
 }
 
 /* Hovered link color */

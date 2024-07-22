@@ -1,4 +1,7 @@
-
+:root {
+    --default-accent-color: #ff0000; /* Default accent color */
+    --accent-color: var(--default-accent-color);
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -38,11 +41,12 @@ nav.sidenav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: red; /* This is overridden by the CSS below */
+    background-color: var(--accent-color); /* Use CSS variable for background color */
     overflow-x: hidden;
     padding-top: 60px;
     border-color: #333;
     border-width: medium;
+    transition: background-color 0.3s ease; /* Add transition for smooth color change */
 }
 
 nav.sidenav a {
@@ -89,6 +93,7 @@ dialog button {
 dialog button:hover {
     background-color: #555;
 }
+
 #toggleButton {
     background-color: #333;
     color: #fff;
@@ -100,7 +105,7 @@ dialog button:hover {
 }
 
 #toggleButton:hover {
-    background-color: #333
+    background-color: #333;
 }
 
 @media screen and (max-width: 768px) {

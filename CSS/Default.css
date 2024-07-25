@@ -20,20 +20,22 @@ h1 {
     margin: 0;
 }
 
-.color {
-    background-color: #fff;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+.Customize {
+    font-family: 'Times New Roman', Times, serif;
+    display: block; /* Ensure it is a block-level element */
+    padding: 5px 10px; /* Match the padding of sidebar links */
+    text-decoration: none; /* Remove underlines from text */
+    font-size: 18px; /* Match the font size */
+    color: #fff; /* White text color */
+    background-color: var(--accent-color); /* Dark background to fit the sidebar theme */
+    border: solid; /* Remove default button border */
+    width: 100px; /* Match the sidebar width */
+    text-align: center; /* Center-align the text */
 }
-
-.color:hover {
-    background-color: #ddd;
-    transform: scale(1.1); /* Increase size on hover */
-    transition: transform 0.3s; /* Add transition for smooth size change */
+.Customize:hover {
+    background-color: #555; /* Match the hover background color of sidebar links */
+    transform: scale(1.1);
+    transition: transform 0.3s;
 }
 
 nav.sidenav {

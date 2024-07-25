@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>###</title>
+    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Home/CSS/###.css">
+    <script src="/Home/JS/DarkMode.js"></script>
+    <script src="/Home/JS/NavHide.js"></script>
+    <script src="/Home/JS/Nav.js"></script>
+    <script src="/Home/JS/ScrollTop.js"></script>
+    <script src="/Home/JS/Custom.js"></script>
+</head>
+<body>
+
+<dialog id="DarkMode">
+    <p>Choose to change Color of the site.</p>
+    <button onclick="changeToBlack()">Black Background</button>
+    <button onclick="changeToWhite()">White Background</button>
+    <button onclick="DarkMode.close()">Close</button>
+</dialog>
+ 
+<header>
+    <h1>template</h1>
+    <button class="color" onclick="DarkMode.showModal()">Change Color</button>
+    <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>
+    <div id="customization">
+        <label for="accent-color">Accent Color:</label>
+        <input type="color" id="accent-color">
+        <button id="reset-color">Reset</button>
+    </div>
+</header>
+
+<div id="Nav"></div>
+
+<section>
+    <p>Welcome to the homepage!</p>
+    <button onclick="scrollToTop()" id="scrollToTopBtn" class="scroll" title="Go to top">Scroll to Top</button>
+</section>
+
+<div id="Footer"></div>
+</body>
+</html>

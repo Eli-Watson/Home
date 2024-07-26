@@ -57,7 +57,7 @@ function findNearestHoliday() {
         }
     });
 
-    return { holiday: nearestHoliday, daysUntil: minDays };
+    return { holiday: nearestHoliday, daysUntil: minDays }; 
 }
 
 function displayNearestHoliday() {

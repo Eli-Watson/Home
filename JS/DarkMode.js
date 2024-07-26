@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Handling a custom event for when the 'Holiday.js' script is loaded
 document.addEventListener('HolidayLoaded', function() {
-    console.log('Holiday.js Loaded');
     var theme = localStorage.getItem('theme');
     if (theme === 'black') {
         console.log('Changing Holiday Class to Black');
@@ -37,4 +36,5 @@ document.addEventListener('HolidayLoaded', function() {
         console.log('Changing Holiday Class to White');
         // Apply the white theme to elements related to 'Holiday.js'
     }
+    console.log('Holiday.js Loaded');
 });

@@ -24,5 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         changeToWhite();
         console.log('Changing theme to White')
     }
+document.addEventListener('Holiday.jsLoaded', function() {
+    console.log('Holiday.js Loaded');
+    
+  });
+  
+
 });
  

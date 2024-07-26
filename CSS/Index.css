@@ -124,9 +124,6 @@ a:hover {
         margin-left: auto; /* Adjust margin for smaller screens */
     }
     
-    .games-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-    }
 }
 
 @media screen and (max-width: 480px) {

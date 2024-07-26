@@ -5,40 +5,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load saved customization from localStorage if available
     const savedAccentColor = localStorage.getItem('accentColor');
     if (savedAccentColor) {
-        accentColorInput.value = savedAccentColor;
         updateAccentColor(savedAccentColor);
+        if (accentColorInput) {
+            accentColorInput.value = savedAccentColor;
+        }
     }
     
-    // Listen for changes in the accent color input
-    accentColorInput.addEventListener('input', function() {
-        const newAccentColor = accentColorInput.value;
-        updateAccentColor(newAccentColor);
-        
-        // Save customization to localStorage
-        localStorage.setItem('accentColor', newAccentColor);
-    }); 
+    // Listen for changes in the accent color input, if it exists
+    if (accentColorInput) {
+        accentColorInput.addEventListener('input', function() {
+            const newAccentColor = accentColorInput.value;
+            updateAccentColor(newAccentColor);
+            
+            // Save customization to localStorage
+            localStorage.setItem('accentColor', newAccentColor);
+        });
+    }
     
-    // Reset button functionality
-    resetButton.addEventListener('click', function() {
-        const defaultAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim();
-        accentColorInput.value = defaultAccentColor;
-        updateAccentColor(defaultAccentColor);
-        
-        // Remove accentColor from localStorage
-        localStorage.removeItem('accentColor');
-    });
+    // Reset button functionality, if it exists
+    if (resetButton) {
+        resetButton.addEventListener('click', function() {
+            const defaultAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim();
+            updateAccentColor(defaultAccentColor);
+            if (accentColorInput) {
+                accentColorInput.value = defaultAccentColor;
+            }
+            
+            // Remove accentColor from localStorage
+            localStorage.removeItem('accentColor');
+        });
+    }
     
     // Listen for storage event to update the color across tabs/pages
     window.addEventListener('storage', function(event) {
         if (event.key === 'accentColor') {
             const newAccentColor = event.newValue;
             if (newAccentColor) {
-                accentColorInput.value = newAccentColor;
                 updateAccentColor(newAccentColor);
+                if (accentColorInput) {
+                    accentColorInput.value = newAccentColor;
+                }
             } else {
                 const defaultAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim();
-                accentColorInput.value = defaultAccentColor;
                 updateAccentColor(defaultAccentColor);
+                if (accentColorInput) {
+                    accentColorInput.value = defaultAccentColor;
+                }
             }
         }
     });

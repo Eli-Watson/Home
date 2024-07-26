@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Save customization to localStorage
         localStorage.setItem('accentColor', newAccentColor);
-    });
+    }); 
     
     // Reset button functionality
     resetButton.addEventListener('click', function() {
@@ -26,6 +26,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Remove accentColor from localStorage
         localStorage.removeItem('accentColor');
+    });
+    
+    // Listen for storage event to update the color across tabs/pages
+    window.addEventListener('storage', function(event) {
+        if (event.key === 'accentColor') {
+            const newAccentColor = event.newValue;
+            if (newAccentColor) {
+                accentColorInput.value = newAccentColor;
+                updateAccentColor(newAccentColor);
+            } else {
+                const defaultAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim();
+                accentColorInput.value = defaultAccentColor;
+                updateAccentColor(defaultAccentColor);
+            }
+        }
     });
     
     // Function to update accent color across the page

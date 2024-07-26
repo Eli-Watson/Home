@@ -14,6 +14,34 @@ function changeToWhite() {
     console.log('White theme');
 }
 
+function changeholidaytoblack() {
+    var stylesheets = document.styleSheets;
+
+    for (var i = 0; i < stylesheets.length; i++) {
+        var rules = stylesheets[i].cssRules || stylesheets[i].rules;
+
+        for (var j = 0; j < rules.length; j++) {
+            if (rules[j].selectorText === '.HolidayText') {
+                rules[j].style.color = 'black'; // Change color to black
+                return; // Exit after changing the first found rule
+            }
+        }
+    }
+}
+function changeholidaytowhite() {
+    var stylesheets = document.styleSheets;
+
+    for (var i = 0; i < stylesheets.length; i++) {
+        var rules = stylesheets[i].cssRules || stylesheets[i].rules;
+
+        for (var j = 0; j < rules.length; j++) {
+            if (rules[j].selectorText === '.HolidayText') {
+                rules[j].style.color = 'White'; // Change color to White
+                return; // Exit after changing the first found rule
+            }
+        }
+    }
+}
 // Check if a theme is stored in localStorage and apply it when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     var theme = localStorage.getItem('theme');
@@ -30,9 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('HolidayLoaded', function() {
     var theme = localStorage.getItem('theme');
     if (theme === 'black') {
+        changeholidaytoblack();
         console.log('Changing Holiday Class to Black');
-        // Apply the black theme to elements related to 'Holiday.js'
     } else if (theme === 'white') {
+        changeholidaytoblack();
         console.log('Changing Holiday Class to White');
         // Apply the white theme to elements related to 'Holiday.js'
     }

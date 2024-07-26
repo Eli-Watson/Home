@@ -21,9 +21,8 @@ function changeholidaytoblack() {
         var rules = stylesheets[i].cssRules || stylesheets[i].rules;
 
         for (var j = 0; j < rules.length; j++) {
-            if (rules[j].selectorText === '.HolidayText') {
+            if (rules[j].selectorText === '.HolidayText' || rules[j].selectorText === '.Slogan') {
                 rules[j].style.color = 'black'; // Change color to black
-                return; // Exit after changing the first found rule
             }
         }
     }
@@ -35,9 +34,8 @@ function changeholidaytowhite() {
         var rules = stylesheets[i].cssRules || stylesheets[i].rules;
 
         for (var j = 0; j < rules.length; j++) {
-            if (rules[j].selectorText === '.HolidayText') {
-                rules[j].style.color = 'White'; // Change color to White
-                return; // Exit after changing the first found rule
+            if (rules[j].selectorText === '.HolidayText' || rules[j].selectorText === '.Slogan') {
+                rules[j].style.color = 'white'; // Change color to black
             }
         }
     }

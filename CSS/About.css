@@ -82,37 +82,10 @@ nav.sidenav a:hover {
 }
 
 section {
-    margin-left: 250px;
     padding: 20px;
     border-color: #333;
 }
 
-dialog {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #333;
-    color: #ddd;
-}
-
-dialog p {
-    margin: 0;
-    font-size: 16px;
-}
-
-dialog button {
-    margin: 5px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-dialog button:hover {
-    background-color: #555;
-}
 
 #toggleButton {
     background-color: #333;

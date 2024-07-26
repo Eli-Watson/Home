@@ -9,7 +9,7 @@
     <script src="/Home/JS/NavHide.js"></script>
     <script src="/Home/JS/Nav.js"></script>
     <script src="/Home/JS/ScrollTop.js"></script>
-    <script src="/Home/JS/MuliCustom.js"></script>
+    <script src="/Home/JS/Custom.js"></script>
 </head>
 <body>
 
@@ -21,20 +21,20 @@
 <div id="Nav"></div>
 
 <section>
-    <p>Choose to change Color of the site.</p>
-    <div class="Background">
-     <button onclick="changeToBlack()">Black Background</button>
-     <button onclick="changeToWhite()">White Background</button>   
+    <div class="rgb">
+        <div class="CustomColor">
+            <div>
+                <p class="CustomColorP">Choose to customize the color of the site to your preferences.</p>
+                <button onclick="changeToBlack()" class="Background">Black Background</button>
+                <button onclick="changeToWhite()" class="Background">White Background</button>   
+            </div>
+            <label for="accent-color" class="AccentLabel">Accent Color:</label>
+            <input type="color" id="accent-color" value="#FF0000"> 
+            <label for="header-color" class="HeaderLabel">Header Color:</label>
+            <input type="color" id="header-color" value="#333333">
+            <button id="reset-color">Reset to Default</button> 
+        </div>
     </div>
-    <div id="customization" class="customization">
-        <label for="accent-color">Accent Color:</label>
-        <input type="color" id="accent-color" value="#FF0000"> 
-        <!--<button id="reset-color">Reset</button> !-->
-        <label for="header-color">Header Color:</label>
-        <input type="color" id="header-color" value="#333333">
-        <button id="reset-color">Reset to Default</button>
-    </div>
-    
 </section>
 
 <div id="Footer"></div>

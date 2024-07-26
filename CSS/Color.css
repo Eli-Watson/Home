@@ -13,6 +13,54 @@ body {
     margin: 0;
     padding: 0;
 }
+/*this is the div that houses all the color customization */
+.CustomColor {
+    border: solid;
+    text-align: center;
+    padding: 20px;
+}
+.CustomColor p{
+        font-size: large;
+        color: var(--accent-color);
+}
+/* the buttons to change the background color */
+.Background {
+    padding: 5px;
+    border-radius: 5px;
+    border-style: groove;
+    background-color: white;
+    color: var(--header-color);
+}
+/*label for the color selectors for both the accent and header */
+.AccentLabel {
+    color: var(--accent-color);
+}
+.HeaderLabel {
+    color: var(--header-color);
+}
+
+/* the rgb border */
+.rgb {
+	--angle: 0deg;
+	width: auto;
+	height: auto;
+	border: 2vmin solid;
+	border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+	
+	animation: 10s rotate linear infinite;
+}
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
 
 header {
     background-color: var(--header-color);
@@ -87,33 +135,6 @@ footer {
     margin-left: 150px; /* Fixed the missing px */
 }
 
-dialog {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #333;
-    color: #ddd;
-}
-
-dialog p {
-    margin: 0;
-    font-size: 16px;
-}
-
-dialog button {
-    margin: 5px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-dialog button:hover {
-    background-color: var(--accent-color);
-}
-
 #toggleButton {
     margin: 5px;
     padding: 10px 20px;
@@ -168,3 +189,11 @@ a:hover {
         margin-left: auto; /* Adjust margin for smaller screens */
     }
 }
+
+
+
+
+
+
+
+

@@ -96,12 +96,9 @@ nav.sidenav a:hover {
 section {
     padding: 20px;
     border-color: #333;
-    margin-left: 150px;
 }
 
-footer {
-    margin-left: 150px; /* Fixed the missing px */
-}
+
 
 dialog {
     padding: 20px;

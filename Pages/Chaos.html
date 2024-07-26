@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Customization Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline styles for demonstration purposes */
+        #color-controls {
+            margin: 20px;
+        }
+        #color-controls input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Color Customization Page</h1>
+    </header>
+
+    <div class="container">
+        <p>This is a sample paragraph demonstrating text color customization.</p>
+        <p>Below are the color inputs to customize the appearance of the page:</p>
+        
+        <div id="color-controls">
+            <label for="accent-color">Accent Color:</label>
+            <input type="color" id="accent-color" value="#3498db">
+
+            <label for="background-color">Background Color:</label>
+            <input type="color" id="background-color" value="#f0f0f0">
+
+            <label for="header-color">Header Color:</label>
+            <input type="color" id="header-color" value="#333333">
+
+            <label for="text-color">Text Color:</label>
+            <input type="color" id="text-color" value="#000000">
+
+            <button id="reset-color">Reset to Default</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accentColorInput = document.getElementById('accent-color');
+            const backgroundColorInput = document.getElementById('background-color');
+            const headerColorInput = document.getElementById('header-color');
+            const textColorInput = document.getElementById('text-color');
+            const resetButton = document.getElementById('reset-color');
+
+            function updateColors(colors) {
+                document.documentElement.style.setProperty('--accent-color', colors.accent);
+                document.documentElement.style.setProperty('--background-color', colors.background);
+                document.documentElement.style.setProperty('--header-color', colors.header);
+                document.documentElement.style.setProperty('--text-color', colors.text);
+            }
+
+            const savedColors = JSON.parse(localStorage.getItem('colors'));
+            if (savedColors) {
+                updateColors(savedColors);
+                if (accentColorInput) accentColorInput.value = savedColors.accent;
+                if (backgroundColorInput) backgroundColorInput.value = savedColors.background;
+                if (headerColorInput) headerColorInput.value = savedColors.header;
+                if (textColorInput) textColorInput.value = savedColors.text;
+            }
+
+            function handleInputChange() {
+                const newColors = {
+                    accent: accentColorInput ? accentColorInput.value : getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim(),
+                    background: backgroundColorInput ? backgroundColorInput.value : getComputedStyle(document.documentElement).getPropertyValue('--background-color').trim(),
+                    header: headerColorInput ? headerColorInput.value : getComputedStyle(document.documentElement).getPropertyValue('--header-color').trim(),
+                    text: textColorInput ? textColorInput.value : getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim()
+                };
+                updateColors(newColors);
+
+                localStorage.setItem('colors', JSON.stringify(newColors));
+            }
+
+            if (accentColorInput) accentColorInput.addEventListener('input', handleInputChange);
+            if (backgroundColorInput) backgroundColorInput.addEventListener('input', handleInputChange);
+            if (headerColorInput) headerColorInput.addEventListener('input', handleInputChange);
+            if (textColorInput) textColorInput.addEventListener('input', handleInputChange);
+
+            if (resetButton) {
+                resetButton.addEventListener('click', function() {
+                    const defaultColors = {
+                        accent: getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim(),
+                        background: getComputedStyle(document.documentElement).getPropertyValue('--default-background-color').trim(),
+                        header: getComputedStyle(document.documentElement).getPropertyValue('--default-header-color').trim(),
+                        text: getComputedStyle(document.documentElement).getPropertyValue('--default-text-color').trim()
+                    };
+                    updateColors(defaultColors);
+
+                    if (accentColorInput) accentColorInput.value = defaultColors.accent;
+                    if (backgroundColorInput) backgroundColorInput.value = defaultColors.background;
+                    if (headerColorInput) headerColorInput.value = defaultColors.header;
+                    if (textColorInput) textColorInput.value = defaultColors.text;
+
+                    localStorage.removeItem('colors');
+                });
+            }
+
+            window.addEventListener('storage', function(event) {
+                if (event.key === 'colors') {
+                    const newColors = JSON.parse(event.newValue);
+                    if (newColors) {
+                        updateColors(newColors);
+                        if (accentColorInput) accentColorInput.value = newColors.accent;
+                        if (backgroundColorInput) backgroundColorInput.value = newColors.background;
+                        if (headerColorInput) headerColorInput.value = newColors.header;
+                        if (textColorInput) textColorInput.value = newColors.text;
+                    } else {
+                        const defaultColors = {
+                            accent: getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim(),
+                            background: getComputedStyle(document.documentElement).getPropertyValue('--default-background-color').trim(),
+                            header: getComputedStyle(document.documentElement).getPropertyValue('--default-header-color').trim(),
+                            text: getComputedStyle(document.documentElement).getPropertyValue('--default-text-color').trim()
+                        };
+                        updateColors(defaultColors);
+                        if (accentColorInput) accentColorInput.value = defaultColors.accent;
+                        if (backgroundColorInput) backgroundColorInput.value = defaultColors.background;
+                        if (headerColorInput) headerColorInput.value = defaultColors.header;
+                        if (textColorInput) textColorInput.value = defaultColors.text;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

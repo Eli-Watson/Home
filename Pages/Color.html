@@ -4,12 +4,12 @@
     <title>User Customization</title>
     <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Home/CSS/Default.css">
+    <link rel="stylesheet" href="/Home/CSS/Color.css">
     <script src="/Home/JS/DarkMode.js"></script>
     <script src="/Home/JS/NavHide.js"></script>
     <script src="/Home/JS/Nav.js"></script>
     <script src="/Home/JS/ScrollTop.js"></script>
-    <script src="/Home/JS/Custom.js"></script>
+    <script src="/Home/JS/MuliCustom.js"></script>
 </head>
 <body>
 
@@ -26,10 +26,13 @@
      <button onclick="changeToBlack()">Black Background</button>
      <button onclick="changeToWhite()">White Background</button>   
     </div>
-    <div id="customization">
+    <div id="customization" class="customization">
         <label for="accent-color">Accent Color:</label>
-        <input type="color" id="accent-color">
-        <button id="reset-color">Reset</button>
+        <input type="color" id="accent-color" value="#FF0000"> 
+        <!--<button id="reset-color">Reset</button> !-->
+        <label for="header-color">Header Color:</label>
+        <input type="color" id="header-color" value="#333333">
+        <button id="reset-color">Reset to Default</button>
     </div>
     
 </section>

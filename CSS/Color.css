@@ -24,12 +24,24 @@ body {
         color: var(--accent-color);
 }
 /* the buttons to change the background color */
+.BackgroundSelector {
+    padding: 10px;
+}
 .Background {
     padding: 5px;
     border-radius: 5px;
     border-style: groove;
     background-color: white;
     color: var(--header-color);
+}
+.Reset-ColorDiv {
+    padding: 10px;
+}
+#reset-color {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border-style: groove;
+    background-color: white;
 }
 /*label for the color selectors for both the accent and header */
 .AccentLabel {
@@ -128,11 +140,6 @@ nav.sidenav a:hover {
 section {
     padding: 20px;
     border-color: #333;
-    margin-left: 150px;
-}
-
-footer {
-    margin-left: 150px; /* Fixed the missing px */
 }
 
 #toggleButton {

@@ -23,7 +23,7 @@
 <section>
     <div class="rgb">
         <div class="CustomColor">
-            <div>
+            <div class="BackgroundSelector">
                 <p class="CustomColorP">Choose to customize the color of the site to your preferences.</p>
                 <button onclick="changeToBlack()" class="Background">Black Background</button>
                 <button onclick="changeToWhite()" class="Background">White Background</button>   
@@ -32,7 +32,9 @@
             <input type="color" id="accent-color" value="#FF0000"> 
             <label for="header-color" class="HeaderLabel">Header Color:</label>
             <input type="color" id="header-color" value="#333333">
-            <button id="reset-color">Reset to Default</button> 
+            <div class="Reset-ColorDiv">
+            <button id="reset-color">Reset to Default</button>     
+            </div>
         </div>
     </div>
 </section>

@@ -66,10 +66,10 @@ function displayNearestHoliday() {
 
     if (holiday) {
         holidayInfo.innerHTML = `
-            <h1>Holiday Info:</h1>
+            <h1 Class="HolidayText">Holiday Info:</h1>
             <p class="Slogan">We keep track so you don't have to!</p>
-            <p>The nearest holiday is <span class="HolidayName">${holiday.name}</span>.</p>
-            <p><span class="DaysUntil">${daysUntil}</span> days until ${holiday.name} (${holiday.date}).</p>
+            <p class="HolidayText">The nearest holiday is <span class="HolidayName">${holiday.name}</span>.</p>
+            <p class="HolidayText"><span class="DaysUntil">${daysUntil}</span> days until ${holiday.name} (${holiday.date}).</p>
             <p class="HolidayMessage">${holiday.message}</p>
         `;
         document.dispatchEvent(new CustomEvent('HolidayLoaded'));

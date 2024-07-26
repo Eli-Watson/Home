@@ -1,6 +1,10 @@
 :root {
-    --default-accent-color: #ff0000; /* Default accent color */
+    --default-accent-color: red; 
+    --default-header-color: #333;
+
+    /* Customizable colors */
     --accent-color: var(--default-accent-color);
+    --header-color: var(--default-header-color);
 }
 
 /* Default Styles (Desktop) */
@@ -11,7 +15,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: var(--header-color);
     color: #fff;
     padding: 10px;
     text-align: center;

@@ -1,71 +1,107 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get elements
     const accentColorInput = document.getElementById('accent-color');
     const headerColorInput = document.getElementById('header-color');
     const resetButton = document.getElementById('reset-color');
-
-    // Function to update color properties across the page
-    function updateColors(colors) {
-        document.documentElement.style.setProperty('--accent-color', colors.accent);
-        document.documentElement.style.setProperty('--header-color', colors.header);
+    
+    // Function to update colors across the page
+    function updateColor(property, color) {
+        document.documentElement.style.setProperty(property, color);
     }
 
-    // Load saved customizations from localStorage if available
-    const savedColors = JSON.parse(localStorage.getItem('colors'));
-    if (savedColors) {
-        updateColors(savedColors);
-        if (accentColorInput) accentColorInput.value = savedColors.accent;
-        if (headerColorInput) headerColorInput.value = savedColors.header;
+    // Load saved customization from localStorage if available
+    const savedAccentColor = localStorage.getItem('accentColor');
+    const savedHeaderColor = localStorage.getItem('headerColor');
+
+    if (savedAccentColor) {
+        updateColor('--accent-color', savedAccentColor);
+        if (accentColorInput) {
+            accentColorInput.value = savedAccentColor;
+        }
     }
 
-    // Listen for changes in color inputs, if they exist
-    function handleInputChange() {
-        const newColors = {
-            accent: accentColorInput ? accentColorInput.value : getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim(),
-            header: headerColorInput ? headerColorInput.value : getComputedStyle(document.documentElement).getPropertyValue('--header-color').trim()
-        };
-        updateColors(newColors);
-
-        // Save customization to localStorage
-        localStorage.setItem('colors', JSON.stringify(newColors));
+    if (savedHeaderColor) {
+        updateColor('--header-color', savedHeaderColor);
+        if (headerColorInput) {
+            headerColorInput.value = savedHeaderColor;
+        }
     }
-
-    if (accentColorInput) accentColorInput.addEventListener('input', handleInputChange);
-    if (headerColorInput) headerColorInput.addEventListener('input', handleInputChange);
-
-    // Reset button functionality, if it exists
-    if (resetButton) {
-        resetButton.addEventListener('click', function() {
-            const defaultColors = {
-                accent: getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim(),
-                header: getComputedStyle(document.documentElement).getPropertyValue('--default-header-color').trim()
-            };
-            updateColors(defaultColors);
-
-            if (accentColorInput) accentColorInput.value = defaultColors.accent;
-            if (headerColorInput) headerColorInput.value = defaultColors.header;
-
-            // Remove colors from localStorage
-            localStorage.removeItem('colors');
+    
+    // Listen for changes in the accent color input, if it exists
+    if (accentColorInput) {
+        accentColorInput.addEventListener('input', function() {
+            const newAccentColor = accentColorInput.value;
+            updateColor('--accent-color', newAccentColor);
+            
+            // Save customization to localStorage
+            localStorage.setItem('accentColor', newAccentColor);
         });
     }
 
-    // Listen for storage event to update the colors across tabs/pages
+    // Listen for changes in the header color input, if it exists
+    if (headerColorInput) {
+        headerColorInput.addEventListener('input', function() {
+            const newHeaderColor = headerColorInput.value;
+            updateColor('--header-color', newHeaderColor);
+            
+            // Save customization to localStorage
+            localStorage.setItem('headerColor', newHeaderColor);
+        });
+    }
+    
+    // Reset button functionality, if it exists
+    if (resetButton) {
+        resetButton.addEventListener('click', function() {
+            const defaultAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim();
+            const defaultHeaderColor = getComputedStyle(document.documentElement).getPropertyValue('--default-header-color').trim();
+
+            updateColor('--accent-color', defaultAccentColor);
+            updateColor('--header-color', defaultHeaderColor);
+
+            if (accentColorInput) {
+                accentColorInput.value = defaultAccentColor;
+            }
+
+            if (headerColorInput) {
+                headerColorInput.value = defaultHeaderColor;
+            }
+            
+            // Remove colors from localStorage
+            localStorage.removeItem('accentColor');
+            localStorage.removeItem('headerColor');
+        });
+    }
+    
+    // Listen for storage event to update the color across tabs/pages
     window.addEventListener('storage', function(event) {
-        if (event.key === 'colors') {
-            const newColors = JSON.parse(event.newValue);
-            if (newColors) {
-                updateColors(newColors);
-                if (accentColorInput) accentColorInput.value = newColors.accent;
-                if (headerColorInput) headerColorInput.value = newColors.header;
+        if (event.key === 'accentColor') {
+            const newAccentColor = event.newValue;
+            if (newAccentColor) {
+                updateColor('--accent-color', newAccentColor);
+                if (accentColorInput) {
+                    accentColorInput.value = newAccentColor;
+                }
             } else {
-                const defaultColors = {
-                    accent: getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim(),
-                    header: getComputedStyle(document.documentElement).getPropertyValue('--default-header-color').trim()
-                };
-                updateColors(defaultColors);
-                if (accentColorInput) accentColorInput.value = defaultColors.accent;
-                if (headerColorInput) headerColorInput.value = defaultColors.header;
+                const defaultAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--default-accent-color').trim();
+                updateColor('--accent-color', defaultAccentColor);
+                if (accentColorInput) {
+                    accentColorInput.value = defaultAccentColor;
+                }
+            }
+        }
+        
+        if (event.key === 'headerColor') {
+            const newHeaderColor = event.newValue;
+            if (newHeaderColor) {
+                updateColor('--header-color', newHeaderColor);
+                if (headerColorInput) {
+                    headerColorInput.value = newHeaderColor;
+                }
+            } else {
+                const defaultHeaderColor = getComputedStyle(document.documentElement).getPropertyValue('--default-header-color').trim();
+                updateColor('--header-color', defaultHeaderColor);
+                if (headerColorInput) {
+                    headerColorInput.value = defaultHeaderColor;
+                }
             }
         }
     });

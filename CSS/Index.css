@@ -200,7 +200,9 @@ a:hover {
     max-width: 600px;
     background-color: #f9f9f9;
 }
-
+.HolidayText {
+    color: black;
+}
 .Slogan {
     font-size: 18px;
     margin-bottom: 10px;

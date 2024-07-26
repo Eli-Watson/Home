@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const accentColorInput = document.getElementById('accent-color');
     const resetButton = document.getElementById('reset-color');
     
+    // Function to update accent color across the page
+    function updateAccentColor(color) {
+        document.documentElement.style.setProperty('--accent-color', color);
+    }
+
     // Load saved customization from localStorage if available
     const savedAccentColor = localStorage.getItem('accentColor');
     if (savedAccentColor) {
@@ -54,9 +59,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    // Function to update accent color across the page
-    function updateAccentColor(color) {
-        document.documentElement.style.setProperty('--accent-color', color);
-    }
 });

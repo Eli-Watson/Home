@@ -3,7 +3,6 @@ function changeToBlack() {
     document.body.style.color = "#fff";
     // Save the chosen theme to localStorage
     localStorage.setItem('theme', 'black');
-    console.log('Black theme');
 }
 
 function changeToWhite() {
@@ -11,7 +10,6 @@ function changeToWhite() {
     document.body.style.color = "#000";
     // Save the chosen theme to localStorage
     localStorage.setItem('theme', 'white');
-    console.log('White theme');
 }
 
 function changeholidaytoblack() {
@@ -57,11 +55,10 @@ document.addEventListener('HolidayLoaded', function() {
     var theme = localStorage.getItem('theme');
     if (theme === 'black') {
         changeholidaytoblack();
-        console.log('Changing Holiday Class to Black');
+        console.log('Changing Holiday theme to Black');
     } else if (theme === 'white') {
         changeholidaytoblack();
-        console.log('Changing Holiday Class to White');
+        console.log('Changing Holiday theme to White');
         // Apply the white theme to elements related to 'Holiday.js'
     }
-    console.log('Holiday.js Loaded');
 });

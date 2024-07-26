@@ -16,24 +16,22 @@
 <header>
     <h1>User Customization</h1>
     <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>
-    <div id="customization">
-        <label for="accent-color">Accent Color:</label>
-        <input type="color" id="accent-color">
-        <button id="reset-color">Reset</button>
-    </div>
 </header>
 
 <div id="Nav"></div>
 
 <section>
     <p>Choose to change Color of the site.</p>
-    <button onclick="changeToBlack()">Black Background</button>
-    <button onclick="changeToWhite()">White Background</button>
+    <div class="Background">
+     <button onclick="changeToBlack()">Black Background</button>
+     <button onclick="changeToWhite()">White Background</button>   
+    </div>
     <div id="customization">
         <label for="accent-color">Accent Color:</label>
         <input type="color" id="accent-color">
         <button id="reset-color">Reset</button>
     </div>
+    
 </section>
 
 <div id="Footer"></div>

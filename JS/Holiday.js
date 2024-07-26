@@ -72,7 +72,7 @@ function displayNearestHoliday() {
             <p><span class="DaysUntil">${daysUntil}</span> days until ${holiday.name} (${holiday.date}).</p>
             <p class="HolidayMessage">${holiday.message}</p>
         `;
-        document.dispatchEvent(new CustomEvent('Holiday.jsLoaded'));
+        document.dispatchEvent(new CustomEvent('HolidayLoaded'));
     } else {
         holidayInfo.innerHTML = `<p>No upcoming holidays found.</p>`;
     }

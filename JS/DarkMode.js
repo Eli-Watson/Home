@@ -22,13 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Changing theme to Black');
     } else if (theme === 'white') {
         changeToWhite();
-        console.log('Changing theme to White')
+        console.log('Changing theme to White');
     }
-document.addEventListener('Holiday.jsLoaded', function() {
-    console.log('Holiday.js Loaded');
-    
-  });
-  
-
 });
- 
+
+// Handling a custom event for when the 'Holiday.js' script is loaded
+document.addEventListener('HolidayLoaded', function() {
+    console.log('Holiday.js Loaded');
+    var theme = localStorage.getItem('theme');
+    if (theme === 'black') {
+        console.log('Changing Holiday Class to Black');
+        // Apply the black theme to elements related to 'Holiday.js'
+    } else if (theme === 'white') {
+        console.log('Changing Holiday Class to White');
+        // Apply the white theme to elements related to 'Holiday.js'
+    }
+});

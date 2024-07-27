@@ -20,21 +20,15 @@ header {
     text-align: center;
 }
 
-.color {
-    background-color: #fff;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+.articles-container {
+    text-align: center;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
 }
 
-.color:hover {
-    background-color: #ddd ;
-    transform: scale(1.1); /* Increase size on hover */
-    transition: transform 0.3s; /* Add transition for smooth size change */
-}
 
 nav.sidenav {
     height: 100%;

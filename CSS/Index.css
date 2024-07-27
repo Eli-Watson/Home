@@ -74,9 +74,10 @@ section {
 }
 
 .scroll {
-    background-color: #333;
+    background-color: white;
     color: var(--accent-color); /* Dynamic accent color */
-    border: none;
+    border: solid;
+    border-color: #333;
     border-radius: 5px;
     margin: 5px;
     padding: 5px 10px;

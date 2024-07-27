@@ -29,6 +29,9 @@ header {
     background-color: #f9f9f9;
 }
 
+.articles-container a {
+    color: var(--accent-color);
+}
 
 nav.sidenav {
     height: 100%;

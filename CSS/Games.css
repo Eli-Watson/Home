@@ -1,10 +1,13 @@
 :root {
     --default-accent-color: red; 
     --default-header-color: #333;
-
+    --default-text-color: White;
+    --default-background-color: white;
     /* Customizable colors */
     --accent-color: var(--default-accent-color);
     --header-color: var(--default-header-color);
+    --text-color: var(--default-text-color);
+    --background-color: var(--default-background-color);
 }
 
 /* Default Styles (Desktop) */
@@ -16,7 +19,7 @@ body {
 
 header {
     background-color: var(--header-color);
-    color: #fff;
+    color: var(--text-color);
     padding: 10px;
     text-align: center;
 }
@@ -81,7 +84,7 @@ nav.sidenav a {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
-    color: #fff;
+    color: var(--text-color);
     display: block;
     width: 100px; /* Set the initial width */
     transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */

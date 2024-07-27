@@ -6,7 +6,7 @@ function changeToBlack() {
 }
 
 function changeToWhite() {
-    document.body.style.backgroundColor = "#fff";
+    document.body.style.backgroundColor = "#fff"; 
     document.body.style.color = "#000";
     // Save the chosen theme to localStorage
     localStorage.setItem('theme', 'white');

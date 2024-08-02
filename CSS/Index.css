@@ -235,11 +235,12 @@ footer {
 }
 .Announcement {
     text-align: center;
-    border: 2px solid var(--header-color);
     padding: 0px 20px;
     margin: auto;
     max-width: 600px;
     background-color: var(--accent-color);
+    color: white;
+
 }
 .Announcement a , .Announcement a:visited {
     color: var(--header-color);

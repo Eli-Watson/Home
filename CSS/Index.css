@@ -23,7 +23,7 @@ header {
     text-align: center;
 }
 
-.articles-container {
+.articles-div {
     text-align: center;
     border: 2px solid black;
     padding: 1px 20px;
@@ -32,10 +32,9 @@ header {
     background-color: #f9f9f9;
 }
 
-.articles-container a {
+.articles-div a {
     color: var(--accent-color);
 }
-
 nav.sidenav {
     height: 100%;
     width: 100px;
@@ -84,6 +83,9 @@ section {
     border-radius: 5px;
     margin: 5px;
     padding: 5px 10px;
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
 }
 
 .scroll:hover {
@@ -220,4 +222,14 @@ a:hover {
 .thoughtsP {
     color: black;
     font-style: italic;
+}
+
+footer {
+    background-color: var(--header-color); /* Red background */
+    color: #000; /* Black text */
+    text-align: center;
+    padding: 5px 0;
+    border-top: 2px solid #fff; /* White border */
+    width: 100%;
+    bottom: 0;
 }

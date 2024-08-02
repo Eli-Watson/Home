@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/Home/JS/DarkMode.js"></script>
+    <script src="/Home/JS/NavHide.js"></script>
+    <script src="/Home/JS/Holiday.js"></script>
+    <script src="/Home/JS/Nav.js"></script>
+    <script src="/Home/JS/DailyWord.js"></script>
+    <script src="/Home/JS/ScrollTop.js"></script>
+    <script src="/Home/JS/Custom.js"></script>
+    <script src="/Home/JS/Post.js"></script>
+</head>
+<body>
+<header>
+    <h1>Eli Watson's Homepage</h1>
+</header>
+<div id="Nav"></div>
+
+<section>
+    <div class="articles-div">    
+        <h1>Latest Post</h1>
+     <div id="post-container" class="articles-container"></div>
+    </div> 
+    
+    <div class="articles-div">
+        <h1>Latest Articles</h1>
+        <div id="articles-container" class="articles-container"></div>
+    </div>
+    <div id="holidayInfo" class="holiday">
+        <p>Loading...</p>
+    </div>
+    <div class="wordOfTheDay">
+        <h1 class="wordH">Word of the Day:</h1>
+        <div id="word" class="word"></div>
+        <p id="definition" class="wordp"></p>
+    </div>
+    <div id="thought-container" class="thought-container">
+        <h1 class="thoughtsH">Shower Thought of the Day</h1>
+        <p id="thought-text" class="thoughtsP">Loading thought...</p>
+    </div>
+    <button onclick="scrollToTop()" id="scrollToTopBtn" class="scroll" title="Go to top">Scroll to Top</button>
+</section>
+
+<div id="Footer"></div> 
+
+</body> 
+</html>
+<script src="/Home/JS/Thought.js"></script>
+<style>
+ body {
+    background-color: #000; /* Black background */
+    font-family: 'Courier New', Courier, monospace; /* Retro font */
+    color: #fff; /* White text */
+}
+
+header {
+    background-color: #ff0000; /* Red header */
+    color: #000; /* Black text */
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #fff; /* White border */
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #000;
+}
+
+section {
+    padding: 20px;
+    background-color: #333; /* Dark grey background */
+    border: 2px solid #ff0000; /* Red border */
+    margin: 20px;
+}
+
+h1 {
+    color: #ff0000; /* Red text */
+    font-size: 1.5em;
+    border-bottom: 2px dashed #ff0000; /* Red dashed border */
+    padding-bottom: 5px;
+}
+
+button {
+    background-color: #000;
+    color: #ff0000; /* Red text */
+    border: 2px solid #ff0000; /* Red border */
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.sidenav {
+    text-align: center;
+}
+.articles-div, .holiday, .wordOfTheDay, .thought-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed #ff0000; /* Red dashed border */
+    background-color: #444; /* Darker grey background */
+}
+
+.HolidayName {
+    color:red
+}
+
+.DaysUntil {
+    color: red;
+}
+
+.scroll {
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
+    background-color: #000;
+    color: #ff0000; /* Red text */
+    border: 2px solid #ff0000; /* Red border */
+    padding: 10px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #ff0000; /* Red background */
+    color: #000; /* Black text */
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid #fff; /* White border */
+    width: 100%;
+    bottom: 0;
+}
+
+a {
+    color: red; 
+}
+
+a:visited {
+    color: red; 
+}
+
+</style>
+<script src="/Home/JS/Thought.js"></script>

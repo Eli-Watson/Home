@@ -1,7 +1,7 @@
 {
     "name": "EW Home",
     "short_name": "EW Home",
-    "start_url": "/index.html",
+    "start_url": "/Home/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",

@@ -1,0 +1,44 @@
+{
+    "name": "EW Home",
+    "short_name": "EW Home",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+      {
+        "src": "/Home/images/Icon/icon20.png",
+        "sizes": "20x20",
+        "type": "image/png"
+      },
+    {
+        "src": "/Home/images/Icon/icon40.png",
+        "sizes": "40x40",
+        "type": "image/png"
+      },
+      {
+        "src": "/Home/images/Icon/icon60.png",
+        "sizes": "60x60",
+        "type": "image/png"
+      },
+      {
+        "src": "/Home/images/Icon/icon120.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      },
+      {
+        "src": "/Home/images/Icon/icon512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "/Home/images/Icon/icon1024.png",
+        "sizes": "1024x1023",
+        "type": "image/png"
+      }, {
+        "src": "/Home/images/Icon/1536.png",
+        "sizes": "1536x1536",
+        "type": "image/png"
+      }
+    ]
+  }

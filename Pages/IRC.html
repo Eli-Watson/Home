@@ -9,13 +9,53 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-7Q9QFB683S');
     </script>
 </head>
 <body>
+
+<!-- <script>
+// Variable to track if a notification has been sent recently
+let notificationSent = false;
+
+// Function to send a notification using ntfy
+function sendNtfyNotification() {
+    if (!notificationSent) {
+        fetch('https://ntfy.sh/Nostaw', {
+            method: 'POST',
+            body: 'Someone has accessed the IRC Chat page on your site.',
+            headers: {
+                'Title': 'Activity on IRC Login Page',
+                'Actions': 'view, Go to Login, https://eli-watson.github.io/Home/Pages/IRC.html/'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Notification sent successfully!');
+            } else {
+                console.error('Failed to send notification.');
+            }
+        })
+        .catch(error => {
+            console.error('Error sending notification:', error);
+        });
+
+        // Set notificationSent to true and start a timer to reset it after 10 seconds
+        notificationSent = true;
+        setTimeout(() => {
+            notificationSent = false;
+        }, 10000); // 10 seconds
+    } else {
+        console.log('Notification already sent. Waiting before sending another.');
+    }
+}
+
+// Call the function when the page loads
+window.onload = sendNtfyNotification;
+
+</script> !-->
 <section>
-    <iframe src="https://kiwiirc.com/nextclient/?settings=63a242fad838a05962831f2a4864dcff" style="width:100%;height:680px;border:0;display:block"></iframe>
+  <iframe src="https://kiwiirc.com/nextclient/?settings=d0046a2ba3f5e5d8ca796ef6e078d6b0" style="width:100%;height:680px;border:0;display:block"></iframe>
 </section>
 
 </body>

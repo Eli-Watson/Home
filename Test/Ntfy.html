@@ -14,7 +14,7 @@ let notificationSent = false;
 // Function to send a notification using ntfy
 function sendNtfyNotification() {
     if (!notificationSent) {
-        fetch('https://ntfy.sh/NostawTest', {
+        fetch('add server', {
             method: 'POST',
             body: 'Someone has accessed the IRC Chat page on your site.',
             headers: {

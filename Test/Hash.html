@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Page</title>
+</head>
+<body>
+    <div id="content" style="display: none;">
+        <h1>Welcome to the Admin page!</h1>
+        <p>Haha You thought This page was important</p>
+        <a href="/Home/Test/Chaos.html">Color Tester</a>
+        <a href="/Home/Test/fireworks.html">Fireworks</a>
+        <a href="/Home/Test/Ntfy.html">Ntfy</a>
+    </div>
+
+    <div id="login">
+        <h2>Login Required</h2>
+        <input type="text" id="usernameInput" placeholder="Enter username">
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button onclick="checkCredentials()">Submit</button>
+        <p id="error" style="color: red; display: none;">Incorrect username or password. Please try again.</p>
+    </div>
+    <script>
+        // Pre-hashed username and password using SHA-256
+        const storedUsername = 'c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f';
+        const storedPassword = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8';
+
+        // Hashing function using SHA-256
+        async function hashInput(input) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(input);
+            const hash = await crypto.subtle.digest('SHA-256', data);
+            return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Check if the entered username and password are correct
+        async function checkCredentials() {
+            const inputUsername = document.getElementById('usernameInput').value;
+            const inputPassword = document.getElementById('passwordInput').value;
+            
+            const inputUsernameHash = await hashInput(inputUsername);
+            const inputPasswordHash = await hashInput(inputPassword);
+
+            if (inputUsernameHash === storedUsername && inputPasswordHash === storedPassword) {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

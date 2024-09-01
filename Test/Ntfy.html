@@ -6,17 +6,15 @@
     <title>Ntfy Test</title>
 </head>
 <body>
-    <h1>Send Message with ntfy</h1>
-    <button id="sendMessageButton">Send Message</button>
 
     <script>
-    // Variable to track if a notification has been sent recently
+// Variable to track if a notification has been sent recently
 let notificationSent = false;
 
 // Function to send a notification using ntfy
 function sendNtfyNotification() {
     if (!notificationSent) {
-        fetch('https://ntfy.sh/Nostaw', {
+        fetch('https://ntfy.sh/NostawTest', {
             method: 'POST',
             body: 'Someone has accessed the IRC Chat page on your site.',
             headers: {
@@ -41,7 +39,7 @@ function sendNtfyNotification() {
             notificationSent = false;
         }, 10000); // 10 seconds
     } else {
-        console.log('Notification already sent. Waiting before sending another.');
+        console.log('');
     }
 }
 

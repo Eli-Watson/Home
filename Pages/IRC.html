@@ -43,7 +43,7 @@ function sendNtfyNotification() {
         // Set notificationSent to true and start a timer to reset it after 10 seconds
         notificationSent = true;
         setTimeout(() => {
-            notificationSent = false;
+            notificationSent = false; 
         }, 10000); // 10 seconds
     } else {
         console.log('Notification already sent. Waiting before sending another.');

@@ -18,6 +18,7 @@ const holidays = [
     { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain." },
     { name: "US Coast Gaurd Day", date: "August 4th", message: "The Only Holiday I have in August, and the only Academy that dosen't need a Congressional Nomination" },
     { name: "Labor Day", date: "September 2", message: "Put some Good 'ole Elbow Grease into it." },
+    { name: "9/11 Terrorist Attacks", date: "September 11", message: "Nothing Funny About this one. Remember and Honor those who gave their lives." },
     { name: "US Air Force Day", date: "September 18", message: "They fly. Well most of them don't But some do!" },
     { name: "First Day of Autumn", date: "September 22", message: "Check what's in the leaves before you jump in." },
     { name: "Columbus Day", date: "October 13", message: "Remember Christopher Columbus' voyage to the Americas." },

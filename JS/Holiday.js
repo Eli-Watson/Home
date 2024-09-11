@@ -20,7 +20,7 @@ const holidays = [
     { name: "Labor Day", date: "September 2", message: "Put some Good 'ole Elbow Grease into it." },
     { name: "9/11 Terrorist Attacks", date: "September 11", message: "Nothing funny about this one. Remember and Honor those who gave their lives for others." },
     { name: "US Air Force Day", date: "September 18", message: "They fly. Well most of them don't But some do!" },
-    { name: "First Day of Autumn", date: "September 22", message: "Check what's in the leaves before you jump in." },
+    { name: "First Day of Fall", date: "September 22", message: "Check what's in the leaves before you jump in." },
     { name: "Columbus Day", date: "October 13", message: "Remember Christopher Columbus' voyage to the Americas." },
     { name: "US Navy Day", date: "October 27", message: "We Got boats. Big boats." },
     { name: "Halloween", date: "October 31", message: "Trick or treat! Enjoy costumes and candies." },

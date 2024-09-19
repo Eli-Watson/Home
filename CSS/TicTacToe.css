@@ -1,5 +1,9 @@
 body {
-    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   /*  height: 100vh; /* 100% of the viewport height */
     margin: 0;
     text-align: center;
 }

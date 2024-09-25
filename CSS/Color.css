@@ -10,7 +10,12 @@
     --text-color: var(--default-text-color);
     --background-color: var(--default-background-color);
 }
-
+#Theme a {
+    padding: 5px;
+    border-color: black;
+    background-color: white;
+    color: var(--header-color);
+}
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: 0;

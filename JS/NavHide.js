@@ -1,7 +1,6 @@
 function toggleNavBar() {
-
     // Get the navigation bar element
-    var navBar = document.querySelector('nav.sidenav');
+    var navBar = document.querySelector('nav#sidenav, nav#topnav');
 
     // Exit early if navBar is not found
     if (!navBar) {
@@ -16,21 +15,31 @@ function toggleNavBar() {
 // code to change the syle of the nav bar
 function SetNavTop() {
     let nav = document.getElementById('sidenav');
-        if (nav) {
-            nav.id = 'topnav'; // Change the ID of the div
-        }
-        // change local storage
+    if (nav) {
+        nav.id = 'topnav'; // Change the ID of the div
+    }
+    // Change local storage
     localStorage.setItem('nav', 'top');
     console.log("Changing nav to top");
-        // location.reload();
-    }
-    
+}
+
 function SetNavSide() {
-    let nav = document.getElementById('topnov');
+    let nav = document.getElementById('topnav'); // 
     if (nav) {
         nav.id = 'sidenav'; // Change the ID of the div
     }
     localStorage.setItem('nav', 'side');
     console.log("Changing nav to side");
-    // location.reload();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var nav = localStorage.getItem('nav');
+    console.log('Current nav from storage: ', nav);
+    if (nav === 'top') {
+        SetNavTop();
+    } else if (nav === 'side') {
+        SetNavSide();
     }
+});
+
+     

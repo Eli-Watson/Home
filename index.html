@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/Home/CSS/Index.css">
     <link rel="manifest" href="/Home/manifest.json">
     <script src="/Home/JS/DarkMode.js"></script>
-    <script src="/Home/JS/NavHide.js"></script>
     <script src="/Home/JS/Holiday.js"></script>
     <script src="/Home/JS/Nav.js"></script>
     <script src="/Home/JS/DailyWord.js"></script>
@@ -45,7 +44,15 @@
            
         </div>
         
+        <div class="articles-div">    
+            <h1>Latest Post</h1>
+         <div id="post-container" class="articles-container"></div>
+        </div> 
         
+        <div class="articles-div">
+            <h1>Latest Article</h1>
+            <div id="articles-container" class="articles-container"></div>
+        </div>
        
         <div id="holidayInfo" class="holiday">
             <p>Loading...</p>
@@ -59,15 +66,7 @@
             <h1 class="thoughtsH">Shower Thought of the Day</h1>
             <p id="thought-text" class="thoughtsP">Loading thought...</p>
         </div>
-        <div class="articles-div">    
-            <h1>Latest Post</h1>
-         <div id="post-container" class="articles-container"></div>
-        </div> 
         
-        <div class="articles-div">
-            <h1>Latest Articles</h1>
-            <div id="articles-container" class="articles-container"></div>
-        </div>
         <button onclick="scrollToTop()" id="scrollToTopBtn" class="scroll"title="Go to top">Scroll to Top</button>
 </section>
 

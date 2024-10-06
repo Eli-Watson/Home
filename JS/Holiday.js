@@ -15,7 +15,9 @@ const holidays = [
     { name: "Memorial Day", date: "May 27", message: "Remember and honor those who died in military service." },
     { name: "Flag Day", date: "June 14", message: "Celebrate the adoption of the United States flag." },
     { name: "First Day of Summer", date: "June 21", message: "There's 104 days of summer vacation!!!!!!" },
-    { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain. Click here for fireworks: <a href=/Home/Test/fireworks.html>here</a>" },
+    { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain." },
+    // The version linking to the fireworks
+    // { name: "Independence Day", date: "July 4", message: "Blow up the sky and tease Britain. Click here for fireworks: <a href=/Projects/Fireworks/>here</a>" },
     { name: "US Coast Gaurd Day", date: "August 4th", message: "The Only Holiday I have in August, and the only Academy that dosen't need a Congressional Nomination" },
     { name: "Labor Day", date: "September 2", message: "Put some Good 'ole Elbow Grease into it." },
     { name: "9/11 Terrorist Attacks", date: "September 11", message: "Nothing funny about this one. Remember and Honor those who gave their lives for others." },

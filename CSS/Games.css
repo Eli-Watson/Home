@@ -142,6 +142,10 @@ a:hover {
 }
 
 .game-box {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     border: 1px solid #ccc;
     padding: 20px;
     text-align: center;

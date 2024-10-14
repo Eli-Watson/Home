@@ -16,12 +16,15 @@ function checkLogin(event) {
         switch (username) {
             case "Admin":
                 window.location.href = "/Home/Users/AdminHomePage.html";
+                SendAlert();
                 break;
             case "User":
                 window.location.href = "/Home/Users/UserHomePage.html";
+                SendAlert();
                 break;
             case "Jace":
                 window.location.href = "/Home/Users/JaceHomePage.html";
+                SendAlert();
                 break;
             default:
                 alert("Invalid username or password. Try again or maybe don't guess this time.");
@@ -35,3 +38,6 @@ function checkLogin(event) {
     // Prevent default form submission behavior
     event.preventDefault();
 }
+
+
+// Function to send a notification using ntfy

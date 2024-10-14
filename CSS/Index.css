@@ -35,7 +35,13 @@ header {
 .articles-div a {
     color: var(--accent-color);
 }
-nav.sidenav {
+#topnav, #topnav a, #topnav a:visited {
+    text-align: center;
+    background-color: var(--accent-color);
+    color: white;
+
+}
+nav#sidenav {
     height: 100%;
     width: 100px;
     position: fixed;
@@ -49,11 +55,14 @@ nav.sidenav {
     border-width: medium;
     transition: width 0.3s ease; /* Add transition for smooth animation */
 }
-nav.sidenav.hidden {
+nav#sidenav.hidden {
     width: 0; /* Hide the navbar by setting width to 0 */
 }
+/* Nav Css When it is on the  */
 
-nav.sidenav a {
+
+/* Nav Css When it is on the Side */
+nav#sidenav a {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
@@ -63,7 +72,7 @@ nav.sidenav a {
     transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
 }
 
-nav.sidenav a:hover {
+nav#sidenav a:hover {
     background-color: #555;
     width: 120px; /* Increase width on hover */
     padding: 10px 20px; /* Increase padding on hover */

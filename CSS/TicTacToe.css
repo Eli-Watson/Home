@@ -2,7 +2,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 100% of the viewport height */
+    flex-direction: column;
+   /*  height: 100vh; /* 100% of the viewport height */
     margin: 0;
     text-align: center;
 }
@@ -12,7 +13,6 @@ body {
     grid-template-columns: repeat(3, 100px);
     grid-gap: 5px;
     margin-bottom: 10px;
-    text-align: center;
 }
 
 .cell {

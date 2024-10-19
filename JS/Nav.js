@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('Footer').innerHTML = data;
         });
     });
-
+ 
 
 
 function toggleNavBar() {
@@ -30,7 +30,7 @@ function toggleNavBar() {
 
 // code to change the syle of the nav bar WIP
 function SetNavTop() {
-    let nav = document.getElementById('sidenav');
+    var nav = document.getElementById('sidenav');
     if (nav) {
         nav.id = 'topnav'; // Change the ID of the div
     }
@@ -40,7 +40,7 @@ function SetNavTop() {
 }
 
 function SetNavSide() {
-    let nav = document.getElementById('topnav'); // 
+    var nav = document.getElementById('topnav'); // 
     if (nav) {
         nav.id = 'sidenav'; 
     }
@@ -48,14 +48,15 @@ function SetNavSide() {
     console.log("Changing nav to side");
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', setNavStyle());
+
+function setNavStyle() {
     var nav = localStorage.getItem('nav');
     console.log('Current nav from storage: ', nav);
-    if (nav === 'top') {
+    if (nav == 'top') {
         SetNavTop();
-    } else if (nav === 'side') {
+    } else if (nav == 'side') {
         SetNavSide();
     }
-});
-
+}
      

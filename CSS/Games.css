@@ -61,7 +61,7 @@ h1 {
     transition: transform 0.3s;
 }
 
-nav.sidenav {
+nav#sidenav {
     height: 100%;
     width: 100px;
     position: fixed;
@@ -76,11 +76,11 @@ nav.sidenav {
     transition: width 0.3s ease; /* Add transition for smooth animation */
 }
 
-nav.sidenav.hidden {
+nav#sidenav.hidden {
     width: 0; /* Hide the navbar by setting width to 0 */
 }
 
-nav.sidenav a {
+nav#sidenav a {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
@@ -90,7 +90,7 @@ nav.sidenav a {
     transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
 }
 
-nav.sidenav a:hover {
+nav#sidenav a:hover {
     background-color: #555;
     width: 120px; /* Increase width on hover */
     padding: 10px 20px; /* Increase padding on hover */

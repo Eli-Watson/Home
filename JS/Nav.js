@@ -51,9 +51,9 @@ function SetNavSide() {
 document.addEventListener('DOMContentLoaded', function() {
     var nav = localStorage.getItem('nav');
     console.log('Current nav from storage: ', nav);
-    if (nav === 'top') {
+    if (nav == 'top') {
         SetNavTop();
-    } else if (nav === 'side') {
+    } else if (nav == 'side') {
         SetNavSide();
     }
 });

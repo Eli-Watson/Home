@@ -45,6 +45,18 @@ h1 {
     transition: transform 0.3s;
 }
 
+#topnav, #topnav a, #topnav a:visited {
+    text-align: center;
+    background-color: var(--accent-color);
+    color: white;
+    margin: 2px;
+    padding: 4px;
+
+}
+#topnav a:hover {
+    background-color: #555;
+}
+
 nav.sidenav {
     height: 100%;
     width: 100px;

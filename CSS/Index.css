@@ -39,7 +39,12 @@ header {
     text-align: center;
     background-color: var(--accent-color);
     color: white;
+    margin: 2px;
+    padding: 4px;
 
+}
+#topnav a:hover {
+    background-color: #555;
 }
 nav#sidenav {
     height: 100%;

@@ -59,4 +59,4 @@ function setNavStyle() {
         SetNavSide();
     }
 }
-     
+

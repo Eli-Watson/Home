@@ -15,15 +15,15 @@ function checkLogin(event) {
         // Redirect to different URLs based on the username
         switch (username) {
             case "Admin":
-                window.location.href = "/Home/Users/AdminHomePage.html";
+                window.location.href = "/Home/Pages/IIC/AdminHomePage.html";
                 SendAlert();
                 break;
             case "User":
-                window.location.href = "/Home/Users/UserHomePage.html";
+                window.location.href = "/Home/Pages/IIC/UserHomePage.html";
                 SendAlert();
                 break;
             case "Jace":
-                window.location.href = "/Home/Users/JaceHomePage.html";
+                window.location.href = "/Home/Pages/IIC/JaceHomePage.html";
                 SendAlert();
                 break;
             default:
@@ -38,6 +38,3 @@ function checkLogin(event) {
     // Prevent default form submission behavior
     event.preventDefault();
 }
-
-
-// Function to send a notification using ntfy

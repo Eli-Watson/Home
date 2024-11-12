@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TicTacToe">
+    <meta name="keywords" content="TicTacToe">
+    <meta name="author" content="Eli Watson">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="/Home/CSS/TicTacToe.css">
+    <script src="/Home/JS/DarkMode.js"></script>
+    <script src="/Home/JS/NavHide.js"></script>
+    <script src="/Home/JS/Nav.js"></script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q9QFB683S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7Q9QFB683S');
+</script>
+<header>
+    <h1>TicTacToe</h1>
+
+   </header>
+<body>
+    <div id="Nav"></div>
+<section>
+    <div id="board" class="board">
+        <div class="cell" onclick="makeMove(0)"></div>
+        <div class="cell" onclick="makeMove(1)"></div>
+        <div class="cell" onclick="makeMove(2)"></div>
+        <div class="cell" onclick="makeMove(3)"></div>
+        <div class="cell" onclick="makeMove(4)"></div>
+        <div class="cell" onclick="makeMove(5)"></div>
+        <div class="cell" onclick="makeMove(6)"></div>
+        <div class="cell" onclick="makeMove(7)"></div>
+        <div class="cell" onclick="makeMove(8)"></div>
+    </div>
+    <button onclick="resetGame()">Reset</button>
+    <script src="/Home/JS/Games/TicTacToe.js"></script>
+</section>
+    
+</body>
+</html>

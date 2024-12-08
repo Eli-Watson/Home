@@ -30,7 +30,7 @@ const holidays = [
     { name: "US Marine Day", date: "November 10", message: "Idk they're the marines. Watcha gunna do?" },
     { name: "Veterans Day", date: "November 11", message: "Thank veterans for their service to the country." },
     { name: "Thanksgiving Day", date: "November 27", message: "Give thanks to the Lord and enjoy a feast with loved ones." },
-    { name: "Christmas Day", date: "December 25", message: "Merry Christmas! Celebrate Christ's birth." },
+    { name: "Christmas", date: "December 25", message: "Merry Christmas! Celebrate Christ's birth." },
     { name: "New Year's Eve", date: "December 31", message: "Only stay up if you don't need rest." },
 ];
 

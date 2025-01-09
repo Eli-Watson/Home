@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Nostaw">
+    <link rel="apple-touch-icon" sizes="120x120" href="./Images/NostawIcon/Nostaw120.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./Images/NostawIcon/Nostaw180.png">
+    <link rel="manifest" href="/Nostaw/manifest.json">
+    <link rel="icon" type="image/x-icon" href="./Images/NostawIcon/Nostaw20.png">
+    <title>Articles</title>
+<body>
+    <div id="Scripts">
+        <script src="../JS/RSSPage.js"></script>
+    </div>
+    <div id="article-container">
+        <h1 id="article-title"></h1>
+        <p id="article-description"></p>
+        <a id="article-link" target="_blank">Read more</a>
+    </div>
+
+</body>
+</html>
+<style>
+    #article-container {
+        margin: 0 auto;
+        max-width: 90%;
+        padding: 1em;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #article-title {
+        font-size: 2.25em;
+        margin-bottom: 0.5em;
+    }
+
+    #article-description {
+        font-size: 1em;
+        margin-bottom: 1em;
+    }
+
+    /* Mobile Styles */
+    @media only screen and (max-width: 600px) {
+        header {
+            font-size: 1.2em;
+        }
+
+        #article-container {
+            padding: 0.5em;
+        }
+
+        #article-title {
+            font-size: 1.2em;
+        }
+
+        #article-description {
+            font-size: 0.9em;
+        }
+
+        footer {
+            font-size: 0.9em;
+        }
+    }
+
+</style>

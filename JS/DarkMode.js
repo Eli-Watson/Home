@@ -1,5 +1,5 @@
 function changeToBlack() {
-    document.body.style.backgroundColor = "#000";
+    document.body.style.backgroundColor = "#444";
     document.body.style.color = "#fff";
     // Save the chosen theme to localStorage
     localStorage.setItem('theme', 'black');

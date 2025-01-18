@@ -2,7 +2,7 @@
     --default-accent-color: red; 
     --default-header-color: #333;
     --default-text-color: White;
-    --default-background-color: white;
+    --default-background-color: #444;
     /* Customizable colors */
     --accent-color: var(--default-accent-color);
     --header-color: var(--default-header-color);

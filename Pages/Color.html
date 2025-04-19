@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
     <title>User Customization</title>
-    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Home/CSS/Color.css">
+    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Home/CSS/Color.css" />
     <script src="/Home/JS/DarkMode.js"></script>
     <script src="/Home/JS/NavHide.js"></script>
     <script src="/Home/JS/Nav.js"></script>
@@ -13,57 +14,66 @@
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q9QFB683S"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'G-7Q9QFB683S');
+    gtag("config", "G-7Q9QFB683S");
 </script>
+
 <body>
+    <header>
+        <h1>User Customization</h1>
+        <!-- <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button> -->
+    </header>
 
-<header>
-    <h1>User Customization</h1>
-    <!-- <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button> -->
-</header>
+    <div id="Nav"></div>
 
-<div id="Nav"></div> 
+    <section>
+        <div class="rgb">
+            <div class="CustomColor">
+                <div class="BackgroundSelector">
+                    <p class="CustomColorP">
+                        Choose to customize the color of the site to your preferences.
+                    </p>
+                    <button onclick="changeToBlack()" class="Background">
+                        Black Background
+                    </button>
+                    <button onclick="changeToWhite()" class="Background">
+                        White Background
+                    </button>
+                </div>
+                <label for="accent-color" class="AccentLabel">Accent Color:</label>
+                <input type="color" id="accent-color" value="#FF0000" />
 
-<section>
-    <div class="rgb">
-        <div class="CustomColor">
-            <div class="BackgroundSelector">
-                <p class="CustomColorP">Choose to customize the color of the site to your preferences.</p>
-                <button onclick="changeToBlack()" class="Background">Black Background</button>
-                <button onclick="changeToWhite()" class="Background">White Background</button>   
-            </div>
-            <label for="accent-color" class="AccentLabel">Accent Color:</label>
-            <input type="color" id="accent-color" value="#FF0000"> 
-            
-            <label for="header-color" class="HeaderLabel">Header Color:</label>
-            <input type="color" id="header-color" value="#333333">
-            
-            <label for="text-color" class="TextLabel">Text Color:</label>
-            <input type="color" id="text-color" name="text-color">
+                <label for="header-color" class="HeaderLabel">Header Color:</label>
+                <input type="color" id="header-color" value="#333333" />
 
-            <!-- <label for="background-color" class="BackgroundLabel">Background Color:</label>
+                <label for="text-color" class="TextLabel">Text Color:</label>
+                <input type="color" id="text-color" name="text-color" />
+
+                <!-- <label for="background-color" class="BackgroundLabel">Background Color:</label>
             <input type="color" id="background-color" name="background-color"> !-->
-            
-            <div class="Reset-ColorDiv">
-            <button id="reset-color">Reset to Default</button>     
-            </div>
-            <div id="Theme">
-                <p>Select Theme</p>
-                <a href="/Retro/"><button>Retro Theme</button></a>  
-            </div>
-            <div id="Nav Syle">
-                <p>Select Nav Style</p>
-                <button id="toggleButton" onclick="SetNavTop()">Set Nav Top</button> 
-                <button id="toggleButton" onclick="SetNavSide()">Set Nav Side</button> 
+
+                <div class="Reset-ColorDiv">
+                    <button id="reset-color">Reset to Default</button>
+                </div>
+                <div id="Theme">
+                    <p>Select Theme</p>
+                    <a href="/Retro/"><button>Retro Theme</button></a>
+                </div>
+                <div id="Nav Syle">
+                    <p>Select Nav Style</p>
+                    <button id="toggleButton" onclick="SetNavTop()">Set Nav Top</button>
+                    <button id="toggleButton" onclick="SetNavSide()">Set Nav Side</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div id="Footer"></div>
+    <div id="Footer"></div>
 </body>
+
 </html>

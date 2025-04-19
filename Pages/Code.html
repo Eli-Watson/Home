@@ -1,29 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+  <head>
     <title>My Code</title>
-    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Home/CSS/Index.css">
+    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Home/CSS/Index.css" />
     <script src="/Home/JS/DarkMode.js"></script>
     <script src="/Home/JS/NavHide.js"></script>
     <script src="/Home/JS/Nav.js"></script>
     <script src="/Home/JS/ScrollTop.js"></script>
     <script src="/Home/JS/Custom.js"></script>
-</head>
-<!-- the plan: the eventaual plan for this page is to make it the way to access all my code and games. 
+  </head>
+
+  <!-- the plan: the eventaual plan for this page is to make it the way to access all my code and games. 
  I am putting them under a sub menu so that the site is more professinal. -->
-<body>
+
+  <body>
     <header>
-    <h1>My Code</h1>
-</header>
+      <h1>My Code</h1>
+    </header>
 
-<div id="Nav"></div>
+    <div id="Nav"></div>
+    <section>
+      <div class="flex-parent">
+        <div id="code" class="flex-item">
+          <h2>My Projects:</h2>
+          <ul>
+            <li>
+              <a href="https://github.com/Eli-Watson/SEMGraph">SEMGraph</a>
+              <p>
+                This is a python tool I made to interactively generate graphs
+                using telemetry data provided my Shell for Shell Eco Marathon
+                Vehicals.
+              </p>
+            </li>
+          </ul>
+        </div>
 
-<section>
-    
-</section>
+        <div id="games" class="flex-item">
+          <h2>Games/Code Demos:</h2>
+          <ul>
+            <li>
+              <p>Something</p>
+            </li>
 
-<div id="Footer"></div>
-</body>
+            <li>
+              <p>Something</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div id="Footer"></div>
+  </body>
 </html>
+<style>
+  .games {
+    text-align: center;
+  }
+</style>

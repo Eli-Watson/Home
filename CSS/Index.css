@@ -23,6 +23,21 @@ header {
     text-align: center;
 }
 
+.flex-container {
+    text-align: center;
+    border: 2px solid black;
+    padding: 1px 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+}
+
+#showcase {
+    display: flex;
+    flex-direction: row;
+}
+
+
 .articles-div {
     text-align: center;
     border: 2px solid black;

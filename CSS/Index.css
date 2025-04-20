@@ -26,7 +26,6 @@ header {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border: 2px solid black;
     background-color: #f9f9f9;
 }
 

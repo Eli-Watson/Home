@@ -1,6 +1,6 @@
 /* Define default colors */
 :root {
-    --default-accent-color: red; 
+    --default-accent-color: red;
     --default-header-color: #333;
     --default-text-color: White;
     --default-background-color: white;
@@ -10,32 +10,52 @@
     --text-color: var(--default-text-color);
     --background-color: var(--default-background-color);
 }
+
 #Theme a {
     padding: 5px;
     border-color: black;
     background-color: white;
     color: var(--header-color);
 }
+
+footer {
+    background-color: var(--header-color);
+    /* Red background */
+    color: #000;
+    /* Black text */
+    text-align: center;
+    padding: 5px 0;
+    border-top: 2px solid #fff;
+    /* White border */
+    width: 100%;
+    bottom: 0;
+}
+
+
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
-    padding: 0; 
+    padding: 0;
     background-color: var(--background-color);
 }
+
 /*this is the div that houses all the color customization */
 .CustomColor {
     border: solid;
     text-align: center;
     padding: 20px;
 }
-.CustomColor p{
-        font-size: large;
-        color: var(--accent-color);
+
+.CustomColor p {
+    font-size: large;
+    color: var(--accent-color);
 }
+
 /* the buttons to change the background color */
 .BackgroundSelector {
     padding: 10px;
 }
+
 .Background {
     padding: 5px;
     border-radius: 5px;
@@ -43,9 +63,11 @@ body {
     background-color: white;
     color: var(--header-color);
 }
+
 .Reset-ColorDiv {
     padding: 10px;
 }
+
 #reset-color {
     padding: 5px 15px;
     border-radius: 5px;
@@ -55,25 +77,25 @@ body {
 
 /* the rgb border */
 .rgb {
-	--angle: 0deg;
-	width: auto;
-	height: auto;
-	border: 2vmin solid;
-	border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
-	
-	animation: 10s rotate linear infinite;
+    --angle: 0deg;
+    width: auto;
+    height: auto;
+    border: 2vmin solid;
+    border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+
+    animation: 10s rotate linear infinite;
 }
 
 @keyframes rotate {
-	to {
-		--angle: 360deg;
-	}
+    to {
+        --angle: 360deg;
+    }
 }
 
 @property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
 }
 
 header {
@@ -87,7 +109,9 @@ h1 {
     margin: 0;
 }
 
-#topnav, #topnav a, #topnav a:visited {
+#topnav,
+#topnav a,
+#topnav a:visited {
     text-align: center;
     background-color: var(--accent-color);
     color: white;
@@ -95,9 +119,11 @@ h1 {
     padding: 4px;
 
 }
+
 #topnav a:hover {
     background-color: #555;
 }
+
 nav#sidenav {
     height: 100%;
     width: 100px;
@@ -105,16 +131,21 @@ nav#sidenav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: var(--accent-color); /* Dynamic accent color */
+    background-color: var(--accent-color);
+    /* Dynamic accent color */
     overflow-x: hidden;
     padding-top: 60px;
     border-color: #333;
     border-width: medium;
-    transition: width 0.3s ease; /* Add transition for smooth animation */
+    transition: width 0.3s ease;
+    /* Add transition for smooth animation */
 }
+
 nav#sidenav.hidden {
-    width: 0; /* Hide the navbar by setting width to 0 */
+    width: 0;
+    /* Hide the navbar by setting width to 0 */
 }
+
 /* Nav Css When it is on the  */
 
 
@@ -125,20 +156,25 @@ nav#sidenav a {
     font-size: 18px;
     color: var(--text-color);
     display: block;
-    width: 100px; /* Set the initial width */
-    transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
+    width: 100px;
+    /* Set the initial width */
+    transition: width 0.3s, padding 0.3s;
+    /* Add transition for smooth size change */
 }
 
 nav#sidenav a:hover {
     background-color: #555;
-    width: 120px; /* Increase width on hover */
-    padding: 10px 20px; /* Increase padding on hover */
-    font-size: 18px; 
+    width: 120px;
+    /* Increase width on hover */
+    padding: 10px 20px;
+    /* Increase padding on hover */
+    font-size: 18px;
 }
 
 .scroll {
     background-color: #333;
-    color: var(--accent-color); /* Use CSS variable for text color */
+    color: var(--accent-color);
+    /* Use CSS variable for text color */
     border: none;
     border-radius: 5px;
     margin: 5px;
@@ -147,8 +183,10 @@ nav#sidenav a:hover {
 
 .scroll:hover {
     background-color: #555;
-    transform: scale(1.1); /* Increase size on hover */
-    transition: transform 0.3s; /* Add transition for smooth size change */
+    transform: scale(1.1);
+    /* Increase size on hover */
+    transition: transform 0.3s;
+    /* Add transition for smooth size change */
 }
 
 section {
@@ -173,12 +211,13 @@ section {
 }
 
 a {
-    color: grey; 
+    color: grey;
 }
 
 /* Visited link color */
 a:visited {
-    color: var(--accent-color); /* Use CSS variable for visited link color */
+    color: var(--accent-color);
+    /* Use CSS variable for visited link color */
 }
 
 /* Hovered link color */
@@ -188,33 +227,30 @@ a:hover {
 
 @media screen and (max-width: 768px) {
     section {
-        margin-left: auto; /* Adjust margin for smaller screens */
+        margin-left: auto;
+        /* Adjust margin for smaller screens */
     }
-    
+
     .games-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on medium screens */
     }
 }
 
 @media screen and (max-width: 480px) {
     nav.sidenav {
-        width: 80px; /* Adjust the width for smaller screens */
+        width: 80px;
+        /* Adjust the width for smaller screens */
     }
 
     nav.sidenav a {
-        padding: 5px 10px; /* Adjust padding for smaller screens */
+        padding: 5px 10px;
+        /* Adjust padding for smaller screens */
         font-size: 18px;
     }
 
     section {
-        margin-left: auto; /* Adjust margin for smaller screens */
+        margin-left: auto;
+        /* Adjust margin for smaller screens */
     }
 }
-
-
-
-
-
-
-
-

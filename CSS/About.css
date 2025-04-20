@@ -15,6 +15,21 @@ body {
     padding: 0;
 }
 
+footer {
+    background-color: var(--header-color);
+    /* Red background */
+    color: #000;
+    /* Black text */
+    text-align: center;
+    padding: 5px 0;
+    border-top: 2px solid #fff;
+    /* White border */
+    width: 100%;
+    bottom: 0;
+}
+
+
+
 header {
     background-color: var(--header-color);
     color: var(--text-color);

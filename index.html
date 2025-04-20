@@ -1,158 +1,76 @@
 <!-- This is the HTML code for my personal website "home" By Eli Watson -->
-
-<<<<<<< Updated upstream
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <title>Homepage</title>
-    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-    <meta name="apple-mobile-web-app-title" content="EW Home" />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="./images/Icon/icon120.png"
-    />
-    <link rel="stylesheet" href="./CSS/Index.css" />
-    <link rel="manifest" href="./manifest.json" />
-    <script src="./JS/DarkMode.js"></script>
-    <script src="./JS/Holiday.js"></script>
-    <script src="./JS/Nav.js"></script>
-    <script src="./JS/DailyWord.js"></script>
-    <script src="./JS/ScrollTop.js"></script>
-    <script src="./JS/Custom.js"></script>
-    <script src="./JS/Post.js"></script>
-  </head>
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-7Q9QFB683S"
-  ></script>
+    <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="EW Home">
+    <link rel="apple-touch-icon" sizes="120x120" href="/Home/images/Icon/icon120.png">
+    <link rel="stylesheet" href="/Home/CSS/Index.css">
+    <link rel="manifest" href="/Home/manifest.json">
+    <script src="/Home/JS/DarkMode.js"></script>
+    <script src="/Home/JS/Nav.js"></script>
+    <script src="/Home/JS/ScrollTop.js"></script>
+    <script src="/Home/JS/Custom.js"></script>
+    <script src="/Home/JS/Post.js"></script>
 
-  <script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q9QFB683S"></script>
+
+<script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    gtag("config", "G-7Q9QFB683S");
-  </script>
+    gtag('config', 'G-7Q9QFB683S');
+</script>
 
-  <body>
+<body>
     <header>
-      <h1>Eli Watson's Homepage</h1>
-      <!-- <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>  -->
+        <h1>Eli Watson's Homepage</h1>
+        <!-- <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>  -->
     </header>
 
     <div id="Nav"></div>
 
     <section>
-      
-        <div class="articles-div">
-        <h1>Latest Post</h1>
-        <div id="post-container" class="articles-container"></div>
-      </div>
+        <div id="showcase" class="grid-container">
 
-      <div class="articles-div">
-        <h1>Latest Article</h1>
-        <div id="articles-container" class="articles-container"></div>
-      </div>
-
-      <div id="holidayInfo" class="holiday">
-        <p>Loading...</p>
-      </div>
-      <!--
-      <div class="wordOfTheDay">
-        <h1 class="wordH">Word of the Day:</h1>
-        <div id="word" class="word"></div>
-        <p id="definition" class="wordp"></p>
-      </div>
-      <div id="thought-container" class="thought-container">
-        <h1 class="thoughtsH">Shower Thought of the Day</h1>
-        <p id="thought-text" class="thoughtsP">Loading thought...</p>
-      </div>
-        --!>
-      <button
-        onclick="scrollToTop()"
-        id="scrollToTopBtn"
-        class="scroll"
-        title="Go to top"
-      >
-        Scroll to Top
-      </button>
-    </section>
-
-    <div id="Footer"></div>
-  </body>
-</html>
-<script src="/Home/JS/Thought.js"></script>
-=======
-<!DOCTYPEhtml>
-    <html>
-
-    <head>
-        <title>Homepage</title>
-        <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="apple-mobile-web-app-title" content="EW Home">
-        <link rel="apple-touch-icon" sizes="120x120" href="/Home/images/Icon/icon120.png">
-        <link rel="stylesheet" href="/Home/CSS/Index.css">
-        <link rel="manifest" href="/Home/manifest.json">
-        <script src="/Home/JS/DarkMode.js"></script>
-        <script src="/Home/JS/Nav.js"></script>
-        <!-- <script src="/Home/JS/DailyWord.js"></script>
-       <script src="/Home/JS/Holiday.js"></script> --!>
-        <script src="/Home/JS/ScrollTop.js"></script>
-        <script src="/Home/JS/Custom.js"></script>
-        <script src="/Home/JS/Post.js"></script>
-
-    </head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q9QFB683S"></script>
-
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-7Q9QFB683S');
-    </script>
-
-    <body>
-        <header>
-            <h1>Eli Watson's Homepage</h1>
-            <!-- <button id="toggleButton" onclick="toggleNavBar()">Toggle Navigation Bar</button>  -->
-        </header>
-
-        <div id="Nav"></div>
-
-        <section>
-            <div id="showcase" class="flex-container">
-                <div id="projects" class="flex-item">
-                    <h2>Projects</h2>
-                </div>
-                <div id="demos/games" class="flex-item">
-                    <h2>Code Demos/Games</h2>
-                </div>
-            </div>
-
-            <<div class="articles-div">
+            <div class="articles-div grid-item">
                 <h1>Latest Post</h1>
                 <div id="post-container" class="articles-container"></div>
-                </div>
+            </div>
 
-                <div class="articles-div">
-                    <h1>Latest Article</h1>
-                    <div id="articles-container" class="articles-container"></div>
-                </div>
-                <!--
-                <div id="holidayInfo" class="holiday">
+            <div class="articles-div grid-item">
+                <h1>Latest Article</h1>
+                <div id="articles-container" class="articles-container"></div>
+            </div>
+
+
+            <div id="projects" class="grid-item">
+                <h1>Featured Projects</h1>
+                <h3>More: <a href="/Home/Pages/Code.html">Projects</a></h3>
+                <ul>
+                    <li><a href="https://github.com/Eli-Watson/SEMGraph">SEMGraph</a><p>Tool to Interactively generate graphs using Shell Eco Marathon Telemetry Data. Written in Python</p></li>
+                    <li><a href="https://github.com/Eli-Watson/Simple-Retro-Hugo-theme">Simple-Retro-Hugo-Theme</a><p>A Hugo theme I made for use on my own website. It's super simple (no js) and looks kinda like the "classic" web.</p></li>
+                </ul>
+            </div>
+            
+            <div id="demos/games" class="grid-item">
+                <h1>Featured Code Demos/Games</h1>
+                <h3>More: <a href="/Demos/">Demos</a> <a href="/Home/Pages/Games.html">Games</a> </h3>
+                <ul>
+                    <li><a href="https://github.com/Eli-Watson/Breakout.js">Breakout.js</a><p>Breakout clone in JS with nipple.js integrated</p></li>
+                    <li><a href="https://github.com/Eli-Watson/MadLib.js">Madlib.js</a><p>A Mad-Lib generator with over 150 quintillion Different Possible Combinations!</p></li>
+                </ul>
+            </div>
+
+            <!--
+                <div id="holidayInfo" class="holiday>
                     <p>Loading...</p>
                 </div>
                 <div class="wordOfTheDay">
@@ -165,8 +83,10 @@
                     <p id="thought-text" class="thoughtsP">Loading thought...</p>
                 </div>
                 --!>
-                <button onclick="scrollToTop()" id="scrollToTopBtn" class="scroll" title="Go to top">Scroll to
-                    Top</button>
+        </div>
+        
+        <button onclick="scrollToTop()" id="scrollToTopBtn" class="scroll" title="Go to top">Scroll to Top</button>
+       
         </section>
 
         <div id="Footer"></div>
@@ -174,5 +94,3 @@
     </body>
 
     </html>
-    <script src="/Home/JS/Thought.js"></script>
->>>>>>> Stashed changes

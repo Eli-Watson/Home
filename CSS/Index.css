@@ -1,5 +1,5 @@
 :root {
-    --default-accent-color: red; 
+    --default-accent-color: red;
     --default-header-color: #333;
     --default-text-color: White;
     --default-background-color: #444;
@@ -23,34 +23,37 @@ header {
     text-align: center;
 }
 
-.flex-container {
-    text-align: center;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     border: 2px solid black;
-    padding: 1px 20px;
-    margin: 10px auto;
-    max-width: 600px;
     background-color: #f9f9f9;
 }
 
-#showcase {
-    display: flex;
-    flex-direction: row;
+/* #showcase {
 }
+*/
 
-
-.articles-div {
-    text-align: center;
+.grid-item {
     border: 2px solid black;
-    padding: 1px 20px;
-    margin: 10px auto;
-    max-width: 600px;
+    padding: 10px;
+    margin: 10px;
+    width: 90%;
     background-color: #f9f9f9;
 }
 
-.articles-div a {
+.grid-item a {
     color: var(--accent-color);
 }
-#topnav, #topnav a, #topnav a:visited {
+
+.grid-item h1,
+h3 {
+    text-align: center;
+}
+
+#topnav,
+#topnav a,
+#topnav a:visited {
     text-align: center;
     background-color: var(--accent-color);
     color: white;
@@ -58,9 +61,11 @@ header {
     padding: 4px;
 
 }
+
 #topnav a:hover {
     background-color: #555;
 }
+
 nav#sidenav {
     height: 100%;
     width: 100px;
@@ -68,16 +73,21 @@ nav#sidenav {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: var(--accent-color); /* Dynamic accent color */
+    background-color: var(--accent-color);
+    /* Dynamic accent color */
     overflow-x: hidden;
     padding-top: 60px;
     border-color: #333;
     border-width: medium;
-    transition: width 0.3s ease; /* Add transition for smooth animation */
+    transition: width 0.3s ease;
+    /* Add transition for smooth animation */
 }
+
 nav#sidenav.hidden {
-    width: 0; /* Hide the navbar by setting width to 0 */
+    width: 0;
+    /* Hide the navbar by setting width to 0 */
 }
+
 /* Nav Css When it is on the  */
 
 
@@ -88,15 +98,19 @@ nav#sidenav a {
     font-size: 18px;
     color: var(--text-color);
     display: block;
-    width: 100px; /* Set the initial width */
-    transition: width 0.3s, padding 0.3s; /* Add transition for smooth size change */
+    width: 100px;
+    /* Set the initial width */
+    transition: width 0.3s, padding 0.3s;
+    /* Add transition for smooth size change */
 }
 
 nav#sidenav a:hover {
     background-color: #555;
-    width: 120px; /* Increase width on hover */
-    padding: 10px 20px; /* Increase padding on hover */
-    font-size: 18px; 
+    width: 120px;
+    /* Increase width on hover */
+    padding: 10px 20px;
+    /* Increase padding on hover */
+    font-size: 18px;
 }
 
 section {
@@ -106,7 +120,8 @@ section {
 
 .scroll {
     background-color: white;
-    color: var(--accent-color); /* Dynamic accent color */
+    color: var(--accent-color);
+    /* Dynamic accent color */
     border: solid;
     border-color: #333;
     border-radius: 5px;
@@ -118,9 +133,11 @@ section {
 }
 
 .scroll:hover {
-    background-color: #555 ;
-    transform: scale(1.1); /* Increase size on hover */
-    transition: transform 0.3s; /* Add transition for smooth size change */
+    background-color: #555;
+    transform: scale(1.1);
+    /* Increase size on hover */
+    transition: transform 0.3s;
+    /* Add transition for smooth size change */
 }
 
 #toggleButton {
@@ -140,11 +157,11 @@ section {
 }
 
 a {
-    color: grey; 
+    color: grey;
 }
 
 a:visited {
-    color: red; 
+    color: red;
 }
 
 a:hover {
@@ -153,23 +170,36 @@ a:hover {
 
 @media screen and (max-width: 768px) {
     section {
-        margin-left: auto; /* Adjust margin for smaller screens */
+        margin-left: auto;
+        /* Adjust margin for smaller screens */
     }
-    
+
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+    .grid-item {
+        width: auto;
+    }
+
 }
 
 @media screen and (max-width: 480px) {
     nav.sidenav {
-        width: 80px; /* Adjust the width for smaller screens */
+        width: 80px;
+        /* Adjust the width for smaller screens */
     }
 
     nav.sidenav a {
-        padding: 5px 10px; /* Adjust padding for smaller screens */
+        padding: 5px 10px;
+        /* Adjust padding for smaller screens */
         font-size: 18px;
     }
 
     section {
-        margin-left: auto; /* Adjust margin for smaller screens */
+        margin-left: auto;
+        /* Adjust margin for smaller screens */
     }
 }
 
@@ -182,9 +212,11 @@ a:hover {
     max-width: 600px;
     background-color: #f9f9f9;
 }
+
 .HolidayText {
     color: black;
 }
+
 .Slogan {
     font-size: 18px;
     margin-bottom: 10px;
@@ -192,7 +224,8 @@ a:hover {
 }
 
 .HolidayName {
-    color: var(--accent-color); /* Dynamic accent color */
+    color: var(--accent-color);
+    /* Dynamic accent color */
 }
 
 .HolidayMessage {
@@ -202,7 +235,8 @@ a:hover {
 }
 
 .DaysUntil {
-    color: var(--accent-color); /* Dynamic accent color */
+    color: var(--accent-color);
+    /* Dynamic accent color */
     font-weight: bold;
 }
 
@@ -218,7 +252,8 @@ a:hover {
 
 .word {
     font-size: 2.5em;
-    color: var(--accent-color); /* Dynamic accent color */
+    color: var(--accent-color);
+    /* Dynamic accent color */
     font-weight: bold;
 }
 
@@ -254,14 +289,18 @@ a:hover {
 }
 
 footer {
-    background-color: var(--header-color); /* Red background */
-    color: #000; /* Black text */
+    background-color: var(--header-color);
+    /* Red background */
+    color: #000;
+    /* Black text */
     text-align: center;
     padding: 5px 0;
-    border-top: 2px solid #fff; /* White border */
+    border-top: 2px solid #fff;
+    /* White border */
     width: 100%;
     bottom: 0;
 }
+
 .Announcement {
     text-align: center;
     padding: 0px 20px;
@@ -271,6 +310,8 @@ footer {
     color: white;
 
 }
-.Announcement a , .Announcement a:visited {
+
+.Announcement a,
+.Announcement a:visited {
     color: var(--header-color);
 }

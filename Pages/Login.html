@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login Form</title>
     <link rel="icon" type="image/x-icon" href="/Home/images/favicon.ico">
@@ -9,26 +10,28 @@
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q9QFB683S"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-7Q9QFB683S');
-</script>    
-<section><h1>Login</h1>
+    gtag('config', 'G-7Q9QFB683S');
+</script>
+<section>
+    <h1>Login</h1>
     <form id="loginForm" onsubmit="return checkLogin(event)">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
-        
+
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
-        
+
         <button type="submit">Submit</button>
     </form>
     <p>There is no option to create a password.</p>
     <p>If you do not have these credentials or have come here by accident then go back.</p>
     <p>Its in green and black so its hackery and cool :)</p>
-    </section>
-    
+</section>
+
 </body>
+
 </html>

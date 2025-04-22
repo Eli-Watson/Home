@@ -1,3 +1,7 @@
+// I appoligize to anyone reading this for this dumpster fire. If you don't think its that bad
+// then try and figure out how this works alongside darkmode.js, becuase I don't know
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const accentColorInput = document.getElementById('accent-color');
     const headerColorInput = document.getElementById('header-color');
